@@ -1,0 +1,120 @@
+body {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+form {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+img {
+    width: 20px;
+}
+
+#tabel-member {
+    margin-top: 30px;
+    font-size: 10pt;
+}
+
+th:hover {
+    cursor: pointer;
+}
+
+.centereddd {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+h2 {
+    font-size: 12pt;
+    font-weight: bold;
+    line-height: 0.5;
+}
+
+h3 {
+    font-size: 12pt;
+    font-weight: bold;
+    line-height: 0.5;
+    color: darkblue;
+}
+
+h4 {
+    font-size: 10pt;
+    line-height: 0.5;
+    color: darkblue;
+}
+
+.header-section {
+    border-bottom: 10px solid darkblue;
+    border-bottom-style: double;
+    margin-bottom: 10px;
+}
+
+.header-lp3 {
+    padding-top: 13px;
+    text-align: center;
+}
+
+.header-lp3 a {
+    text-decoration: none;
+}
+
+.header-logo {
+    width: 100px;
+}
+
+.logo-left {
+    margin-top: -5px;
+}
+
+.logo-right {
+    right: 2cm;
+}
+
+ul li {
+    text-align: justify;
+}
+
+.lp3-filter {
+    /* background-image: url('searchicon.png');
+    background-position: 10px 12px;
+    background-repeat: no-repeat; */
+    width: 100%;
+    font-size: 12pt;
+    padding: 6px 20px 6px 20px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
+}
+
+.filtersearch {
+    width: 100%;
+    margin: 10px 0px 10px 0px;
+}
+
+.filtersearchbtn {
+    margin: 0px 5px 0px 5px;
+}
+
+.hide-section {
+    width: 100%;
+    transition: opacity 1s ease-out;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+.show-section {
+    opacity: 1;
+    height: auto;
+}
+
+.form-select {
+    padding: 0!important;
+    background-image: none !important;
+}
+
+.selectize-input {
+    border: none !important;
+}
