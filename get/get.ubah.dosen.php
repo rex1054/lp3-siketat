@@ -1,5 +1,6 @@
 <?php
-require('master.php');
+include('../config.php');
+require('../master.php');
 $getDataQuery = "SELECT * FROM dosen where id = ".$_GET['id'];
 $getInfo = $con->query($getDataQuery);
 $hasil = $getInfo->fetch_assoc();
@@ -9,7 +10,7 @@ if($getInfo->num_rows == 0) {
     ?>
     <h1 style="text-align: center;"> Ubah Data Dosen</h1>
     
-    <form action="update.php?act=dosen&id=<?php echo $_GET['id']; ?>" method="POST" enctype="multipart/form-data">
+    <form action="<?php echo $siteurl; ?>edit/save/?act=dosen&id=<?php echo $_GET['id']; ?>" method="POST" enctype="multipart/form-data">
     <!-- start nama section -->
     <div class="mb-3">
     <label for="nama" class="form-label">Nama</label>
@@ -28,7 +29,7 @@ if($getInfo->num_rows == 0) {
     <button type="submit" class="btn btn-primary">Simpan</button>
     <!-- end submit button -->
     <!-- start back button -->
-    <a class="btn btn-danger" href="index.php" target="_self">Kembali</a>
+    <a class="btn btn-danger" href="<?php echo $siteurl; ?>" target="_self">Kembali</a>
     <!-- end back button -->
     </form>
     <?php

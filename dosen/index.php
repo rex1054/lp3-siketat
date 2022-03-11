@@ -1,4 +1,5 @@
 <?php
+include('config.php');
 require_once('master.php');
 $sql = "SELECT * FROM dosen";
 $query = $con->query($sql);
@@ -37,14 +38,14 @@ else {
 			<td><?php echo $dokumen["COUNT(id)"];?></td>
             <td>
             <div id="aksi">
-			<a target="_self" href="edit.php?act=dosen&id=<?php echo $data['id']; ?>"><img src="assets/edit.png"></a>
+			<a target="_self" href="<?php echo $siteurl; ?>edit/?act=dosen&id=<?php echo $data['id']; ?>"><img src="assets/edit.png"></a>
 			</div>
             </td>
 			</tr>
 			<?php }
 		} ?>
 		</table>
-        <a href="addDosen.php" class="btn btn-outline-success" target="_SELF">Tambah Dosen</a>
+        <a href="<?php echo $siteurl; ?>add-dosen/" class="btn btn-outline-success" target="_SELF">Tambah Dosen</a>
 		<?php
 	}
 	?>

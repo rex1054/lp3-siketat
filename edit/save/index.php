@@ -1,5 +1,6 @@
 <?php
-require('master.php');
+include('../../config.php');
+require('../../master.php');
 $id;
 $jenis;
 $ta;
@@ -57,10 +58,10 @@ if ($con->query($query) === TRUE) {
     console.log("Berhasil menyimpan data");
     var z = confirm("Berhasil menyimpan data");
     if (z == true) {
-        window.open('index.php', '_SELF');
+        window.open('<?php echo $siteurl; ?>', '_SELF');
     }
     else {
-        window.open('index.php', '_SELF');
+        window.open('<?php echo $siteurl; ?>', '_SELF');
     }
     </script>
     <?php

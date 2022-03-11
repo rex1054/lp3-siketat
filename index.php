@@ -13,6 +13,8 @@
 <script src="assets/jquery.min.js"></script>
 <script src="assets/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
+<link rel="stylesheet" href="assets/dashboard.css">
+
 </head>
 
 <body>
@@ -39,7 +41,10 @@
 <!-- start navigasi -->
 <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
 <li class="nav-item" role="presentation">
-<button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Home</button>
+<button class="nav-link active" id="dashboard-tab" data-bs-toggle="tab" data-bs-target="#dashboard" type="button" role="tab" aria-controls="dashboard" aria-selected="true">Dashboard</button>
+</li>
+<li class="nav-item" role="presentation">
+<button class="nav-link" id="list-tab" data-bs-toggle="tab" data-bs-target="#list" type="button" role="tab" aria-controls="list" aria-selected="true">Dokumen</button>
 </li>
 <li class="nav-item" role="presentation">
 <button class="nav-link" id="dosen-tab" data-bs-toggle="tab" data-bs-target="#dosen" type="button" role="tab" aria-controls="dosen" aria-selected="true">Dosen</button>
@@ -55,10 +60,11 @@
 
 <!-- start content -->
 <div class="tab-content" id="myTabContent">
-<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"><?php include("home.php") ?></div>
-<div class="tab-pane fade" id="dosen" role="tabpanel" aria-labelledby="dosen-tab"><?php include("dosen.php") ?></div>
-<div class="tab-pane fade" id="add" role="tabpanel" aria-labelledby="add-tab"><?php include("add.php") ?></div>
-<div class="tab-pane fade" id="about" role="tabpanel" aria-labelledby="about-tab"><?php include("about.html") ?></div>
+<div class="tab-pane fade show active" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab"><?php include("dashboard/index.html") ?></div>
+<div class="tab-pane fade" id="list" role="tabpanel" aria-labelledby="list-tab"><?php include("list/index.php") ?></div>
+<div class="tab-pane fade" id="dosen" role="tabpanel" aria-labelledby="dosen-tab"><?php include("dosen/index.php") ?></div>
+<div class="tab-pane fade" id="add" role="tabpanel" aria-labelledby="add-tab"><?php include("add-dokumen/index.php") ?></div>
+<div class="tab-pane fade" id="about" role="tabpanel" aria-labelledby="about-tab"><?php include("about/index.html") ?></div>
 </div>
 <!-- end content -->
 </div>
@@ -68,11 +74,155 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
 <script src="assets/lp3.js"></script>
 <script>
-    $(document).ready(function () {
-      $('select').selectize({
-          sortField: 'text'
-      });
+$(document).ready(function () {
+  $('#penyusun').selectize({
+    sortField: 'text'
   });
+  
+});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script>
+<script>
+(function() {
+  'use strict'
+  
+  feather.replace({ 'aria-hidden': 'true' })
+  
+  // Graphs
+  var ctx = document.getElementById('myChart')
+  // eslint-disable-next-line no-unused-vars
+  var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: [
+        'Hukum',
+        'FKIP',
+        'Pertanian',
+        'Ekonomi',
+        'FISIP',
+        'Teknik',
+        'Psikologi',
+        'Fikes',
+        'FAI'
+      ],
+      datasets: [
+        {
+        label: 'Rata-rata RPS',
+        data: [
+          <?php 
+          $_GET['act']='rerata';
+          for($i = 0; $i < 9; $i++){
+            $_GET['jenis']='0';
+            include('get/get.data.php');
+            if($i == 9) {}
+            else{
+              echo ',';
+            }
+          } ?>
+        ],
+        lineTension: 0,
+        backgroundColor: 'transparent',
+        borderColor: '#d64242',
+        borderDash: [10],
+        borderWidth: 4,
+        pointBackgroundColor: '#d64242'
+      }, {
+        label: 'RPS',
+        data: [
+          <?php 
+          $_GET['act']='fakultas';
+          for($i = 0; $i < 9; $i++){
+            $_GET['id_fak']=$i;
+            $_GET['jenis']='0';
+            include('get/get.data.php');
+            if($i == 9) {}
+            else{
+              echo ',';
+            }
+          } ?>
+        ],
+        lineTension: 0,
+        backgroundColor: 'transparent',
+        borderColor: '#007bff',
+        borderWidth: 4,
+        pointBackgroundColor: '#007bff'
+      }, {
+        label: 'Modul',
+        data: [
+          <?php 
+          $_GET['act']='fakultas';
+          for($i = 0; $i < 9; $i++){
+            $_GET['id_fak']=$i;
+            $_GET['jenis']='1';
+            include('get/get.data.php');
+            if($i == 9) {}
+            else{
+              echo ',';
+            }
+          } ?>
+        ],
+        lineTension: 0,
+        backgroundColor: 'transparent',
+        borderColor: '#91d138',
+        borderWidth: 4,
+        pointBackgroundColor: '#91d138'
+      }, {
+        label: 'Buku Ajar',
+        data: [
+          <?php 
+          $_GET['act']='fakultas';
+          for($i = 0; $i < 9; $i++){
+            $_GET['id_fak']=$i;
+            $_GET['jenis']='2';
+            include('get/get.data.php');
+            if($i == 9) {}
+            else{
+              echo ',';
+            }
+          } ?>
+        ],
+        lineTension: 0,
+        backgroundColor: 'transparent',
+        borderColor: '#d26cd4',
+        borderWidth: 4,
+        pointBackgroundColor: '#d26cd4'
+      }, {
+        label: 'Pedoman',
+        data: [
+          <?php 
+          $_GET['act']='fakultas';
+          for($i = 0; $i < 9; $i++){
+            $_GET['id_fak']=$i;
+            $_GET['jenis']='3';
+            include('get/get.data.php');
+            if($i == 9) {}
+            else{
+              echo ',';
+            }
+          } ?>
+        ],
+        lineTension: 0,
+        backgroundColor: 'transparent',
+        borderColor: '#e8d546',
+        borderWidth: 4,
+        pointBackgroundColor: '#e8d546'
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      },
+      legend: {
+        display: true
+      }
+    }
+  })
+})()
 </script>
 </body>
 

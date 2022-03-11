@@ -1,7 +1,7 @@
 function fetch_select(val) {
     $.ajax({
         type: 'post',
-        url: 'getProdi.php',
+        url: 'http://127.0.0.1:80/lp3-siketat/get/get.prodi.php',
         data: {
             get_option: val
         },
@@ -14,7 +14,7 @@ function fetch_select(val) {
 function fetch_prodi(val) {
     $.ajax({
         type: 'post',
-        url: 'getProdi.php',
+        url: 'http://127.0.0.1:80/lp3-siketat/get/get.prodi.php',
         data: {
             get_fak: val
         },
@@ -35,11 +35,11 @@ function checkin(val) {
 }
 
 function backFunc() {
-    window.open('index.php', '_self');
+    window.open('http://127.0.0.1:80/lp3-siketat/', '_self');
 }
 
 function editFunc(a) {
-    window.open('edit.php?id=' + a, '_self');
+    window.open('http://127.0.0.1:80/lp3-siketat/edit/?act=dokumen&id=' + a, '_self');
 }
 
 function signFunc() {

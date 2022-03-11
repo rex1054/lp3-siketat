@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php include('config.php'); ?>
+<?php include('../config.php'); ?>
 <head>
 <title>LP3 - SIKETAT</title>
 <meta name="description" content="Sistem Kelola Tanda Terima">
 <meta name="author" content="REXYST">
 
-<link rel="icon" type="image/png" href="assets/logo.jpg">
-<link rel="stylesheet" type="text/css" href="assets/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="assets/lp3-main.css">
+<link rel="icon" type="image/png" href="<?php echo $siteurl; ?>assets/logo.jpg">
+<link rel="stylesheet" type="text/css" href="<?php echo $siteurl; ?>assets/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="<?php echo $siteurl; ?>assets/lp3-main.css">
 <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-<script src="assets/jquery.min.js"></script>
-<script src="assets/bootstrap.min.js"></script>
+<script src="<?php echo $siteurl; ?>assets/jquery.min.js"></script>
+<script src="<?php echo $siteurl; ?>assets/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -20,7 +20,7 @@
 <!-- start header section -->
 <div class="row header-section">
 <div class="col-md-1">
-<img class="header-logo logo-left" src="assets/logo.jpg">
+<img class="header-logo logo-left" src="<?php echo $siteurl; ?>assets/logo.jpg">
 </div>
 <div class="col-md-10 header-lp3">
 <h3>UNIVERSITAS MUHAMMADIYAH JEMBER</h3>
@@ -30,12 +30,12 @@
 <h4>© <a href="https://s.id/soj-firdaus" target="_blank">Ahmad Firdaus Ababil</a> @<?php echo $rights; ?> | <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a> powered</h4>
 </div>
 <div class="col-md-1">
-<img class="header-logo logo-right" src="assets/iso.jpg">
+<img class="header-logo logo-right" src="<?php echo $siteurl; ?>assets/iso.jpg">
 </div>
 </div>
 <!-- end header section -->
 
-<form action="addDos.php" method="POST" enctype="multipart/form-data">
+<form action="add.php" method="POST" enctype="multipart/form-data">
 <!-- start nama section -->
 <div class="mb-3">
     <label for="nama" class="form-label">Nama</label>
@@ -52,13 +52,13 @@
 
 <!-- start submit button -->
 <button type="submit" class="btn btn-primary">Simpan</button>
-<a class="btn btn-danger" href="index.php" target="_self">Kembali</a>
+<a class="btn btn-danger" href="<?php echo $siteurl; ?>" target="_self">Kembali</a>
 <!-- end submit button -->
 </form>
 <!-- end content -->
 
-<script src="assets/bootstrap.min.js"></script>
-<script src="assets/lp3.js"></script>
+<script src="<?php echo $siteurl; ?>assets/bootstrap.min.js"></script>
+<script src="<?php echo $siteurl; ?>assets/lp3.js"></script>
 </body>
 
 </html>

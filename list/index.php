@@ -106,8 +106,8 @@ else {
 			<td><?php echo $tgl;?></td>
 			<td>
 			<div id="aksi">
-			<a target="_self" href="preview.php?id=<?php echo $data['id']; ?>&mk=<?php echo $data['mk']; ?>&author=<?php echo $data['nama']; ?>"><img src="assets/show.png"></a>
-			<a target="_self" href="edit.php?act=dokumen&id=<?php echo $data['id']; ?>"><img src="assets/edit.png"></a>
+			<a target="_self" href="preview/?id=<?php echo $data['id']; ?>&mk=<?php echo $data['mk']; ?>&author=<?php echo $data['nama']; ?>"><img src="assets/show.png"></a>
+			<a target="_self" href="edit/?act=dokumen&id=<?php echo $data['id']; ?>"><img src="assets/edit.png"></a>
 			</div>
 			</td>
 			</tr>

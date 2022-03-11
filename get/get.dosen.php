@@ -1,6 +1,11 @@
 <?php
 // start get fakultas
-require_once('master.php');
+if(isset($_GET['src'])){
+    require_once('master.php');
+} else {
+    require_once('../master.php');
+}
+
 $getFakQuery = "SELECT * FROM dosen ORDER BY nama ASC";
 $getFak = $con->query($getFakQuery);
 if($getFak->num_rows == 0) {

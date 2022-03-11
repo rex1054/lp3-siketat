@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php include('../config.php'); ?>
 <head>
 <title>Tanda Terima LP3 - <?php echo $_GET['author']." - ".$_GET['mk']; ?></title>
 <meta name="description" content="Sistem Kelola Tanda Terima">
 <meta name="author" content="REXYST">
 
-<link rel="icon" type="image/png" href="assets/logo.jpg">
-<link rel="stylesheet" type="text/css" href="assets/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="assets/lp3.css" media="screen, display">
-<link rel="stylesheet" type="text/css" href="assets/lp3-print.css" media="print">
+<link rel="icon" type="image/png" href="<?php echo $siteurl; ?>assets/logo.jpg">
+<link rel="stylesheet" type="text/css" href="<?php echo $siteurl; ?>assets/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="<?php echo $siteurl; ?>assets/lp3.css" media="screen, display">
+<link rel="stylesheet" type="text/css" href="<?php echo $siteurl; ?>assets/lp3-print.css" media="print">
 <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-<script src="assets/jquery.min.js"></script>
+<script src="<?php echo $siteurl; ?>assets/jquery.min.js"></script>
 </head>
 
 <body>
@@ -27,7 +27,7 @@ $idDok = $_GET['id'];
 <!-- start header section -->
 <div class="row header-section">
 <div class="col-md-1">
-<img class="header-logo logo-left" src="assets/logo.jpg">
+<img class="header-logo logo-left" src="<?php echo $siteurl; ?>assets/logo.jpg">
 </div>
 <div class="col-md-10 header-lp3">
 <h3>UNIVERSITAS MUHAMMADIYAH JEMBER</h3>
@@ -37,7 +37,7 @@ $idDok = $_GET['id'];
 <h4>Website : <a href="https://www.unmuhjember.ac.id">https://www.unmuhjember.ac.id</a> E-mail:<a href="mailto:kantorpusat@unmuhjember.ac.id">kantorpusat@unmuhjember.ac.id</a></h4>
 </div>
 <div class="col-md-1">
-<img class="header-logo logo-right" src="assets/iso.jpg">
+<img class="header-logo logo-right" src="<?php echo $siteurl; ?>assets/iso.jpg">
 </div>
 </div>
 <!-- end header section -->
@@ -52,7 +52,7 @@ $idDok = $_GET['id'];
 <div class="row section-a">
 <div class="col-md-12">
 <table id="tabel-a">
-<?php include('getDokumenA.php');?>
+<?php include('../get/get.page.1.php');?>
 </table>
 </div>
 </div>
@@ -122,7 +122,7 @@ $idDok = $_GET['id'];
 <p>Jember, <?php echo $tgl; ?></p>
 <p>Ketua LP3,</p>
 <br/>
-<img id="signature-a" src="assets/signature.jpg">
+<img id="signature-a" src="<?php echo $siteurl; ?>assets/signature.jpg">
 <br/>
 <br/>
 <br/>
@@ -144,7 +144,7 @@ $idDok = $_GET['id'];
 <!-- start header section -->
 <div class="row header-section">
 <div class="col-md-1">
-<img class="header-logo logo-left" src="assets/logo.jpg">
+<img class="header-logo logo-left" src="<?php echo $siteurl; ?>assets/logo.jpg">
 </div>
 <div class="col-md-10 header-lp3">
 <h3>UNIVERSITAS MUHAMMADIYAH JEMBER</h3>
@@ -154,7 +154,7 @@ $idDok = $_GET['id'];
 <h4>Website : <a href="https://www.unmuhjember.ac.id">https://www.unmuhjember.ac.id</a> E-mail:<a href="mailto:kantorpusat@unmuhjember.ac.id">kantorpusat@unmuhjember.ac.id</a></h4>
 </div>
 <div class="col-md-1">
-<img class="header-logo logo-right" src="assets/iso.jpg">
+<img class="header-logo logo-right" src="<?php echo $siteurl; ?>assets/iso.jpg">
 </div>
 </div>
 <!-- end header section -->
@@ -164,7 +164,7 @@ $idDok = $_GET['id'];
 <div class="col-md-12">
 <table id="tabel-c">
 <tr>
-<th><img class="page-2-table-img" src="assets/logo.jpg"></th>
+<th><img class="page-2-table-img" src="<?php echo $siteurl; ?>assets/logo.jpg"></th>
 <th>
 <p style="line-height:0;margin-bottom:10px;">UNIVERSITAS MUHAMMADIYAH JEMBER</p>
 <P>LEMBAGA PENGKAJIAN DAN PENGAMBANGAN PENDIDIKAN (LP3)</p><br/>
@@ -185,12 +185,12 @@ if($hasil['jenis'] == 'BAHAN AJAR') {
 </th>
 </tr>
 <?php
-include('getDokumenB.php');
+include('../get/get.page.2.php');
 ?>
 <tr style="height: 150px;">
 <td style="text-align:center;padding-left:15px;padding-right:15px;"><b>Ketua LP3 Unmuh Jember</b></td>
 <td style="padding-top:90px;" id="page-2-signature">
-<img id="signature-b" src="assets/signature.jpg">
+<img id="signature-b" src="<?php echo $siteurl; ?>assets/signature.jpg">
 <p style="line-height:0.1;"><z>Dr. Nikmatur Rohmah, M.Kes.</z></p>
 <p>NIP. 197206262005012001</p>
 </td>
@@ -222,7 +222,7 @@ include('getDokumenB.php');
 </div>
 <!-- end navigation section -->
 
-<script type="text/javascript" src="assets/lp3.js"></script>
+<script type="text/javascript" src="<?php echo $siteurl; ?>assets/lp3.js"></script>
 </body>
 
 </html>

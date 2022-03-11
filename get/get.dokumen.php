@@ -1,5 +1,6 @@
 <?php
-require('master.php');
+include('../config.php');
+require('../master.php');
 if(isset($_GET['id']))
 {
     $state = $_GET['id'];
@@ -26,7 +27,7 @@ if(isset($_GET['id']))
             ?>
             <h1 style="text-align: center;"> Ubah Data Tanda Terima</h1>
 
-            <form action="update.php?act=dokumen&id=<?php echo $state; ?>" method="POST" enctype="multipart/form-data">
+            <form action="<?php echo $siteurl; ?>edit/save/?act=dokumen&id=<?php echo $state; ?>" method="POST" enctype="multipart/form-data">
             <!-- start jenis dokumen section -->
             <div class="mb-3">
             <label for="jenis-dokumen" class="form-label">Jenis Dokumen</label>
@@ -92,7 +93,7 @@ if(isset($_GET['id']))
             <select class="form-select" id="tahun-akademik" name="tahun-akademik" required aria-label="pilih tahun akademik">
             <option value="<?php echo $hasil['ta']; ?>"><?php echo $hasil4['ta']; ?></option>
             <?php
-            include('getTA.php');
+            include('get.ta.php');
             ?>
             </select>
             </div>
@@ -104,7 +105,7 @@ if(isset($_GET['id']))
             <select class="form-select" id="fakultas" name="fakultas" required onchange="fetch_select(this.value);" aria-label="pilih fakultas">
             <option value="<?php echo $hasil['fakultas']; ?>" selected><?php echo $hasil2['fakultas']; ?></option>
             <?php 
-            include('getFakultas.php');
+            include('get.fakultas.php');
             ?>
             </select>
             </div>
@@ -158,7 +159,7 @@ if(isset($_GET['id']))
             <button type="submit" class="btn btn-primary">Simpan</button>
             <!-- end submit button -->
             <!-- start back button -->
-            <a class="btn btn-danger" href="index.php" target="_self">Kembali</a>
+            <a class="btn btn-danger" href="<?php echo $siteurl; ?>" target="_self">Kembali</a>
             <!-- end back button -->
             </form>
             <?php

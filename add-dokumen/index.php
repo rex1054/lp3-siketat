@@ -1,4 +1,4 @@
-<form action="addDoc.php" method="POST" enctype="multipart/form-data">
+<form action="add.php" method="POST" enctype="multipart/form-data">
 <!-- start jenis dokumen section -->
 <div class="mb-3">
 <label for="jenis-dokumen" class="form-label">Jenis Dokumen</label>
@@ -25,7 +25,8 @@
 <select class="form-select" id="tahun-akademik" name="tahun-akademik" required aria-label="pilih tahun akademik">
 <option selected disabled value="">Pilih Tahun Akademik</option>
 <?php
-include('getTa.php');
+$_GET['src'] = 'add';
+include('get/get.ta.php');
 ?>
 </select>
 </div>
@@ -37,7 +38,8 @@ include('getTa.php');
 <select class="form-select" id="fakultas" name="fakultas" required onchange="fetch_select(this.value);" aria-label="pilih fakultas">
 <option value="" selected disabled>Pilih Fakultas</option>
 <?php 
-include('getFakultas.php');
+$_GET['src'] = 'add';
+include('get/get.fakultas.php');
 ?>
 </select>
 </div>
@@ -69,10 +71,11 @@ include('getFakultas.php');
 <!-- start penyusun section -->
 <div class="mb-3">
     <label for="penyusun" class="form-label">Nama Penyusun / Ketua Penyusun</label>
-    <select class="form-select lp3-penyusun" id="penyusun" name="penyusun" required aria-label="pilih penyusun">
+    <select class="form-select form-selectize lp3-penyusun" id="penyusun" name="penyusun" required aria-label="pilih penyusun">
     <option value="" selected disabled>Pilih Dosen</option>
       <?php
-      include('getDosen.php');
+      $_GET['src'] = 'add';
+      include('get/get.dosen.php');
       ?>
     </select>
   </div>
