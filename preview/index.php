@@ -8,7 +8,7 @@
 
 <link rel="icon" type="image/png" href="<?php echo $siteurl; ?>assets/logo.jpg">
 <link rel="stylesheet" type="text/css" href="<?php echo $siteurl; ?>assets/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="<?php echo $siteurl; ?>assets/lp3.css" media="screen, display">
+<link rel="stylesheet" type="text/css" href="<?php echo $siteurl; ?>assets/lp3-preview.css" media="screen, display">
 <link rel="stylesheet" type="text/css" href="<?php echo $siteurl; ?>assets/lp3-print.css" media="print">
 <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 <script src="<?php echo $siteurl; ?>assets/jquery.min.js"></script>

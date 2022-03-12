@@ -60,7 +60,7 @@
 
 <!-- start content -->
 <div class="tab-content" id="myTabContent">
-<div class="tab-pane fade show active" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab"><?php include("dashboard/index.html") ?></div>
+<div class="tab-pane fade show active" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab"><?php include("dashboard/index.php") ?></div>
 <div class="tab-pane fade" id="list" role="tabpanel" aria-labelledby="list-tab"><?php include("list/index.php") ?></div>
 <div class="tab-pane fade" id="dosen" role="tabpanel" aria-labelledby="dosen-tab"><?php include("dosen/index.php") ?></div>
 <div class="tab-pane fade" id="add" role="tabpanel" aria-labelledby="add-tab"><?php include("add-dokumen/index.php") ?></div>
@@ -96,134 +96,137 @@ $(document).ready(function () {
     type: 'line',
     data: {
       labels: [
-        'Hukum',
-        'FKIP',
-        'Pertanian',
-        'Ekonomi',
-        'FISIP',
-        'Teknik',
-        'Psikologi',
-        'Fikes',
-        'FAI'
+        <?php
+          include('get/get.dashboard.label.php');
+        ?>
       ],
       datasets: [
         {
-        label: 'Rata-rata RPS',
-        data: [
-          <?php 
-          $_GET['act']='rerata';
-          for($i = 0; $i < 9; $i++){
-            $_GET['jenis']='0';
-            include('get/get.data.php');
-            if($i == 9) {}
-            else{
-              echo ',';
-            }
-          } ?>
-        ],
-        lineTension: 0,
-        backgroundColor: 'transparent',
-        borderColor: '#d64242',
-        borderDash: [10],
-        borderWidth: 4,
-        pointBackgroundColor: '#d64242'
-      }, {
-        label: 'RPS',
-        data: [
-          <?php 
-          $_GET['act']='fakultas';
-          for($i = 0; $i < 9; $i++){
-            $_GET['id_fak']=$i;
-            $_GET['jenis']='0';
-            include('get/get.data.php');
-            if($i == 9) {}
-            else{
-              echo ',';
-            }
-          } ?>
-        ],
-        lineTension: 0,
-        backgroundColor: 'transparent',
-        borderColor: '#007bff',
-        borderWidth: 4,
-        pointBackgroundColor: '#007bff'
-      }, {
-        label: 'Modul',
-        data: [
-          <?php 
-          $_GET['act']='fakultas';
-          for($i = 0; $i < 9; $i++){
-            $_GET['id_fak']=$i;
-            $_GET['jenis']='1';
-            include('get/get.data.php');
-            if($i == 9) {}
-            else{
-              echo ',';
-            }
-          } ?>
-        ],
-        lineTension: 0,
-        backgroundColor: 'transparent',
-        borderColor: '#91d138',
-        borderWidth: 4,
-        pointBackgroundColor: '#91d138'
-      }, {
-        label: 'Buku Ajar',
-        data: [
-          <?php 
-          $_GET['act']='fakultas';
-          for($i = 0; $i < 9; $i++){
-            $_GET['id_fak']=$i;
-            $_GET['jenis']='2';
-            include('get/get.data.php');
-            if($i == 9) {}
-            else{
-              echo ',';
-            }
-          } ?>
-        ],
-        lineTension: 0,
-        backgroundColor: 'transparent',
-        borderColor: '#d26cd4',
-        borderWidth: 4,
-        pointBackgroundColor: '#d26cd4'
-      }, {
-        label: 'Pedoman',
-        data: [
-          <?php 
-          $_GET['act']='fakultas';
-          for($i = 0; $i < 9; $i++){
-            $_GET['id_fak']=$i;
-            $_GET['jenis']='3';
-            include('get/get.data.php');
-            if($i == 9) {}
-            else{
-              echo ',';
-            }
-          } ?>
-        ],
-        lineTension: 0,
-        backgroundColor: 'transparent',
-        borderColor: '#e8d546',
-        borderWidth: 4,
-        pointBackgroundColor: '#e8d546'
-      }]
-    },
-    options: {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero: true
-          }
+          label: 'Rata-rata RPS',
+          data: [
+            <?php 
+            $_GET['act']='rerata';
+            for($i = 0; $i < 28; $i++){
+              $_GET['jenis']='0';
+              $_GET['ta']='2';
+              include('get/get.dashboard.data.php');
+              if($i == 28) {}
+              else{
+                echo ',';
+              }
+            } ?>
+          ],
+          lineTension: 0,
+          backgroundColor: 'transparent',
+          borderColor: '#d64242',
+          borderDash: [10],
+          borderWidth: 2,
+          pointBackgroundColor: '#d64242'
+        }, {
+          label: 'RPS',
+          data: [
+            <?php 
+            $_GET['act']='prodi';
+            $prodi = array(10,13,14,15,16,17,19,20,22,24,25,27,29,31,33,35,37,39,41,43,45,46,47,49,51,54,56,57);
+            for($i = 0; $i < count($prodi); $i++){
+              $_GET['id_pro']=$prodi[$i];
+              $_GET['jenis']='0';
+              $_GET['ta']='2';
+              include('get/get.dashboard.data.php');
+              if($i == count($prodi)) {}
+              else{
+                echo ',';
+              }
+            } ?>
+          ],
+          lineTension: 0,
+          backgroundColor: 'transparent',
+          borderColor: '#007bff',
+          borderWidth: 2,
+          pointBackgroundColor: '#007bff'
+        }, {
+          label: 'Modul',
+          data: [
+            <?php 
+            $_GET['act']='prodi';
+            $prodi = array(10,13,14,15,16,17,19,20,22,24,25,27,29,31,33,35,37,39,41,43,45,46,47,49,51,54,56,57);
+            for($i = 0; $i < count($prodi); $i++){
+              $_GET['id_pro']=$prodi[$i];
+              $_GET['jenis']='1';
+              $_GET['ta']='2';
+              include('get/get.dashboard.data.php');
+              if($i == count($prodi)) {}
+              else{
+                echo ',';
+              }
+            } ?>
+          ],
+          lineTension: 0,
+          backgroundColor: 'transparent',
+          borderColor: '#91d138',
+          borderWidth: 2,
+          pointBackgroundColor: '#91d138'
+        }, {
+          label: 'Buku Ajar',
+          data: [
+            <?php 
+            $_GET['act']='prodi';
+            $prodi = array(10,13,14,15,16,17,19,20,22,24,25,27,29,31,33,35,37,39,41,43,45,46,47,49,51,54,56,57);
+            for($i = 0; $i < count($prodi); $i++){
+              $_GET['id_pro']=$prodi[$i];
+              $_GET['jenis']='2';
+              $_GET['ta']='2';
+              include('get/get.dashboard.data.php');
+              if($i == count($prodi)) {}
+              else{
+                echo ',';
+              }
+            } ?>
+          ],
+          lineTension: 0,
+          backgroundColor: 'transparent',
+          borderColor: '#d26cd4',
+          borderWidth: 2,
+          pointBackgroundColor: '#d26cd4'
+        }, {
+          label: 'Pedoman',
+          data: [
+            <?php 
+            $_GET['act']='prodi';
+            $prodi = array(10,13,14,15,16,17,19,20,22,24,25,27,29,31,33,35,37,39,41,43,45,46,47,49,51,54,56,57);
+            for($i = 0; $i < count($prodi); $i++){
+              $_GET['id_pro']=$prodi[$i];
+              $_GET['jenis']='3';
+              $_GET['ta']='2';
+              include('get/get.dashboard.data.php');
+              if($i == count($prodi)) {}
+              else{
+                echo ',';
+              }
+            } ?>
+          ],
+          lineTension: 0,
+          backgroundColor: 'transparent',
+          borderColor: '#e8d546',
+          borderWidth: 2,
+          pointBackgroundColor: '#e8d546'
         }]
       },
-      legend: {
-        display: true
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        },
+        legend: {
+          display: true
+        }
       }
-    }
-  })
-})()
-</script>
-</body>
-
-</html>
+    })
+  })()
+  </script>
+  </body>
+  
+  </html>

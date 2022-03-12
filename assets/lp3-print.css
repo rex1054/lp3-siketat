@@ -10,7 +10,7 @@ body {
 }
 
 .page-1 {
-    height: 297mm;
+    height: calc(297mm - 0.25in);
 }
 
 .page-2 {

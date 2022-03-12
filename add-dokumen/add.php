@@ -1,5 +1,6 @@
 <?php
-require('master.php');
+include('../config.php');
+require('../master.php');
 $jenis = $_POST['jenis-dokumen'];
 $ta = $_POST['tahun-akademik'];
 $modul;
@@ -36,10 +37,10 @@ VALUES (
         console.log("Berhasil menyimpan data");
         var z = confirm("Berhasil menyimpan data");
         if (z == true) {
-            window.open('index.php', '_SELF');
+            window.open('<?php echo $siteurl; ?>', '_SELF');
         }
         else {
-            window.open('index.php', '_SELF');
+            window.open('<?php echo $siteurl; ?>', '_SELF');
         }
         </script>
         <?php

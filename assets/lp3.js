@@ -51,7 +51,7 @@ function signFunc() {
         var l = k.offsetHeight;
         var n = m.offsetHeight;
         i.style.top = 'calc(527px + ' + n + 'px)';
-        j.style.top = 'calc(200mm + ' + l + 'px + 356px)';
+        j.style.top = 'calc(200mm + ' + l + 'px + 330px)';
         i.style.display = 'block';
         j.style.display = 'block';
     } else {

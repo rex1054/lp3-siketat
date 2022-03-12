@@ -1,4 +1,4 @@
-<form action="add.php" method="POST" enctype="multipart/form-data">
+<form action="add-dokumen/add.php" method="POST" enctype="multipart/form-data">
 <!-- start jenis dokumen section -->
 <div class="mb-3">
 <label for="jenis-dokumen" class="form-label">Jenis Dokumen</label>
