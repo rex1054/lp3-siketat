@@ -70,7 +70,11 @@ function sortTable(id, n) {
     table = document.getElementById(id);
     switching = true;
     //Set the sorting direction to ascending:
-    dir = "asc";
+    if (id == 'dashboard-table') {
+        dir = "desc"
+    } else {
+        dir = "asc";
+    }
     /*Make a loop that will continue until
     no switching has been done:*/
     while (switching) {
@@ -108,10 +112,18 @@ function sortTable(id, n) {
                         break;
                     }
                 } else if (dir == "desc") {
-                    if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-                        //if so, mark as a switch and break the loop:
-                        shouldSwitch = true;
-                        break;
+                    if (id == 'dashboard-table') {
+                        if (parseInt(x.innerHTML) < parseInt(y.innerHTML)) {
+                            //if so, mark as a switch and break the loop:
+                            shouldSwitch = true;
+                            break;
+                        }
+                    } else {
+                        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                            //if so, mark as a switch and break the loop:
+                            shouldSwitch = true;
+                            break;
+                        }
                     }
                 }
             }
