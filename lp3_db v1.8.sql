@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 12, 2022 at 06:47 AM
+-- Generation Time: Mar 15, 2022 at 04:01 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -50,7 +50,7 @@ INSERT INTO `dokumen` (`id`, `jenis`, `ta`, `modul`, `fakultas`, `prodi`, `mk`, 
 (2, 0, 2, '', 7, 54, 'KEPERAWATAN JIWA', 'MJU.KEP-29', '00802 13032', 2, '2022-02-23'),
 (3, 0, 2, '', 7, 54, 'FARMAKOLOGI', 'MU-015', '00802 13015', 3, '2022-02-22'),
 (4, 0, 2, '', 7, 54, 'GIZI & DIIT', 'MJU.KEP-09', '00802 13013', 4, '2022-02-22'),
-(5, 0, 2, '', 7, 51, 'SKRIPSI', 'MJU-12', '00801 13056', 5, '2022-02-21'),
+(5, 4, 2, '', 7, 51, 'SKRIPSI', 'MJU-12', '00801 13056', 5, '2022-02-21'),
 (6, 0, 2, '', 7, 51, 'EVIDENCE BASED NURSING', 'MJU-IKEP', '-', 6, '2022-02-24'),
 (7, 0, 2, '', 7, 51, 'KEPERAWATAN MENJELANG AJAL DAN PALIATIF', 'MJU.IKEP-26', '00801 13146', 7, '2022-02-23'),
 (8, 0, 2, '', 7, 51, 'BIOSTATISTIK', 'MJU.IKEP-23', '00801 13080', 8, '2022-02-25'),
@@ -59,8 +59,8 @@ INSERT INTO `dokumen` (`id`, `jenis`, `ta`, `modul`, `fakultas`, `prodi`, `mk`, 
 (11, 0, 1, '', 4, 33, 'DASAR-DASAR ILMU KOMUNIKASI', 'MJU.IK-002', '00502 16000', 11, '2022-02-25'),
 (12, 0, 1, '', 4, 33, 'PERKEMBANGAN TEKNOLOGI KOMUNIKASI', 'MJU.IK-0009', '00502 13000', 12, '2022-02-25'),
 (13, 0, 2, '', 1, 15, 'PRODUCTIVE SPEAKING', 'MJU.KIP.BING-020', '00201 13000', 13, '2022-03-02'),
-(14, 0, 2, '', 7, 51, 'ISLAM DAN ILMU PENGETAHUAN', 'MJU-08', '00801 13025', 14, '2022-02-26'),
-(15, 0, 2, '', 7, 51, 'KEWIRAUSAHAAN', 'MJU-08', '00801 13036', 14, '2022-02-26'),
+(14, 4, 2, '', 7, 51, 'ISLAM DAN ILMU PENGETAHUAN', 'MJU-08', '00801 13025', 14, '2022-02-26'),
+(15, 4, 2, '', 7, 51, 'KEWIRAUSAHAAN', 'MJU-08', '00801 13036', 14, '2022-02-26'),
 (16, 0, 2, '', 7, 54, 'METODE PENELITIAN', 'MJU.KEP-49', '00801 13040', 8, '2022-02-25'),
 (17, 0, 2, '', 7, 51, 'KEPERAWATAN KESEHATAN JIWA I', 'IKEP-13', '00801 13028', 15, '2022-03-02'),
 (18, 0, 2, '', 7, 51, 'KEPERAWATAN KOMUNITAS II', 'MJU.IKEP-24', '00801 13043', 16, '2022-03-01'),
@@ -107,8 +107,6 @@ INSERT INTO `dokumen` (`id`, `jenis`, `ta`, `modul`, `fakultas`, `prodi`, `mk`, 
 (59, 0, 2, '', 2, 20, 'TEKNOLOGI PENGOLAHAN HASIL PERTANIAN', 'MJU.AGT-521', '00301 16000', 31, '2022-03-08'),
 (60, 0, 2, '', 2, 24, 'MANAJEMEN LINGKUNGAN DAN LIMBAH AGROINDUSTRI', 'MJU.TIP-308', '00303 16000', 38, '2022-03-09'),
 (61, 0, 2, '', 0, 10, 'HUKUM KESEHATAN', 'HUM-053', '00100 12000', 40, '2022-03-09'),
-(62, 0, 2, '', 0, 10, 'HUKUM PERTANAHAN', 'HUM-016', '00100 12000', 41, '2022-03-09'),
-(63, 0, 2, '', 0, 10, 'HUKUM TATA NEGARA', 'HUM-008', '00100 12000', 40, '2022-03-09'),
 (64, 0, 2, '', 0, 10, 'HUKUM KEBIJAKAN PUBLIK', 'HUM-037', '00100 12000', 42, '2022-03-09'),
 (65, 0, 2, '', 0, 10, 'HUKUM PERTAMBANGAN', 'HUM-054', '00100 12000', 42, '2022-03-09'),
 (66, 0, 2, '', 0, 10, 'HUKUM ACARA PTUN', 'HUM-036', '00100 12000', 42, '2022-03-09'),
@@ -128,8 +126,30 @@ INSERT INTO `dokumen` (`id`, `jenis`, `ta`, `modul`, `fakultas`, `prodi`, `mk`, 
 (80, 0, 2, '', 6, 47, 'ASESMEN SDM', 'MJU.IPSI.DIAG-11', '00700 13000', 47, '2022-03-12'),
 (81, 0, 2, '', 6, 47, 'ASESMEN KOMUNITAS', 'MJU.IPSI.DIAG-07', '00700 13000', 49, '2022-03-12'),
 (82, 0, 2, '', 6, 47, 'METODOLOGI PENELITIAN KUANTITATIF', 'MJU.IPSI.PD-22', '01000 13000', 50, '2022-03-12'),
-(83, 0, 2, '', 0, 10, 'HUKUM PERDATA', 'HUM-006', '00100 12000', 51, '2022-03-12'),
-(84, 0, 2, '', 1, 13, 'FISIOLOGI HEWAN DAN MANUSIA', 'MJU.BIO-30', '00202 12000', 52, '2022-03-12');
+(84, 0, 2, '', 1, 13, 'FISIOLOGI HEWAN DAN MANUSIA', 'MJU.BIO-30', '00202 12000', 52, '2022-03-12'),
+(85, 0, 2, '', 2, 24, 'TEKNOLOGI PENGOLAHAN PANGAN', 'MJU.PTN-05', '00303 16000', 39, '2022-03-14'),
+(86, 0, 2, '', 2, 20, 'TEKNOLOGI BENIH', 'MJU.AGT-221', '00301 16000 - 30', 44, '2022-03-14'),
+(87, 0, 2, '', 6, 47, 'DASAR-DASAR ASESMEN', 'MJU.IPSI.PD-08', '00700 13000', 48, '2022-03-14'),
+(88, 0, 2, '', 7, 51, 'PENDIDIKAN DAN PROMOSI KESEHATAN', 'MJU.IKEP-10', '00801 13033', 53, '2022-02-18'),
+(89, 0, 2, '', 7, 51, 'MANAJEMEN KEPERAWATAN', 'MJU.IKEP-31', '00801 13055', 53, '2022-02-18'),
+(90, 0, 2, '', 7, 51, 'KEPERAWATAN HIV-AIDS', 'MJU.IKEP-15', '00801 13030', 54, '2022-02-11'),
+(91, 0, 2, '', 7, 51, 'FARMAKOLOGI KEPERAWATAN', 'MJU.IKEP-09', '-', 54, '2022-02-17'),
+(92, 0, 2, '', 7, 51, 'KEPERAWATAN ANAK I', 'MJU.IKEP-12', '00801 13027', 1, '2022-02-16'),
+(93, 0, 2, '', 7, 51, 'PROSES KEPERAWATAN DAN BERPIKIR KRITIS', 'MJU.IKEP-07', '00801 13020', 1, '2022-02-16'),
+(94, 0, 2, '', 7, 51, 'KEPERAWATAN MATERNITAS I', 'MJU.IKEP-14', '00801 13029', 6, '2022-02-19'),
+(95, 0, 2, '', 7, 51, 'KETERAMPILAN DASAR KEPERAWATAN', 'MJU.IKEP-06', '00801 13072', 4, '2022-02-22'),
+(96, 0, 2, '', 7, 51, 'ILMU DASAR KEPERAWATAN', 'MJU.IKEP-08', '00801 13074', 55, '2022-02-22'),
+(97, 0, 2, '', 7, 51, 'KOMUNIKASI DASAR KEPERAWATAN', 'MJU.IKEP-05', '00802 13024', 15, '2022-02-17'),
+(98, 0, 2, '', 6, 47, 'PRAKTEK ASESMEN KLINIS', 'MJU.IPSI.DIAG-10', '00700 13000', 47, '2022-03-14'),
+(99, 0, 2, '', 2, 22, 'EKONOMI MIKRO', 'MJU.AGB-105', '00362 16000', 56, '2022-03-14'),
+(100, 0, 2, '', 7, 54, 'MANAJEMEN KEPERAWATAN', 'MJU.KEP-37', '00802 13037', 53, '2022-02-18'),
+(101, 0, 2, '', 7, 54, 'PATOFISIOLOGI', 'MJU.KEP-14', '-', 54, '2022-03-17'),
+(102, 0, 2, '', 7, 54, 'KEPERAWATAN MATERNITAS', 'MJU.KEP-28', '00802 13031', 6, '2022-02-19'),
+(103, 0, 2, '', 7, 49, 'MANAJEMEN KEPERAWATAN', 'MJU.NERS-10', '00801 13063', 53, '2022-04-18'),
+(104, 0, 2, '', 7, 49, 'KEPERAWATAN MEDIKAL BEDAH', 'MJU.NERS-02', '00801 13057', 10, '2022-02-19'),
+(105, 0, 2, '', 7, 49, 'KEPERAWATAN MATERNITAS', 'MJU.NERS-04', '00801 13059', 6, '2022-02-19'),
+(107, 0, 2, '', 7, 51, 'KEPERAWATAN MEDIKAL BEDAH II', 'MJU.60-09', '00801 13031', 10, '2022-02-16'),
+(108, 0, 2, '', 7, 51, 'METODOLOGI PENELITIAN', 'MJU.IKEP-23', '00801 13041', 1, '2022-02-16');
 
 -- --------------------------------------------------------
 
@@ -152,8 +172,8 @@ INSERT INTO `dosen` (`id`, `nama`, `npk`) VALUES
 (2, 'Ns. MAD ZAINI, M.Kep., Sp.Kep.J.', ''),
 (3, 'Ns. ELY RAHMATIKA NUGRAHANI, S.Kep., M.Kep.', ''),
 (4, 'Ns. AYESIE NATASA ZULKA, S.Kep., M.Kep.', ''),
-(5, 'Ns. SITI KHOLIFAH, M.Kep.', ''),
-(6, 'Ns. AWATIFUL AZZA, M.Kep., Sp.Kep.Mat.', ''),
+(5, 'Ns. SITI KHOLIFAH, M.Kep.', '0725098802'),
+(6, 'Ns. AWATIFUL AZZA, M.Kep., Sp.Kep.Mat.', '0013127001'),
 (7, 'Ns. DWI YUNITA HARYANTI, S.Kep., M.Kes.', ''),
 (8, 'LUH TITI HANDAYANI, M.Kes', ''),
 (9, 'Ns. CAHYA TRIBAGUS HIDAYAT., S.Kep., M.Kes.', ''),
@@ -199,7 +219,13 @@ INSERT INTO `dosen` (`id`, `nama`, `npk`) VALUES
 (49, 'Dr. NURLAELA WIDYARINI, S.Psi., M.Si.', ''),
 (50, 'ERNA IPAK RAHMAWATI, S.Psi., MA.', ''),
 (51, 'MUH IMAN, S.H., M.H.', '00111086501'),
-(52, 'NOVY EURIKA, S.Si., M.Pd.', '');
+(52, 'NOVY EURIKA, S.Si., M.Pd.', ''),
+(53, 'ASMUJI, S.KM., M.Kep.', ''),
+(54, 'Ns. HENDRA KURNIAWAN, S.Kep., M.Ked.Trop.', ''),
+(55, 'Ns. SOFIA RHOSMA DEWI, S.Kep., M.Kep.', ''),
+(56, 'NURUL FATHIYAH FAUZI, SP., MP.', ''),
+(57, 'MANAN, S.H., M.H.', ''),
+(58, 'Dr. FAUZIYAH, S.H., M.H.', '');
 
 -- --------------------------------------------------------
 
@@ -236,18 +262,23 @@ INSERT INTO `fakultas` (`id_fakultas`, `fakultas`) VALUES
 
 CREATE TABLE `jenis` (
   `id_jenis` tinyint(4) NOT NULL,
-  `jenis` varchar(30) NOT NULL
+  `jenis` varchar(30) NOT NULL,
+  `mkwu` tinyint(4) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `jenis`
 --
 
-INSERT INTO `jenis` (`id_jenis`, `jenis`) VALUES
-(0, 'RPS'),
-(1, 'MODUL'),
-(2, 'BUKU AJAR'),
-(3, 'PEDOMAN');
+INSERT INTO `jenis` (`id_jenis`, `jenis`, `mkwu`) VALUES
+(0, 'RPS', 0),
+(1, 'MODUL', 0),
+(2, 'BUKU AJAR', 0),
+(3, 'PEDOMAN', 0),
+(4, 'RPS', 1),
+(5, 'MODUL', 1),
+(6, 'BUKU AJAR', 1),
+(7, 'PEDOMAN', 1);
 
 -- --------------------------------------------------------
 
@@ -458,13 +489,13 @@ ALTER TABLE `ta`
 -- AUTO_INCREMENT for table `dokumen`
 --
 ALTER TABLE `dokumen`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
 
 --
 -- AUTO_INCREMENT for table `dosen`
 --
 ALTER TABLE `dosen`
-  MODIFY `id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT for table `mk`

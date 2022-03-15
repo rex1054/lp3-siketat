@@ -54,6 +54,26 @@ if(isset($_GET['id']))
                     <option value="<?php echo $hasil['jenis'];?>">Pedoman</option>
                     <?php
                     break;
+                case 4 :
+                    ?>
+                    <option value="<?php echo $hasil['jenis'];?>">RPS MKWU</option>
+                    <?php
+                    break;
+                case 5 :
+                    ?>
+                    <option value="<?php echo $hasil['jenis'];?>">Modul MKWU</option>
+                    <?php
+                    break;
+                case 6 :
+                    ?>
+                    <option value="<?php echo $hasil['jenis'];?>">Buku Ajar MKWU</option>
+                    <?php
+                    break;
+                case 7 :
+                    ?>
+                    <option value="<?php echo $hasil['jenis'];?>">Pedoman MKWU</option>
+                    <?php
+                    break;
                 default :
                     ?>
                     <option disabled value="">Pilih Jenis Dokumen</option>
@@ -65,6 +85,10 @@ if(isset($_GET['id']))
             <option value="1">Modul</option>
             <option value="2">Buku Ajar</option>
             <option value="3">Pedoman</option>
+            <option value="4">RPS MKWU</option>
+            <option value="5">Modul MKWU</option>
+            <option value="6">Buku Ajar MKWU</option>
+            <option value="7">Pedoman MKWU</option>
             </select>
             </div>
             <!-- end jenis dokumen section -->
