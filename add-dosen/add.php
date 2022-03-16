@@ -6,17 +6,17 @@ $npk;
 $query;
 if (isset($_POST['npk'])) {
     $npk = $_POST['npk'];
-    $query = "INSERT INTO `dosen`(`nama`, `npk`) 
+    $query = 'INSERT INTO `dosen`(`nama`, `npk`) 
     VALUES (
-        '".$nama."',
-        '".$npk."'
-        )";
+        "'.$nama.'",
+        "'.$npk.'"
+        )';
 } else {
-    $query = "INSERT INTO `dosen`(`nama`, `npk`) 
+    $query = 'INSERT INTO `dosen`(`nama`, `npk`) 
     VALUES (
-        '".$nama."',
+        "'.$nama.'",
         '-'
-        )";
+        )';
 }
 
     if ($con->query($query) === TRUE) {

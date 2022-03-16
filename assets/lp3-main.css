@@ -116,5 +116,14 @@ ul li {
 }
 
 .selectize-input {
+    width: 100%;
     border: none !important;
+}
+
+.selectize-input input {
+    width: 100% !important;
+}
+
+.aksi:hover {
+    filter: invert();
 }

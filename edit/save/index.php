@@ -32,23 +32,23 @@ if ($_GET['act'] == 'dokumen') {
     $penyusun = $_POST['penyusun'];
     $tanggal = $_POST['tanggal'];
     
-    $query = "UPDATE `dokumen` SET
-    `jenis`='".$jenis."', 
-    `ta`='".$ta."', 
-    `modul`='".$modul."', 
-    `fakultas`='".$fak."', 
-    `prodi`='".$prodi."', 
-    `mk`='".$mk."', 
-    `kode_mk`='".$kodeMK."', 
-    `kode_dokumen`='".$kodeDok."', 
-    `penyusun`='".$penyusun."', 
-    `tanggal`='".$tanggal."' WHERE `id`=".$id;
+    $query = 'UPDATE `dokumen` SET
+    `jenis`="'.$jenis.'", 
+    `ta`="'.$ta.'", 
+    `modul`="'.$modul.'", 
+    `fakultas`="'.$fak.'", 
+    `prodi`="'.$prodi.'", 
+    `mk`="'.$mk.'", 
+    `kode_mk`="'.$kodeMK.'", 
+    `kode_dokumen`="'.$kodeDok.'", 
+    `penyusun`="'.$penyusun.'", 
+    `tanggal`="'.$tanggal.'" WHERE `id`='.$id;
     
 } else if ($_GET['act'] == 'dosen') {
     $id = $_GET['id'];
-    $query = "UPDATE `dosen` SET
-    `nama` = '".$_POST['nama']."',
-    `npk` = '".$_POST['npk']."' WHERE `id` = ".$id;
+    $query = 'UPDATE `dosen` SET
+    `nama` = "'.$_POST['nama'].'",
+    `npk` = "'.$_POST['npk'].'" WHERE `id` = '.$id;
 }
 
 
