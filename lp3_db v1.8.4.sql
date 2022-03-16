@@ -3,10 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 15, 2022 at 04:01 AM
+-- Generation Time: Mar 16, 2022 at 09:56 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
+SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -20,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `lp3_db`
 --
+CREATE DATABASE IF NOT EXISTS `lp3_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `lp3_db`;
 
 -- --------------------------------------------------------
 
@@ -27,6 +30,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `dokumen`
 --
 
+DROP TABLE IF EXISTS `dokumen`;
 CREATE TABLE `dokumen` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `jenis` tinyint(4) NOT NULL,
@@ -50,9 +54,9 @@ INSERT INTO `dokumen` (`id`, `jenis`, `ta`, `modul`, `fakultas`, `prodi`, `mk`, 
 (2, 0, 2, '', 7, 54, 'KEPERAWATAN JIWA', 'MJU.KEP-29', '00802 13032', 2, '2022-02-23'),
 (3, 0, 2, '', 7, 54, 'FARMAKOLOGI', 'MU-015', '00802 13015', 3, '2022-02-22'),
 (4, 0, 2, '', 7, 54, 'GIZI & DIIT', 'MJU.KEP-09', '00802 13013', 4, '2022-02-22'),
-(5, 4, 2, '', 7, 51, 'SKRIPSI', 'MJU-12', '00801 13056', 5, '2022-02-21'),
+(5, 4, 1, '', 7, 51, 'SKRIPSI', 'MJU-12', '00801 13056', 5, '2022-02-21'),
 (6, 0, 2, '', 7, 51, 'EVIDENCE BASED NURSING', 'MJU-IKEP', '-', 6, '2022-02-24'),
-(7, 0, 2, '', 7, 51, 'KEPERAWATAN MENJELANG AJAL DAN PALIATIF', 'MJU.IKEP-26', '00801 13146', 7, '2022-02-23'),
+(7, 0, 1, '', 7, 51, 'KEPERAWATAN MENJELANG AJAL DAN PALIATIF', 'MJU.IKEP-26', '00801 13146', 7, '2022-02-23'),
 (8, 0, 2, '', 7, 51, 'BIOSTATISTIK', 'MJU.IKEP-23', '00801 13080', 8, '2022-02-25'),
 (9, 0, 2, '', 7, 51, 'KEPERAWATAN KELUARGA', 'MJU.60-12', '00801 13042', 9, '2022-02-24'),
 (10, 0, 2, '', 7, 54, 'KEPERAWATAN MEDIKAL BEDAH II', 'MU 026', '00802 13028', 10, '2022-02-24'),
@@ -100,12 +104,12 @@ INSERT INTO `dokumen` (`id`, `jenis`, `ta`, `modul`, `fakultas`, `prodi`, `mk`, 
 (52, 0, 2, '', 0, 10, 'HUKUM ADAT', 'HUM-009', '00100 12000', 32, '2022-03-07'),
 (53, 0, 2, '', 7, 54, 'KEPERAWATAN DASAR', 'MJU.KEP-17', '00801 13014', 5, '2022-02-17'),
 (54, 0, 2, '', 7, 51, 'KEPERAWATAN GAWAT DARURAT', 'MJU.IKEP-25', '00801 13044', 33, '2022-03-07'),
-(55, 0, 2, '', 7, 51, 'KEPERAWATAN KRITIS', 'MJU.60-11', '00801 13045', 34, '2022-03-07'),
+(55, 0, 1, '', 7, 51, 'KEPERAWATAN KRITIS', 'MJU.60-11', '00801 13045', 34, '2022-03-07'),
 (56, 0, 2, '', 2, 24, 'SISTEM PRODUKSI', 'MJU.TIP-211', '00303 16000', 35, '2022-03-08'),
 (57, 0, 2, '', 2, 22, 'EKONOMI PERTANIAN', 'MJU.PTN-04', '00301 16000', 36, '2022-03-08'),
 (58, 0, 2, '', 2, 22, 'DASAR AKUNTANSI', 'MJU.AGB-205', '00301 16000', 37, '2022-03-08'),
 (59, 0, 2, '', 2, 20, 'TEKNOLOGI PENGOLAHAN HASIL PERTANIAN', 'MJU.AGT-521', '00301 16000', 31, '2022-03-08'),
-(60, 0, 2, '', 2, 24, 'MANAJEMEN LINGKUNGAN DAN LIMBAH AGROINDUSTRI', 'MJU.TIP-308', '00303 16000', 38, '2022-03-09'),
+(60, 0, 2, '', 2, 24, 'MANAJEMEN LINGKUNGAN DAN LIMBAH AGROINDUSTRI', 'MJU.TIP-308', '00303 16000', 39, '2022-03-09'),
 (61, 0, 2, '', 0, 10, 'HUKUM KESEHATAN', 'HUM-053', '00100 12000', 40, '2022-03-09'),
 (64, 0, 2, '', 0, 10, 'HUKUM KEBIJAKAN PUBLIK', 'HUM-037', '00100 12000', 42, '2022-03-09'),
 (65, 0, 2, '', 0, 10, 'HUKUM PERTAMBANGAN', 'HUM-054', '00100 12000', 42, '2022-03-09'),
@@ -120,7 +124,7 @@ INSERT INTO `dokumen` (`id`, `jenis`, `ta`, `modul`, `fakultas`, `prodi`, `mk`, 
 (74, 0, 2, '', 6, 47, 'ASESMEN KEPRIBADIAN', 'MJU.IPSI.DIAG-05', '00700 13000', 47, '2022-03-10'),
 (75, 0, 2, '', 6, 47, 'PSIKOLOGI KLINIS', 'MJU.IPSI.PD-18', '00700 13000', 48, '2022-03-10'),
 (76, 0, 2, '', 6, 47, 'PRAKTEK ASESMEN KOMUNITAS', 'MJU.IPSI.DIAG-08', '01000 13000', 46, '2022-03-10'),
-(77, 0, 2, '', 2, 24, 'PRAKTIK KERJA LAPANG', 'MJU.TIP-216', '00303 16000', 38, '2022-03-11'),
+(77, 0, 2, '', 2, 24, 'PRAKTIK KERJA LAPANG', 'MJU.TIP-216', '00303 16000', 39, '2022-03-11'),
 (78, 0, 2, '', 6, 47, 'PRAKTEK ASESMEN SDM', 'MJU.IPSI.DIAG-12', '00700 13000', 47, '2022-03-12'),
 (79, 0, 2, '', 6, 47, 'PRAKTEK ASESMEN KEPRIBADIAN', 'MJU.IPSI.DIAG-06', '00700 13000', 47, '2022-03-12'),
 (80, 0, 2, '', 6, 47, 'ASESMEN SDM', 'MJU.IPSI.DIAG-11', '00700 13000', 47, '2022-03-12'),
@@ -136,7 +140,7 @@ INSERT INTO `dokumen` (`id`, `jenis`, `ta`, `modul`, `fakultas`, `prodi`, `mk`, 
 (91, 0, 2, '', 7, 51, 'FARMAKOLOGI KEPERAWATAN', 'MJU.IKEP-09', '-', 54, '2022-02-17'),
 (92, 0, 2, '', 7, 51, 'KEPERAWATAN ANAK I', 'MJU.IKEP-12', '00801 13027', 1, '2022-02-16'),
 (93, 0, 2, '', 7, 51, 'PROSES KEPERAWATAN DAN BERPIKIR KRITIS', 'MJU.IKEP-07', '00801 13020', 1, '2022-02-16'),
-(94, 0, 2, '', 7, 51, 'KEPERAWATAN MATERNITAS I', 'MJU.IKEP-14', '00801 13029', 6, '2022-02-19'),
+(94, 0, 1, '', 7, 51, 'KEPERAWATAN MATERNITAS I', 'MJU.IKEP-14', '00801 13029', 6, '2022-02-19'),
 (95, 0, 2, '', 7, 51, 'KETERAMPILAN DASAR KEPERAWATAN', 'MJU.IKEP-06', '00801 13072', 4, '2022-02-22'),
 (96, 0, 2, '', 7, 51, 'ILMU DASAR KEPERAWATAN', 'MJU.IKEP-08', '00801 13074', 55, '2022-02-22'),
 (97, 0, 2, '', 7, 51, 'KOMUNIKASI DASAR KEPERAWATAN', 'MJU.IKEP-05', '00802 13024', 15, '2022-02-17'),
@@ -149,7 +153,19 @@ INSERT INTO `dokumen` (`id`, `jenis`, `ta`, `modul`, `fakultas`, `prodi`, `mk`, 
 (104, 0, 2, '', 7, 49, 'KEPERAWATAN MEDIKAL BEDAH', 'MJU.NERS-02', '00801 13057', 10, '2022-02-19'),
 (105, 0, 2, '', 7, 49, 'KEPERAWATAN MATERNITAS', 'MJU.NERS-04', '00801 13059', 6, '2022-02-19'),
 (107, 0, 2, '', 7, 51, 'KEPERAWATAN MEDIKAL BEDAH II', 'MJU.60-09', '00801 13031', 10, '2022-02-16'),
-(108, 0, 2, '', 7, 51, 'METODOLOGI PENELITIAN', 'MJU.IKEP-23', '00801 13041', 1, '2022-02-16');
+(108, 0, 1, '', 7, 51, 'METODOLOGI PENELITIAN', 'MJU.IKEP-23', '00801 13041', 1, '2022-02-16'),
+(109, 0, 2, '', 2, 24, 'PENERAPAN KOMPUTER', 'MJU.TIP-106', '00303 16000', 35, '2022-03-15'),
+(110, 0, 2, '', 1, 14, 'PROGRAM PEMBELAJARAN BAHASA DAN SASTRA INDONESIA', 'MJU.BIND-016', '00204 13000', 59, '2022-03-15'),
+(111, 0, 2, '', 1, 14, 'SEMANTIK', 'MJU.BIND-005', '00204 13000', 60, '2022-03-15'),
+(112, 0, 1, '', 8, 57, 'STATISTIKA', 'MJU.ESYA-015', '-', 61, '2022-01-01'),
+(113, 0, 1, '', 8, 57, 'EKONOMETRIKA', 'MJU.ESYA-016', '-', 61, '2022-01-01'),
+(114, 0, 1, '', 8, 57, 'METODE PENELITIAN EKONOMI SYARIAH', 'MJU.ESYA-014', '-', 61, '2022-01-01'),
+(115, 1, 2, 'PRODUCTIVE SPEAKING', 1, 15, 'PRODUCTIVE SPEAKING', 'MJU.KIP.BING-020', '00201 13000', 13, '2022-03-15'),
+(116, 0, 2, '', 6, 47, 'PSIKOPATOLOGI', 'MJU.IPSI.PD-19', '00700 13000', 46, '2022-03-16'),
+(117, 0, 2, '', 2, 24, 'SANITASI INDUSTRI', 'MJU.TIP-307', '00303 16000', 45, '2022-03-16'),
+(118, 0, 2, '', 2, 22, 'RISET OPERASI', 'MJU.AGB-222', '00302 16000 - 222', 62, '2022-03-16'),
+(119, 0, 2, '', 2, 22, 'MANAJEMEN AGRIBISNIS', 'MJU.AGB-101', '00362 16000 - 101', 62, '2022-03-16'),
+(120, 0, 2, '', 6, 47, 'PSIKOLOGI INDUSTRI DAN ORGANISASI', 'MJU.IPSI.PD-17', '01000 13000 - PD-17', 63, '2022-03-16');
 
 -- --------------------------------------------------------
 
@@ -157,6 +173,7 @@ INSERT INTO `dokumen` (`id`, `jenis`, `ta`, `modul`, `fakultas`, `prodi`, `mk`, 
 -- Table structure for table `dosen`
 --
 
+DROP TABLE IF EXISTS `dosen`;
 CREATE TABLE `dosen` (
   `id` smallint(6) NOT NULL,
   `nama` varchar(100) NOT NULL,
@@ -225,7 +242,13 @@ INSERT INTO `dosen` (`id`, `nama`, `npk`) VALUES
 (55, 'Ns. SOFIA RHOSMA DEWI, S.Kep., M.Kep.', ''),
 (56, 'NURUL FATHIYAH FAUZI, SP., MP.', ''),
 (57, 'MANAN, S.H., M.H.', ''),
-(58, 'Dr. FAUZIYAH, S.H., M.H.', '');
+(58, 'Dr. FAUZIYAH, S.H., M.H.', ''),
+(59, 'AGUS MILU SUSETYO, M.Pd.', ''),
+(60, 'Dr. FITRI AMILIA, M.Pd.', '07 09 477'),
+(61, 'SALAHUDDIN RIJAL ARIFIN, S.EI., M.SM.', '0725099205'),
+(62, 'ANISA NURINA AULIA, S.P., M.Sc.', '0705039103'),
+(63, 'SITI NUR\'AINI, S.Psi., M.Si.', ''),
+(64, 'DANAN SATRIYO WIBOWO, M.Si.', '');
 
 -- --------------------------------------------------------
 
@@ -233,6 +256,7 @@ INSERT INTO `dosen` (`id`, `nama`, `npk`) VALUES
 -- Table structure for table `fakultas`
 --
 
+DROP TABLE IF EXISTS `fakultas`;
 CREATE TABLE `fakultas` (
   `id_fakultas` tinyint(4) NOT NULL,
   `fakultas` varchar(100) NOT NULL
@@ -260,6 +284,7 @@ INSERT INTO `fakultas` (`id_fakultas`, `fakultas`) VALUES
 -- Table structure for table `jenis`
 --
 
+DROP TABLE IF EXISTS `jenis`;
 CREATE TABLE `jenis` (
   `id_jenis` tinyint(4) NOT NULL,
   `jenis` varchar(30) NOT NULL,
@@ -286,6 +311,7 @@ INSERT INTO `jenis` (`id_jenis`, `jenis`, `mkwu`) VALUES
 -- Table structure for table `mk`
 --
 
+DROP TABLE IF EXISTS `mk`;
 CREATE TABLE `mk` (
   `id` int(11) NOT NULL,
   `id_ta` tinyint(4) NOT NULL,
@@ -333,6 +359,7 @@ INSERT INTO `mk` (`id`, `id_ta`, `id_prodi`, `jumlah_mk`) VALUES
 -- Table structure for table `prodi`
 --
 
+DROP TABLE IF EXISTS `prodi`;
 CREATE TABLE `prodi` (
   `id_prodi` tinyint(4) NOT NULL,
   `id_fakultas` tinyint(4) NOT NULL,
@@ -356,17 +383,17 @@ INSERT INTO `prodi` (`id_prodi`, `id_fakultas`, `prodi`, `primer`, `nick`) VALUE
 (7, 7, '-', 0, NULL),
 (8, 8, '-', 0, NULL),
 (9, 9, '-', 0, NULL),
-(10, 0, 'ILMU HUKUM', 1, 'Hukum'),
+(10, 0, 'ILMU HUKUM', 1, 'Ilmu Hukum'),
 (11, 0, 'ILMU HUKUM SORE', 0, NULL),
 (12, 1, 'D2 PENDIDIKAN GURU TAMAN KANAK-KANAK', 0, NULL),
 (13, 1, 'PENDIDIKAN BIOLOGI', 1, 'Biologi'),
 (14, 1, 'PENDIDIKAN BAHASA DAN SASTRA INDONESIA', 1, 'PBSI'),
 (15, 1, 'PENDIDIKAN BAHASA INGGRIS', 1, 'PBI'),
 (16, 1, 'PENDIDIKAN MATEMATIKA', 1, 'Matematika'),
-(17, 1, 'PENDIDIKAN GURU PENDIDIKAN ANAK USIA DINI', 1, 'PGPAUD'),
+(17, 1, 'PENDIDIKAN GURU PENDIDIKAN ANAK USIA DINI', 1, 'PG PAUD'),
 (18, 1, 'PENDIDIKAN GURU PENDIDIKAN ANAK USIA DINI SORE', 0, NULL),
-(19, 1, 'PENDIDIKAN OLAHRAGA', 1, 'Olahraga'),
-(20, 2, 'AGROTEKNOLOGI', 1, 'Agrotek'),
+(19, 1, 'PENDIDIKAN OLAHRAGA', 1, 'POR'),
+(20, 2, 'AGROTEKNOLOGI', 1, 'Agroteknologi'),
 (21, 2, 'AGROTEKNOLOGI SORE', 0, NULL),
 (22, 2, 'AGRIBISNIS', 1, 'Agribisnis'),
 (23, 2, 'AGRIBISNIS SORE', 0, NULL),
@@ -375,7 +402,7 @@ INSERT INTO `prodi` (`id_prodi`, `id_fakultas`, `prodi`, `primer`, `nick`) VALUE
 (26, 3, 'MANAJEMEN SORE', 0, NULL),
 (27, 3, 'AKUNTANSI', 1, 'Akuntansi'),
 (28, 3, 'AKUNTANSI SORE', 0, NULL),
-(29, 4, 'D3 PERHOTELAN', 1, 'D3 Perhotalan'),
+(29, 4, 'D3 PERHOTELAN', 1, 'D3 Perhotelan'),
 (30, 4, 'D1 AKADEMI PARIWISATA', 0, NULL),
 (31, 4, 'ILMU PEMERINTAHAN', 1, 'Ilmu Pemerintahan'),
 (32, 4, 'ILMU PEMERINTAHAN (NON REGULER)', 0, NULL),
@@ -413,6 +440,7 @@ INSERT INTO `prodi` (`id_prodi`, `id_fakultas`, `prodi`, `primer`, `nick`) VALUE
 -- Table structure for table `ta`
 --
 
+DROP TABLE IF EXISTS `ta`;
 CREATE TABLE `ta` (
   `id_ta` tinyint(4) NOT NULL,
   `ta` varchar(30) NOT NULL
@@ -489,13 +517,13 @@ ALTER TABLE `ta`
 -- AUTO_INCREMENT for table `dokumen`
 --
 ALTER TABLE `dokumen`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
 
 --
 -- AUTO_INCREMENT for table `dosen`
 --
 ALTER TABLE `dosen`
-  MODIFY `id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT for table `mk`
@@ -535,6 +563,7 @@ ALTER TABLE `mk`
 --
 ALTER TABLE `prodi`
   ADD CONSTRAINT `fk_fakultas` FOREIGN KEY (`id_fakultas`) REFERENCES `fakultas` (`id_fakultas`) ON DELETE CASCADE ON UPDATE CASCADE;
+SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

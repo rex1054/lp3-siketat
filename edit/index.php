@@ -11,6 +11,8 @@
 <link rel="stylesheet" type="text/css" href="<?php echo $siteurl ?>assets/lp3-main.css">
 <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 <script src="<?php echo $siteurl ?>assets/jquery.min.js"></script>
+<script src="<?php echo $siteurl ?>assets/bootstrap.min.js"></script>
+<script src="<?php echo $siteurl ?>assets/jquery.min.js"></script>
 </head>
 
 <body>
@@ -45,7 +47,17 @@ if($_GET['act'] == 'dokumen') {
 <!-- end content -->
 
 <script src="<?php echo $siteurl ?>assets/bootstrap.min.js"></script>
+<script src="<?php echo $siteurl ?>assets/jquery.min.js"></script>
 <script src="<?php echo $siteurl ?>assets/lp3.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+<script>
+$(document).ready(function () {
+  $('#penyusun').selectize({
+    sortField: 'text'
+  });
+  
+});
+</script>
 </body>
 
 </html>

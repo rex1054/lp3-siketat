@@ -76,17 +76,18 @@ else {
 	<!-- end search section -->
 	
 	<table id="tabel-member" class="table table-striped table-hover" cellpadding="5" cellspacing="0">
-	<tr>
-	<th class="table-sort" onclick="sortTable('tabel-member',0)">Id</th>
-	<th class="table-sort" onclick="sortTable('tabel-member',1)">Tahun Akademik</th>
-	<th class="table-sort" onclick="sortTable('tabel-member',2)">Jenis</th>
+	<thead>
+	<th class="table-sort text-center" onclick="sortTable('tabel-member',0)">Id</th>
+	<th class="table-sort text-center" onclick="sortTable('tabel-member',1)">Tahun Akademik</th>
+	<th class="table-sort text-center" onclick="sortTable('tabel-member',2)">Jenis</th>
 	<th class="table-sort" onclick="sortTable('tabel-member',3)">Dokumen</th>
 	<th class="table-sort" onclick="sortTable('tabel-member',4)">Fakultas</th>
 	<th class="table-sort" onclick="sortTable('tabel-member',5)">Prodi</th>
 	<th class="table-sort" onclick="sortTable('tabel-member',6)">Penyusun</th>
-	<th class="table-sort">Tanggal</th>
-	<th>Aksi</th>
-	</tr>
+	<th class="table-sort text-center">Tanggal</th>
+	<th class="text-center">Aksi</th>
+	</thead>
+	<tbody>
 	<?php if(mysqli_num_rows($query)>0) { ?>
 		<?php
 		while ($data = mysqli_fetch_array($query)) {
@@ -105,15 +106,24 @@ else {
 			<td><?php echo $data["nama"];?></td>
 			<td><?php echo $tgl;?></td>
 			<td>
-			<div id="aksi">
-			<a target="_self" href="preview/?id=<?php echo $data['id']; ?>&mk=<?php echo $data['mk']; ?>&author=<?php echo $data['nama']; ?>"><img src="assets/show.png"></a>
-			<a target="_self" href="edit/?act=dokumen&id=<?php echo $data['id']; ?>"><img src="assets/edit.png"></a>
-			<a target="_self" href="#" onclick="delet(<?php echo $data['id']; ?>)"><img src="assets/delete.png"></a>
+			<div id="aksi" class="container">
+			<div class="row">
+			<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+			<a target="_self" class="aksi" href="preview/?id=<?php echo $data['id']; ?>&mk=<?php echo $data['mk']; ?>&author=<?php echo $data['nama']; ?>"><img src="assets/show.png"></a>
+			</div>
+			<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+			<a target="_self" class="aksi" href="edit/?act=dokumen&id=<?php echo $data['id']; ?>"><img src="assets/edit.png"></a>
+			</div>
+			<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+			<a target="_self" class="aksi" href="#" onclick="delet(<?php echo $data['id']; ?>)"><img src="assets/delete.png"></a>
+			</div>
+			</div>
 			</div>
 			</td>
 			</tr>
 			<?php }
 		} ?>
+		</tbody>
 		</table>
 		<?php
 	}

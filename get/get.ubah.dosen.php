@@ -20,8 +20,8 @@ if($getInfo->num_rows == 0) {
     
     <!-- start NPK / NIP section -->
     <div class="mb-3">
-    <label for="npk" class="form-label">NPK / NIP</label>
-    <input type="text" class="form-control" id="npk" value="<?php echo $hasil['npk']; ?>" name="npk" placeholder="NPK / NIP" aria-describedby="npk / nip">
+    <label for="npk" class="form-label">NIDN / NIP</label>
+    <input type="text" class="form-control" id="npk" value="<?php echo $hasil['npk']; ?>" name="npk" placeholder="NIDN / NIP" aria-describedby="nidn / nip">
     </div>
     <!-- end NPK / NIP section -->
     

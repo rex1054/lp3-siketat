@@ -15,7 +15,7 @@ else {
     if(mysqli_num_rows($getFak)>0) { 
         while ($data = mysqli_fetch_array($getFak)) {
             ?>
-            <option value="<?php echo $data['id_ta']; ?>"><?php echo $data['ta']; ?></option>
+            <option id="<?php echo $data['ta']; ?>" value="<?php echo $data['id_ta']; ?>"><?php echo $data['ta']; ?></option>
             <?php }
         } ?>
         </table>
