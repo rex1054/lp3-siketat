@@ -284,3 +284,19 @@ function dashboard(ta, text) {
 function nav(to) {
     window.open('http://127.0.0.1:80/lp3-siketat/?to=' + to, '_SELF');
 }
+
+function addPenyusun(n) {
+    if (n == 10) {
+
+    } else {
+        try {
+            var a = document.getElementById('penyusun' + n);
+            var b = a.parentElement;
+            var c = document.getElementById('tambah-penyusun');
+            b.classList.remove('hiden');
+            c.setAttribute('onclick', 'addPenyusun(' + (n + 1) + ')');
+        } catch (err) {
+
+        }
+    }
+}

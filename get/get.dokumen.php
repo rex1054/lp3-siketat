@@ -13,7 +13,7 @@ if(isset($_GET['id']))
         $getDataQuery2 = "SELECT fakultas.fakultas FROM dokumen join fakultas on dokumen.fakultas = fakultas.id_fakultas where dokumen.id = ".$state;
         $getDataQuery3 = "SELECT prodi.prodi FROM dokumen join prodi on dokumen.prodi = prodi.id_prodi where dokumen.id = ".$state;
         $getDataQuery4 = "SELECT ta.ta FROM dokumen join ta on dokumen.ta = ta.id_ta where dokumen.id = ".$state;
-        $getDataQuery5 = "SELECT * FROM dosen join dokumen on dokumen.penyusun = dosen.id where dokumen.id = ".$state;
+        $getDataQuery5 = "SELECT * FROM dosen join penyusun on penyusun.id_dosen = dosen.id where penyusun.id_dokumen = ".$state;
         $getInfo = $con->query($getDataQuery);
         $getInfo2 = $con->query($getDataQuery2);
         $getInfo3 = $con->query($getDataQuery3);
@@ -23,7 +23,7 @@ if(isset($_GET['id']))
         $hasil2 = $getInfo2->fetch_assoc();
         $hasil3 = $getInfo3->fetch_assoc();
         $hasil4 = $getInfo4->fetch_assoc();
-        $hasil5 = $getInfo5->fetch_assoc();
+        
         if($getInfo->num_rows == 0) {
             
         } else {
@@ -162,15 +162,54 @@ if(isset($_GET['id']))
                                             <!-- end kode mk section -->
                                             
                                             <!-- start penyusun section -->
-                                            <div class="mb-3">
-                                            <label for="penyusun" class="form-label">Nama Penyusun / Ketua Penyusun</label>
-                                            <select class="form-select form-selectize lp3-penyusun" id="penyusun" name="penyusun" required aria-label="pilih penyusun">
-                                            <option value="" selected disabled><?php echo $hasil5['nama']; ?></option>
                                             <?php
-                                            include('get.dosen.php');
+                                            $l = 1;
+                                            while ($hasil5 = mysqli_fetch_array($getInfo5)) {
+                                                ?>
+                                                <div class="mb-3">
+                                                <label for="penyusun" class="form-label">Nama Penyusun <?php if ($l == 1){} else {echo $l;} ?></label>
+                                                <select class="form-select form-selectize lp3-penyusun" id="penyusun<?php echo $l; ?>" name="penyusun<?php echo $l; ?>" <?php if ($l == 1){echo 'required';} else {} ?> aria-label="pilih penyusun">
+                                                <option value="" selected disabled><?php echo $hasil5['nama']; ?></option>
+                                                <?php
+                                                include('get.dosen.php');
+                                                ?>
+                                                </select>
+                                                </div>
+                                                <?php
+                                                $l++;
+                                            }
+                                            for($i = $l; $i < 11; $i++) {
+                                                if ($l < 10){
+                                                    ?>
+                                                    <div class="mb-3 hiden">
+                                                    <label for="penyusun" class="form-label">Nama Penyusun <?php echo $l; ?></label>
+                                                    <select class="form-select form-selectize lp3-penyusun" id="penyusun<?php echo $l; ?>" name="penyusun<?php echo $l; ?>" aria-label="pilih penyusun">
+                                                    <option value="" selected disabled>Pilih Dosen</option>
+                                                    <?php
+                                                    include('get.dosen.php');
+                                                    ?>
+                                                    </select>
+                                                    </div>
+                                                    <?php
+                                                    $l++;
+                                                } else if ($l == 10){
+                                                    ?>
+                                                    <div class="mb-3 hiden">
+                                                    <label for="penyusun" class="form-label">Nama Penyusun <?php echo '10'; ?></label>
+                                                    <select class="form-select form-selectize lp3-penyusun" id="penyusun<?php echo $l; ?>" name="penyusun<?php echo $l; ?>" aria-label="pilih penyusun">
+                                                    <option value="" selected disabled>Pilih Dosen</option>
+                                                    <?php
+                                                    include('get.dosen.php');
+                                                    ?>
+                                                    </select>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                    <span class="tambah-penyusun" id="tambah-penyusun" onclick="addPenyusun(<?php echo $getInfo5->num_rows+1;?>)">+ tambah penyusun</span>
+                                                    </div>
+                                                    <?php
+                                                }
+                                            }
                                             ?>
-                                            </select>
-                                            </div>
                                             <!-- end penyusun section -->
                                             
                                             <!-- start kode dokumen section -->

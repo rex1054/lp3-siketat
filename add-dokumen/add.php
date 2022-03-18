@@ -14,10 +14,14 @@ $prodi = $_POST['prodi'];
 $mk = $_POST['matakuliah'];
 $kodeMK = $_POST['kode-matakuliah'];
 $kodeDok = $_POST['kode-dokumen'];
-$penyusun = $_POST['penyusun'];
 $tanggal = $_POST['tanggal'];
 
-$query = 'INSERT INTO `dokumen`(`jenis`, `ta`, `modul`, `fakultas`, `prodi`, `mk`, `kode_mk`, `kode_dokumen`, `penyusun`, `tanggal`) 
+$getDokumenIdQuery = "SELECT * from dokumen ORDER BY id DESC LIMIT 1";
+$getDokumenId = $con->query($getDokumenIdQuery);
+$getDokumen = $getDokumenId->fetch_assoc();
+$dokumenId = $getDokumen['id']+1;
+
+$query = 'INSERT INTO `dokumen`(`jenis`, `ta`, `modul`, `fakultas`, `prodi`, `mk`, `kode_mk`, `kode_dokumen`, `tanggal`) 
 VALUES (
     "'.$jenis.'",
     "'.$ta.'",
@@ -27,7 +31,6 @@ VALUES (
     "'.$mk.'",
     "'.$kodeMK.'",
     "'.$kodeDok.'",
-    "'.$penyusun.'",
     "'.$tanggal.'"
     )';
 
@@ -57,4 +60,16 @@ VALUES (
         </script>
         <?php
     }
+
+    
+for($i = 0; $i < 10; $i++) {
+    $penyusun = $_POST['penyusun'.($i+1)];
+    if($penyusun == ''){
+        break;
+    } else {
+    $addPenyusunQuery = "INSERT INTO penyusun (id_dokumen, id_dosen) VALUES (".($dokumenId).", ".$penyusun.")";
+    $con->query($addPenyusunQuery);
+    }
+}
+
 ?>

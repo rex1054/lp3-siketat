@@ -78,9 +78,6 @@ ul li {
 }
 
 .lp3-filter {
-    /* background-image: url('searchicon.png');
-    background-position: 10px 12px;
-    background-repeat: no-repeat; */
     width: 100%;
     font-size: 12pt;
     padding: 6px 20px 6px 20px;
@@ -126,4 +123,20 @@ ul li {
 
 .aksi:hover {
     filter: invert();
+}
+
+.tambah-penyusun {
+    color: blue;
+}
+
+.tambah-penyusun:hover {
+    cursor: pointer;
+}
+
+.hiden {
+    display: none;
+}
+
+.lp3-penyusun {
+    padding: 5px !important;
 }

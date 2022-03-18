@@ -74,7 +74,7 @@
 <script src="assets/lp3.js"></script>
 <script>
 $(document).ready(function () {
-  $('#penyusun').selectize({
+  $('.lp3-penyusun').selectize({
     sortField: 'text'
   });
   

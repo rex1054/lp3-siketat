@@ -74,14 +74,108 @@ include('get/get.fakultas.php');
 
 <!-- start penyusun section -->
 <div class="mb-3">
-    <label for="penyusun" class="form-label">Nama Penyusun / Ketua Penyusun</label>
-    <select class="form-select form-selectize lp3-penyusun" id="penyusun" name="penyusun" required aria-label="pilih penyusun">
+    <label for="penyusun" class="form-label">Nama Penyusun</label>
+    <select class="form-select form-selectize lp3-penyusun" id="penyusun1" name="penyusun1" required aria-label="pilih penyusun">
     <option value="" selected disabled>Pilih Dosen</option>
       <?php
       $_GET['src'] = 'add';
       include('get/get.dosen.php');
       ?>
     </select>
+  </div>
+<div class="mb-3 hiden">
+    <label for="penyusun" class="form-label">Nama Penyusun 2</label>
+    <select class="form-select form-selectize lp3-penyusun" id="penyusun2" name="penyusun2" aria-label="pilih penyusun">
+    <option value="" selected disabled>Pilih Dosen</option>
+      <?php
+      $_GET['src'] = 'add';
+      include('get/get.dosen.php');
+      ?>
+    </select>
+  </div>
+<div class="mb-3 hiden">
+    <label for="penyusun" class="form-label">Nama Penyusun 3</label>
+    <select class="form-select form-selectize lp3-penyusun" id="penyusun3" name="penyusun3" aria-label="pilih penyusun">
+    <option value="" selected disabled>Pilih Dosen</option>
+      <?php
+      $_GET['src'] = 'add';
+      include('get/get.dosen.php');
+      ?>
+    </select>
+  </div>
+<div class="mb-3 hiden">
+    <label for="penyusun" class="form-label">Nama Penyusun 4</label>
+    <select class="form-select form-selectize lp3-penyusun" id="penyusun4" name="penyusun4" aria-label="pilih penyusun">
+    <option value="" selected disabled>Pilih Dosen</option>
+      <?php
+      $_GET['src'] = 'add';
+      include('get/get.dosen.php');
+      ?>
+    </select>
+  </div>
+<div class="mb-3 hiden">
+    <label for="penyusun" class="form-label">Nama Penyusun 5</label>
+    <select class="form-select form-selectize lp3-penyusun" id="penyusun5" name="penyusun5" aria-label="pilih penyusun">
+    <option value="" selected disabled>Pilih Dosen</option>
+      <?php
+      $_GET['src'] = 'add';
+      include('get/get.dosen.php');
+      ?>
+    </select>
+  </div>
+<div class="mb-3 hiden">
+    <label for="penyusun" class="form-label">Nama Penyusun 6</label>
+    <select class="form-select form-selectize lp3-penyusun" id="penyusun6" name="penyusun6" aria-label="pilih penyusun">
+    <option value="" selected disabled>Pilih Dosen</option>
+      <?php
+      $_GET['src'] = 'add';
+      include('get/get.dosen.php');
+      ?>
+    </select>
+  </div>
+<div class="mb-3 hiden">
+    <label for="penyusun" class="form-label">Nama Penyusun 7</label>
+    <select class="form-select form-selectize lp3-penyusun" id="penyusun7" name="penyusun7" aria-label="pilih penyusun">
+    <option value="" selected disabled>Pilih Dosen</option>
+      <?php
+      $_GET['src'] = 'add';
+      include('get/get.dosen.php');
+      ?>
+    </select>
+  </div>
+<div class="mb-3 hiden">
+    <label for="penyusun" class="form-label">Nama Penyusun 8</label>
+    <select class="form-select form-selectize lp3-penyusun" id="penyusun8" name="penyusun8" aria-label="pilih penyusun">
+    <option value="" selected disabled>Pilih Dosen</option>
+      <?php
+      $_GET['src'] = 'add';
+      include('get/get.dosen.php');
+      ?>
+    </select>
+  </div>
+<div class="mb-3 hiden">
+    <label for="penyusun" class="form-label">Nama Penyusun 9</label>
+    <select class="form-select form-selectize lp3-penyusun" id="penyusun9" name="penyusun9" aria-label="pilih penyusun">
+    <option value="" selected disabled>Pilih Dosen</option>
+      <?php
+      $_GET['src'] = 'add';
+      include('get/get.dosen.php');
+      ?>
+    </select>
+  </div>
+<div class="mb-3 hiden">
+    <label for="penyusun" class="form-label">Nama Penyusun 10</label>
+    <select class="form-select form-selectize lp3-penyusun" id="penyusun10" name="penyusun10" aria-label="pilih penyusun">
+    <option value="" selected disabled>Pilih Dosen</option>
+      <?php
+      $_GET['src'] = 'add';
+      include('get/get.dosen.php');
+      ?>
+    </select>
+  </div>
+  
+  <div class="mb-3">
+  <span class="tambah-penyusun" id="tambah-penyusun" onclick="addPenyusun(2)">+ tambah penyusun</span>
   </div>
 <!-- end penyusun section -->
 

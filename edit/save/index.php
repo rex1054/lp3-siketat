@@ -10,7 +10,6 @@ $prodi;
 $mk;
 $kodeMK;
 $kodeDok;
-$penyusun;
 $tanggal;
 $query;
 
@@ -29,8 +28,33 @@ if ($_GET['act'] == 'dokumen') {
     $mk = $_POST['matakuliah'];
     $kodeMK = $_POST['kode-matakuliah'];
     $kodeDok = $_POST['kode-dokumen'];
-    $penyusun = $_POST['penyusun'];
     $tanggal = $_POST['tanggal'];
+    $sukses = false;
+    
+    $getPenyusunQuery = "SELECT * FROM penyusun WHERE id_dokumen =".$_GET['id'];
+    $getPenyusun = $con->query($getPenyusunQuery);
+    $p = 1;
+    $arrayDosen;
+    for($a = 0; $a<10; $a++){
+        if($_POST['penyusun'.($a+1)] == ''){
+            break;
+        } else {
+            $arrayDosen[$a] = $_POST['penyusun'.($a+1)];
+        }
+    }
+    
+    $ey = count($arrayDosen);
+    $ez = $getPenyusun->num_rows;
+
+    // hapus dulu
+    $removequery = "DELETE FROM penyusun WHERE id_dokumen = ".$_GET['id'];
+    $con->query($removequery);
+
+    // baru insert
+    for($b = 0; $b < $ey; $b++) {
+        $insertQuery = 'INSERT INTO `penyusun`(`id_dokumen`, `id_dosen`) VALUES ('.$_GET['id'].','.$_POST['penyusun'.($b+1)].')';
+        $con->query($insertQuery);
+    }
     
     $query = 'UPDATE `dokumen` SET
     `jenis`="'.$jenis.'", 
@@ -40,8 +64,7 @@ if ($_GET['act'] == 'dokumen') {
     `prodi`="'.$prodi.'", 
     `mk`="'.$mk.'", 
     `kode_mk`="'.$kodeMK.'", 
-    `kode_dokumen`="'.$kodeDok.'", 
-    `penyusun`="'.$penyusun.'", 
+    `kode_dokumen`="'.$kodeDok.'",
     `tanggal`="'.$tanggal.'" WHERE `id`='.$id;
     
 } else if ($_GET['act'] == 'dosen') {

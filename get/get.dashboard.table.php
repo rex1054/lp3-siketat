@@ -41,7 +41,7 @@ else {
             </tr>
             <?php
             } else {
-                echo "Data tidak tersedia.";
+                echo '<div class="text-center" style="font-size: 14pt; color: red;">Data tidak tersedia.</div>';
                 break;
             }
         } 

@@ -1,6 +1,6 @@
 <?php
 require_once('master.php');
-$sql = "SELECT dokumen.tanggal, dokumen.id, ta.ta, jenis.jenis, fakultas.fakultas, prodi.prodi, dokumen.mk, dosen.nama from dokumen join jenis on dokumen.jenis = jenis.id_jenis join fakultas on dokumen.fakultas = fakultas.id_fakultas join prodi on dokumen.prodi = prodi.id_prodi join ta on dokumen.ta = ta.id_ta join dosen on dokumen.penyusun = dosen.id ORDER BY dokumen.id DESC";
+$sql = "SELECT dokumen.tanggal, dokumen.id, ta.ta, jenis.jenis, fakultas.fakultas, prodi.prodi, dokumen.mk from dokumen join jenis on dokumen.jenis = jenis.id_jenis join fakultas on dokumen.fakultas = fakultas.id_fakultas join prodi on dokumen.prodi = prodi.id_prodi join ta on dokumen.ta = ta.id_ta ORDER BY dokumen.id DESC";
 $sql2 = "SELECT * FROM fakultas";
 $sql3 = "SELECT * FROM prodi";
 $sql4 = "SELECT * FROM ta ORDER BY id_ta DESC";
@@ -83,7 +83,7 @@ else {
 	<th class="table-sort" onclick="sortTable('tabel-member',3)">Dokumen</th>
 	<th class="table-sort" onclick="sortTable('tabel-member',4)">Fakultas</th>
 	<th class="table-sort" onclick="sortTable('tabel-member',5)">Prodi</th>
-	<th class="table-sort" onclick="sortTable('tabel-member',6)">Penyusun</th>
+	<th class="table-sort" onclick="sortTable('tabel-member',6)">Penyusun / Ketua Penyusun</th>
 	<th class="table-sort text-center">Tanggal</th>
 	<th class="text-center">Aksi</th>
 	</thead>
@@ -95,6 +95,8 @@ else {
 			$xTgl = date_create($data['tanggal']);
 			$yTgl = date_format($xTgl, 'Y-m-d h:i:sA');
 			$tgl = strftime('%e %B %Y', strtotime($yTgl));
+			$penyusunQuery = "SELECT penyusun.id, dosen.nama FROM penyusun join dosen on penyusun.id_dosen = dosen.id where id_dokumen = ".$data['id']." limit 1";
+			$penyusun = $con->query($penyusunQuery)->fetch_assoc();
 			?>
 			<tr>
 			<td><?php echo $data["id"];?></td>
@@ -103,13 +105,13 @@ else {
 			<td><?php echo $data["mk"];?></td>
 			<td><?php echo $data["fakultas"];?></td>
 			<td><?php echo $data["prodi"];?></td>
-			<td><?php echo $data["nama"];?></td>
+			<td><?php echo $penyusun['nama'];?></td>
 			<td><?php echo $tgl;?></td>
 			<td>
 			<div id="aksi" class="container">
 			<div class="row">
 			<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
-			<a target="_self" class="aksi" href="preview/?id=<?php echo $data['id']; ?>&mk=<?php echo $data['mk']; ?>&author=<?php echo $data['nama']; ?>"><img src="assets/show.png"></a>
+			<a target="_self" class="aksi" href="preview/?id=<?php echo $data['id']; ?>&mk=<?php echo $data['mk']; ?>&author=<?php echo $penyusun['nama']; ?>"><img src="assets/show.png"></a>
 			</div>
 			<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
 			<a target="_self" class="aksi" href="edit/?act=dokumen&id=<?php echo $data['id']; ?>"><img src="assets/edit.png"></a>
