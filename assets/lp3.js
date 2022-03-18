@@ -283,7 +283,6 @@ function dashboard(ta, text) {
 
 function nav(to) {
     window.open('http://127.0.0.1:80/lp3-siketat/?to=' + to, '_SELF');
-<<<<<<< HEAD
 }
 
 function addPenyusun(n) {
@@ -300,6 +299,4 @@ function addPenyusun(n) {
 
         }
     }
-=======
->>>>>>> 0d09c24a2cebc0929bca2c139ae87b67ca10d5ea
 }

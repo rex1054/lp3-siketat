@@ -123,7 +123,6 @@ ul li {
 
 .aksi:hover {
     filter: invert();
-<<<<<<< HEAD
 }
 
 .tambah-penyusun {
@@ -140,6 +139,4 @@ ul li {
 
 .lp3-penyusun {
     padding: 5px !important;
-=======
->>>>>>> 0d09c24a2cebc0929bca2c139ae87b67ca10d5ea
 }

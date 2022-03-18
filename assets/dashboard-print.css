@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 @media print {
     body {
         font-size: .875rem;
@@ -30,37 +29,4 @@
     #myChart {
         height: 380px !important;
     }
-=======
-@media print {
-    body {
-        font-size: .875rem;
-    }
-    .feather {
-        width: 16px;
-        height: 16px;
-        vertical-align: text-bottom;
-    }
-    .header-section {
-        display: none;
-    }
-    #myTab {
-        display: none;
-    }
-    .dash-title {
-        display: none !important;
-    }
-    #dashboard-table td,
-    #dashboard-table th {
-        border: 1px solid slategrey !important;
-    }
-    #dasboard-table tr:nth-child(even) {
-        background-color: #035efc !important;
-    }
-    .dosen-container {
-        display: none !important;
-    }
-    #myChart {
-        height: 380px !important;
-    }
->>>>>>> 0d09c24a2cebc0929bca2c139ae87b67ca10d5ea
 }
