@@ -52,7 +52,11 @@ if($_GET['act'] == 'dokumen') {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
 <script>
 $(document).ready(function () {
+<<<<<<< HEAD
   $('.lp3-penyusun').selectize({
+=======
+  $('#penyusun').selectize({
+>>>>>>> 0d09c24a2cebc0929bca2c139ae87b67ca10d5ea
     sortField: 'text'
   });
   

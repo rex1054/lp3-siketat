@@ -31,6 +31,7 @@ if ($_GET['act'] == 'dokumen') {
     $tanggal = $_POST['tanggal'];
     $sukses = false;
     
+<<<<<<< HEAD
     $getPenyusunQuery = "SELECT * FROM penyusun WHERE id_dokumen =".$_GET['id'];
     $getPenyusun = $con->query($getPenyusunQuery);
     $p = 1;
@@ -56,6 +57,8 @@ if ($_GET['act'] == 'dokumen') {
         $con->query($insertQuery);
     }
     
+=======
+>>>>>>> 0d09c24a2cebc0929bca2c139ae87b67ca10d5ea
     $query = 'UPDATE `dokumen` SET
     `jenis`="'.$jenis.'", 
     `ta`="'.$ta.'", 
@@ -64,7 +67,12 @@ if ($_GET['act'] == 'dokumen') {
     `prodi`="'.$prodi.'", 
     `mk`="'.$mk.'", 
     `kode_mk`="'.$kodeMK.'", 
+<<<<<<< HEAD
     `kode_dokumen`="'.$kodeDok.'",
+=======
+    `kode_dokumen`="'.$kodeDok.'", 
+    `penyusun`="'.$penyusun.'", 
+>>>>>>> 0d09c24a2cebc0929bca2c139ae87b67ca10d5ea
     `tanggal`="'.$tanggal.'" WHERE `id`='.$id;
     
 } else if ($_GET['act'] == 'dosen') {

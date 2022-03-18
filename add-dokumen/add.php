@@ -16,12 +16,16 @@ $kodeMK = $_POST['kode-matakuliah'];
 $kodeDok = $_POST['kode-dokumen'];
 $tanggal = $_POST['tanggal'];
 
+<<<<<<< HEAD
 $getDokumenIdQuery = "SELECT * from dokumen ORDER BY id DESC LIMIT 1";
 $getDokumenId = $con->query($getDokumenIdQuery);
 $getDokumen = $getDokumenId->fetch_assoc();
 $dokumenId = $getDokumen['id']+1;
 
 $query = 'INSERT INTO `dokumen`(`jenis`, `ta`, `modul`, `fakultas`, `prodi`, `mk`, `kode_mk`, `kode_dokumen`, `tanggal`) 
+=======
+$query = 'INSERT INTO `dokumen`(`jenis`, `ta`, `modul`, `fakultas`, `prodi`, `mk`, `kode_mk`, `kode_dokumen`, `penyusun`, `tanggal`) 
+>>>>>>> 0d09c24a2cebc0929bca2c139ae87b67ca10d5ea
 VALUES (
     "'.$jenis.'",
     "'.$ta.'",
@@ -31,6 +35,10 @@ VALUES (
     "'.$mk.'",
     "'.$kodeMK.'",
     "'.$kodeDok.'",
+<<<<<<< HEAD
+=======
+    "'.$penyusun.'",
+>>>>>>> 0d09c24a2cebc0929bca2c139ae87b67ca10d5ea
     "'.$tanggal.'"
     )';
 

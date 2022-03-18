@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 
@@ -1378,3 +1379,6 @@
   </body>
 </html>
 
+=======
+LP3 - SIKETAT
+>>>>>>> 0d09c24a2cebc0929bca2c139ae87b67ca10d5ea

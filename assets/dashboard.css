@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
     font-size: .875rem;
 }
@@ -21,4 +22,29 @@ body {
 
 .dosen-container {
     margin: 70px 0;
+=======
+body {
+    font-size: .875rem;
+}
+
+.feather {
+    width: 16px;
+    height: 16px;
+    vertical-align: text-bottom;
+}
+
+.form-control-dark {
+    color: #fff;
+    background-color: rgba(255, 255, 255, .1);
+    border-color: rgba(255, 255, 255, .1);
+}
+
+.form-control-dark:focus {
+    border-color: transparent;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
+}
+
+.dosen-container {
+    margin: 70px 0;
+>>>>>>> 0d09c24a2cebc0929bca2c139ae87b67ca10d5ea
 }

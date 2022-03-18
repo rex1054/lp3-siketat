@@ -83,7 +83,11 @@ else {
 	<th class="table-sort" onclick="sortTable('tabel-member',3)">Dokumen</th>
 	<th class="table-sort" onclick="sortTable('tabel-member',4)">Fakultas</th>
 	<th class="table-sort" onclick="sortTable('tabel-member',5)">Prodi</th>
+<<<<<<< HEAD
 	<th class="table-sort" onclick="sortTable('tabel-member',6)">Penyusun / Ketua Penyusun</th>
+=======
+	<th class="table-sort" onclick="sortTable('tabel-member',6)">Penyusun</th>
+>>>>>>> 0d09c24a2cebc0929bca2c139ae87b67ca10d5ea
 	<th class="table-sort text-center">Tanggal</th>
 	<th class="text-center">Aksi</th>
 	</thead>
@@ -111,7 +115,11 @@ else {
 			<div id="aksi" class="container">
 			<div class="row">
 			<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+<<<<<<< HEAD
 			<a target="_self" class="aksi" href="preview/?id=<?php echo $data['id']; ?>&mk=<?php echo $data['mk']; ?>&author=<?php echo $penyusun['nama']; ?>"><img src="assets/show.png"></a>
+=======
+			<a target="_self" class="aksi" href="preview/?id=<?php echo $data['id']; ?>&mk=<?php echo $data['mk']; ?>&author=<?php echo $data['nama']; ?>"><img src="assets/show.png"></a>
+>>>>>>> 0d09c24a2cebc0929bca2c139ae87b67ca10d5ea
 			</div>
 			<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
 			<a target="_self" class="aksi" href="edit/?act=dokumen&id=<?php echo $data['id']; ?>"><img src="assets/edit.png"></a>

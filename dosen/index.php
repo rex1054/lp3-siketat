@@ -28,7 +28,11 @@ else {
 	<?php if(mysqli_num_rows($query)>0) { ?>
 		<?php
 		while ($data = mysqli_fetch_array($query)) {
+<<<<<<< HEAD
 			$sql2 = "SELECT COUNT(id) FROM penyusun WHERE id_dosen = ".$data['id'];
+=======
+			$sql2 = "SELECT COUNT(id) FROM dokumen WHERE penyusun = ".$data['id'];
+>>>>>>> 0d09c24a2cebc0929bca2c139ae87b67ca10d5ea
 			$query2 = $con->query($sql2);
 			$dokumen = $query2->fetch_assoc();
 			?>
