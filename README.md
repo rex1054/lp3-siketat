@@ -24,3 +24,8 @@ Lembaga Pengkajian dan Pengembangan Pendidikan Universitas Muhammadiyah Jember -
 - Menambah dosen
 - Mengubah dosen
 - Halaman tentang
+- Mengubah jumlah matakuliah
+- Menambah tahun akademik
+- Mini dashboard fakultas
+- Mini dashboard program studi
+- Mini dashboard dosen
