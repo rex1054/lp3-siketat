@@ -38,8 +38,15 @@ else {
 			<td class="text-center"><?php echo $data["npk"];?></td>
 			<td class="text-center"><?php echo $dokumen["COUNT(id)"];?></td>
 			<td>
-			<div id="aksi" class="text-center">
+			<div id="aksi" class="d-flex justify-content-center container">
+			<div class="row">
+			<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+			<a target="_self" class="aksi" href="<?php echo $siteurl; ?>dosen/detail/?id=<?php echo $data['id']; ?>"><img src="assets/show.png"></a>
+			</div>
+			<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
 			<a target="_self" class="aksi" href="<?php echo $siteurl; ?>edit/?act=dosen&id=<?php echo $data['id']; ?>"><img src="assets/edit.png"></a>
+			</div>
+			</div>
 			</div>
 			</td>
 			</tr>

@@ -12,9 +12,9 @@ else {
         while ($prodi = mysqli_fetch_array($getProdi)) {
             $getMKQuery = "SELECT jumlah_mk from mk where id_prodi = ".$prodi['id_prodi']." AND id_ta = ".$_GET['aka'];
             $getMK = $con->query($getMKQuery);
-            $getRPSQuery = "SELECT COUNT(id) as 'rps' from dokumen where jenis = 0 AND ta = ".$_GET['aka']." AND prodi = ".$prodi['id_prodi'];
+            $getRPSQuery = "SELECT COUNT(id) as 'rps' from dokumen where jenis = 1 AND ta = ".$_GET['aka']." AND prodi = ".$prodi['id_prodi'];
             $getRPS = $con->query($getRPSQuery);
-            $getCapaianQuery = "SELECT COUNT(dokumen.id) as 'COUNT(id)', mk.jumlah_mk FROM dokumen join mk on dokumen.prodi = mk.id_prodi where dokumen.prodi = ".$prodi['id_prodi']." AND  dokumen.jenis = 0 AND dokumen.ta = ".$_GET['aka'];
+            $getCapaianQuery = "SELECT COUNT(dokumen.id) as 'COUNT(id)', mk.jumlah_mk FROM dokumen join mk on dokumen.prodi = mk.id_prodi where dokumen.prodi = ".$prodi['id_prodi']." AND  dokumen.jenis = 1 AND dokumen.ta = ".$_GET['aka'];
             $getCapaian = $con->query($getCapaianQuery);
             
             $mk = $getMK->fetch_assoc();

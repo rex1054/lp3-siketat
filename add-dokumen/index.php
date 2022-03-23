@@ -4,14 +4,14 @@
 <label for="jenis-dokumen" class="form-label">Jenis Dokumen</label>
 <select class="form-select" id="jenis-dokumen" name="jenis-dokumen" required onchange="checkin(this.value);" aria-label="pilih jenis dokumen">
 <option selected disabled value="">Pilih Jenis Dokumen</option>
-<option value="0">RPS</option>
-<option value="1">Modul</option>
-<option value="2">Buku Ajar</option>
-<option value="3">Pedoman</option>
-<option value="4">RPS MKWU</option>
-<option value="5">Modul MKWU</option>
-<option value="6">Buku Ajar MKWU</option>
-<option value="7">Pedoman MKWU</option>
+<option value="1">RPS</option>
+<option value="2">Modul</option>
+<option value="3">Buku Ajar</option>
+<option value="4">Pedoman</option>
+<option value="5">RPS MKWU</option>
+<option value="6">Modul MKWU</option>
+<option value="7">Buku Ajar MKWU</option>
+<option value="8">Pedoman MKWU</option>
 </select>
 </div>
 <!-- end jenis dokumen section -->
@@ -39,7 +39,7 @@ include('get/get.ta.php');
 <!-- start fakultas section -->
 <div class="mb-3">
 <label for="fakultas" class="form-label">Fakultas</label>
-<select class="form-select" id="fakultas" name="fakultas" required onchange="fetch_select(this.value);" aria-label="pilih fakultas">
+<select class="form-select" id="fakultas" name="fakultas" required onchange="fetch_select(this.value, 'prodi');" aria-label="pilih fakultas">
 <option value="" selected disabled>Pilih Fakultas</option>
 <?php 
 $_GET['src'] = 'add';

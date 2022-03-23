@@ -1,9 +1,20 @@
+<?php
+require_once('../master.php');
+$sql = "SELECT id_prodi from prodi where primer = 1";
+$prodiQuery = $con->query($sql);
+$prodi;
+$p = 0;
+while($data = mysqli_fetch_array($prodiQuery)){
+  $prodi[$p] = $data['id_prodi'];
+  $p++;
+}
+?>
 <script>  
 function charts() {
   'use strict'
   
   feather.replace({ 'aria-hidden': 'true' });
-
+  
   // Graphs
   var ctx = document.getElementById('myChart');
   
@@ -22,10 +33,9 @@ function charts() {
           data: [
             <?php 
             $_GET['act']='prodi';
-            $prodi = array(10,13,14,15,16,17,19,20,22,24,25,27,29,31,33,35,37,39,41,43,45,46,47,49,51,54,56,57);
             for($i = 0; $i < count($prodi); $i++){
               $_GET['id_pro']=$prodi[$i];
-              $_GET['jenis']='0';
+              $_GET['jenis']='1';
               $_GET['ta']=$_GET['aka'];
               include('get.dashboard.data.php');
               if($i == count($prodi)) {}
@@ -40,7 +50,7 @@ function charts() {
           borderWidth: 2,
           pointBackgroundColor: '#007bff'
         }
-      ]
+        ]
       },
       options: {
         scales: {
@@ -59,20 +69,20 @@ function charts() {
             type: 'line',
             mode: 'horizontal',
             scaleID: 'y-axis-0',
-            value: <?php $_GET['act']='rerata'; $_GET['jenis']='0'; $_GET['ta']=$_GET['aka']; include('get.dashboard.data.php'); ?>,
+            value: <?php $_GET['act']='rerata'; $_GET['jenis']='1'; $_GET['ta']=$_GET['aka']; include('get.dashboard.data.php'); ?>,
             borderColor: 'red',
             borderWidth: 2,
             borderDash: [5],
             label: {
               enabled: true,
               position: 'right',
-              content: 'Rata-rata : '+<?php $_GET['act']='rerata'; $_GET['jenis']='0'; $_GET['ta']=$_GET['aka']; include('get.dashboard.data.php'); ?>+"%"
+              content: 'Rata-rata : '+<?php $_GET['act']='rerata'; $_GET['jenis']='1'; $_GET['ta']=$_GET['aka']; include('get.dashboard.data.php'); ?>+"%"
             }
           }]
         }
       }
     })
   }
-
+  
   charts();
   </script>

@@ -37,42 +37,42 @@ if(isset($_GET['id']))
             <select class="form-select" id="jenis-dokumen" name="jenis-dokumen" required onchange="checkin(this.value);" aria-label="pilih jenis dokumen">
             <?php 
             switch($hasil['jenis']){
-                case 0 :
+                case 1 :
                     ?>
                     <option value="<?php echo $hasil['jenis'];?>">RPS</option>
                     <?php
                     break;
-                    case 1 :
+                    case 2 :
                         ?>
                         <option value="<?php echo $hasil['jenis'];?>">Modul</option>
                         <?php
                         break;
-                        case 2 :
+                        case 3 :
                             ?>
                             <option value="<?php echo $hasil['jenis'];?>">Buku Ajar</option>
                             <?php
                             break;
-                            case 3 :
+                            case 4 :
                                 ?>
                                 <option value="<?php echo $hasil['jenis'];?>">Pedoman</option>
                                 <?php
                                 break;
-                                case 4 :
+                                case 5 :
                                     ?>
                                     <option value="<?php echo $hasil['jenis'];?>">RPS MKWU</option>
                                     <?php
                                     break;
-                                    case 5 :
+                                    case 6 :
                                         ?>
                                         <option value="<?php echo $hasil['jenis'];?>">Modul MKWU</option>
                                         <?php
                                         break;
-                                        case 6 :
+                                        case 7 :
                                             ?>
                                             <option value="<?php echo $hasil['jenis'];?>">Buku Ajar MKWU</option>
                                             <?php
                                             break;
-                                            case 7 :
+                                            case 8 :
                                                 ?>
                                                 <option value="<?php echo $hasil['jenis'];?>">Pedoman MKWU</option>
                                                 <?php
@@ -84,14 +84,14 @@ if(isset($_GET['id']))
                                                 break;
                                             }
                                             ?>
-                                            <option value="0">RPS</option>
-                                            <option value="1">Modul</option>
-                                            <option value="2">Buku Ajar</option>
-                                            <option value="3">Pedoman</option>
-                                            <option value="4">RPS MKWU</option>
-                                            <option value="5">Modul MKWU</option>
-                                            <option value="6">Buku Ajar MKWU</option>
-                                            <option value="7">Pedoman MKWU</option>
+                                            <option value="1">RPS</option>
+                                            <option value="2">Modul</option>
+                                            <option value="3">Buku Ajar</option>
+                                            <option value="4">Pedoman</option>
+                                            <option value="5">RPS MKWU</option>
+                                            <option value="6">Modul MKWU</option>
+                                            <option value="7">Buku Ajar MKWU</option>
+                                            <option value="8">Pedoman MKWU</option>
                                             </select>
                                             </div>
                                             <!-- end jenis dokumen section -->
@@ -100,7 +100,7 @@ if(isset($_GET['id']))
                                             <div class="mb-3">
                                             <label for="modul" class="form-label">Nama Praktikum</label>
                                             <?php
-                                            if($hasil['jenis']==1){
+                                            if($hasil['jenis']==2 || $hasil['jenis']==6){
                                                 ?>
                                                 <input type="text" class="form-control" id="modul" name="modul" required placeholder="Khusus dokumen modul" aria-describedby="modul" value="<?php echo $hasil['modul']; ?>">
                                                 <?php

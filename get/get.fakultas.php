@@ -1,7 +1,11 @@
 <?php
 // start get fakultas
 if(isset($_GET['src'])){
-    require_once('master.php');
+    if($_GET['src']=='fakultas'){
+        require_once('../../master.php');
+    } else {
+        require_once('master.php');
+    }
 } else {
     require_once('../master.php');
 }

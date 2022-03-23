@@ -2,7 +2,7 @@
 <html lang="en">
 <?php include('../config.php');?>
 <head>
-<title>LP3 - CAPAIAN RPS TAHUN AKADEMIK <?php echo $_GET['t']; ?></title>
+<title>LP3 - Fakultas</title>
 <meta name="description" content="Sistem Kelola Tanda Terima">
 <meta name="author" content="REXYST">
 
@@ -42,7 +42,7 @@
 <!-- start navigasi -->
 <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
 <li class="nav-item" role="presentation">
-<button class="nav-link active" id="dashboard-tab" data-bs-toggle="tab" data-bs-target="#dashboard" type="button" role="tab" aria-controls="dashboard" aria-selected="true">Dashboard</button>
+<button class="nav-link" id="dashboard-tab" onclick="dashboard(2, '<?php echo $akademik[1]; ?>')" data-bs-toggle="tab" data-bs-target="#dashboard" type="button" role="tab" aria-controls="dashboard" aria-selected="true">Dashboard</button>
 </li>
 <li class="nav-item" role="presentation">
 <button class="nav-link" id="list-tab" onclick="nav('list')" data-bs-toggle="tab" data-bs-target="#list" type="button" role="tab" aria-controls="list" aria-selected="true">Docs</button>
@@ -54,7 +54,7 @@
 <button class="nav-link" id="dosen-tab" onclick="nav('dosen')" data-bs-toggle="tab" data-bs-target="#dosen" type="button" role="tab" aria-controls="dosen" aria-selected="true">Dosen</button>
 </li>
 <li class="nav-item" role="presentation">
-<button class="nav-link" id="fakultas-tab" onclick="nav('fakultas')" data-bs-toggle="tab" data-bs-target="#fakultas" type="button" role="tab" aria-controls="fakultas" aria-selected="false">Fakultas</button>
+<button class="nav-link active" id="fakultas-tab" data-bs-toggle="tab" data-bs-target="#fakultas" type="button" role="tab" aria-controls="fakultas" aria-selected="true">Fakultas</button>
 </li>
 <li class="nav-item" role="presentation">
 <button class="nav-link" id="about-tab" onclick="nav('about')" data-bs-toggle="tab" data-bs-target="#about" type="button" role="tab" aria-controls="about" aria-selected="false">About</button>
@@ -66,96 +66,100 @@
 <!-- end navigasi -->
 
 <!-- start content -->
-<main class="col-sm-12 col-md-12 col-lg-12">
-<div class="dash-title d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-<h1 class="h2">Dashboard</h1>
-<div class="btn-toolbar mb-2 mb-md-0">
-<div class="btn-group me-2">
-<button type="button" onclick="printFunc()" class="btn btn-sm btn-outline-secondary">Cetak</button>
-</div>
-<select class="btn btn-sm btn-outline-secondary dropdown-toggle" onchange="dashboard(this.value, this.options[this.selectedIndex].text)">
-<option value="<?php $_GET['ta']; ?>" selected disabled><?php echo $_GET['t'];?></option>
-<?php include('../get/get.ta.php'); ?>
-</select>
-</div>
-</div>
-
-<div class="col-sm-12 col-md-12 col-xl-12 text-center">
-<h2 style="font-size: 16pt; margin-bottom: 15px;">Grafik Capaian RPS Tahun Akademik <?php echo $_GET['t']; ?> (dalam %)</h2>
-</div>
-<canvas class="my-4 w-100" id="myChart"></canvas>
-
-<div class="dosen-container">
-<div class="col-sm-12 col-md-12 col-xl-12 text-center">
-<h2 style="font-size: 16pt; margin-bottom: 15px;">Dosen Dengan Dokumen Terbanyak</h2>
-</div>
-<div class="table-responsive">
-<?php include('../get/get.dashboard.rank.php'); ?>
-</div>
-</div>
+<main class="col-sm-12 col-md-12 col-lg-12"><br/>
 
 <div class="table-container">
 <div class="col-sm-12 col-md-12 col-xl-12 text-center">
-<h2 style="font-size: 16pt; margin-bottom: 15px;">Tabel Capaian RPS Tahun Akademik <?php echo $_GET['t']; ?></h2>
+<h2 style="font-size: 16pt; margin-bottom: 15px;">Daftar Fakultas</h2>
 </div>
 <div class="table-responsive">
 <table class="table table-striped table-hover" id="dashboard-table">
 <thead>
 <tr>
 <th class="text-center" scope="col">No.</th>
-<th scope="col">Program Studi</th>
-<th class="text-center" scope="col">MK Non-MKWU</th>
-<th class="text-center" scope="col">RPS Non-MKWU</th>
-<th class="text-center" scope="col">Capaian</th>
+<th scope="col">Fakultas</th>
+<th scope="col">Email</th>
+<th scope="col">Jumlah Prodi</th>
+<th class="text-center" scope="col">Aksi</th>
 </tr>
 </thead>
 <tbody>
 <?php
-$_GET['aka'] = $_GET['ta'];
-include('../get/get.dashboard.table.php');
+include('../get/get.fakultas.table.php');
 ?>
 </tbody>
 </table>
+<button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#add-modal">Tambah Fakultas</button>
+</div>
+
+<div class="modal fade" id="add-modal">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content">
+
+<!-- Modal Header -->
+<div class="modal-header">
+<h4 class="modal-title">Tambah Fakultas</h4>
+<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+
+<!-- Modal body -->
+<div class="modal-body">
+<form action="add.php" method="POST" enctype="multipart/form-data">
+<label for="nama-fakultas" class="form-label">Nama Fakultas</label>
+<input type="text" class="form-control" id="nama-fakultas" name="nama-fakultas" required placeholder="Nama Fakultas (contoh: HUKUM)" aria-describedby="nama-fakultas"><br/>
+<label for="email-fakultas" class="form-label">Email Fakultas</label>
+<input type="email" class="form-control" id="email-fakultas" name="email-fakultas" placeholder="Email Fakultas (contoh: hukum@unmuhjember.ac.id)" aria-describedby="email-fakultas">
+</div>
+
+<!-- Modal footer -->
+<div class="modal-footer">
+<button type="submit" class="btn btn-primary">Simpan</button>
+</form>
+<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
+</div>
+
+</div>
+</div>
+</div>
+
+<div class="modal fade" id="edit-modal">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content">
+
+<!-- Modal Header -->
+<div class="modal-header">
+<h4 class="modal-title">Ubah Fakultas</h4>
+<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+
+<!-- Modal body -->
+<div class="modal-body">
+<form action="edit.php" method="POST" enctype="multipart/form-data">
+<input type="text" id="id-fakultas" name="id-fakultas" hidden>
+<label for="nama-fakultas" class="form-label">Nama Fakultas</label>
+<input type="text" class="form-control" id="edit-nama-fakultas" name="edit-nama-fakultas" required placeholder="Nama Fakultas (contoh: HUKUM)" aria-describedby="nama-fakultas"><br/>
+<label for="email-fakultas" class="form-label">Email Fakultas</label>
+<input type="email" class="form-control" id="edit-email-fakultas" name="edit-email-fakultas" placeholder="Email Fakultas (contoh: hukum@unmuhjember.ac.id)" aria-describedby="email-fakultas">
+</div>
+
+<!-- Modal footer -->
+<div class="modal-footer">
+<button type="submit" class="btn btn-primary">Simpan</button>
+</form>
+<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
+</div>
+
+</div>
+</div>
 </div>
 </div>
 </main>
-<!-- end content -->
 </div>
 
 <script src="../assets/bootstrap.min.js"></script>
 <script src="../assets/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
 <script src="../assets/lp3.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script>
-<script src="../assets/chartjs-plugin-annotation.js"></script>
-<div id="chartz">
-<?php 
-$_GET['aka'] = $_GET['ta'];
-include('../get/get.chart.php'); 
-?>
-</div>
-<script>
-  $(document).ready(function(){
-    sortTable('dashboard-table',4);
-    (function() {
-      var a = document.getElementById("dashboard-table").querySelectorAll(".ranked");
-    for(var b = 0; b < 28; b++){
-      a[b].innerHTML = b+1;
-    }
-    })()
-  });
-  </script>
-<script>
-  $(document).ready(function(){
-    (function() {
-      var a = document.getElementById("tabel-rank").querySelectorAll(".ranked");
-    for(var b = 0; b < 5; b++){
-      a[b].innerHTML = b+1;
-    }
-    })()
-  });
-  </script>
+
 
 </body>
 

@@ -1,32 +1,21 @@
-function fetch_select(val) {
+var siteurl = "http://127.0.0.1:80/lp3-siketat/";
+
+function fetch_select(val, id) {
     $.ajax({
         type: 'post',
-        url: 'http://127.0.0.1:80/lp3-siketat/get/get.prodi.php',
+        url: siteurl + 'get/get.prodi.php',
         data: {
             get_option: val
         },
         success: function(response) {
-            document.getElementById("prodi").innerHTML = response;
-        }
-    });
-}
-
-function fetch_prodi(val) {
-    $.ajax({
-        type: 'post',
-        url: 'http://127.0.0.1:80/lp3-siketat/get/get.prodi.php',
-        data: {
-            get_fak: val
-        },
-        success: function(response) {
-            document.getElementById("prod").innerHTML = response;
+            document.getElementById(id).innerHTML = response;
         }
     });
 }
 
 function checkin(val) {
     var z = document.getElementById('modul');
-    if (val == '1') {
+    if (val == '2' || val == '6') {
         z.removeAttribute('disabled');
     } else {
         z.setAttribute('disabled', 'true');
@@ -35,11 +24,11 @@ function checkin(val) {
 }
 
 function backFunc() {
-    window.open('http://127.0.0.1:80/lp3-siketat/', '_self');
+    window.open(siteurl + '', '_self');
 }
 
 function editFunc(a) {
-    window.open('http://127.0.0.1:80/lp3-siketat/edit/?act=dokumen&id=' + a, '_self');
+    window.open(siteurl + 'edit/?act=dokumen&id=' + a, '_self');
 }
 
 function signFunc() {
@@ -146,18 +135,18 @@ function sortTable(id, n) {
     }
 }
 
-// pagination
+// tabel-dokumen pagination
 $(document).ready(function() {
-    $('#tabel-member').after('<div id="nav" class="centereddd"></div>');
-    var rowsShown = 11;
-    var rowsTotal = $('#tabel-member tbody tr').length;
+    $('#tabel-dokumen').after('<div id="nav" class="centereddd"></div>');
+    var rowsShown = 10;
+    var rowsTotal = $('#tabel-dokumen tbody tr').length;
     var numPages = rowsTotal / rowsShown;
     for (i = 0; i < numPages; i++) {
         var pageNum = i + 1;
         $('#nav').append('<a class="btn btn-outline-success" href="#" rel="' + i + '">' + pageNum + '</a> ');
     }
-    $('#tabel-member tbody tr').hide();
-    $('#tabel-member tbody tr').slice(0, rowsShown).show();
+    $('#tabel-dokumen tbody tr').hide();
+    $('#tabel-dokumen tbody tr').slice(0, rowsShown).show();
     $('#nav a:first').addClass('active');
     $('#nav a').bind('click', function() {
 
@@ -166,17 +155,17 @@ $(document).ready(function() {
         var currPage = $(this).attr('rel');
         var startItem = currPage * rowsShown;
         var endItem = startItem + rowsShown;
-        $('#tabel-member tbody tr').css('opacity', '0.0').hide().slice(startItem, endItem).
+        $('#tabel-dokumen tbody tr').css('opacity', '0.0').hide().slice(startItem, endItem).
         css('display', 'table-row').animate({ opacity: 1 }, 300);
-        $('#tabel-member tbody tr').css('opacity', '0.0').slice(0, 1).
-        css('display', 'table-row').animate({ opacity: 1 }, 300);
+        // $('#tabel-dokumen tbody tr').css('opacity', '0.0').slice(0, 1).
+        // css('display', 'table-row').animate({ opacity: 1 }, 300);
     });
 });
 
-// pagination
+// tabel-dosen pagination
 $(document).ready(function() {
     $('#tabel-dosen').after('<div id="nav-dos" class="centereddd"></div>');
-    var rowsShown = 11;
+    var rowsShown = 10;
     var rowsTotal = $('#tabel-dosen tbody tr').length;
     var numPages = rowsTotal / rowsShown;
     for (i = 0; i < numPages; i++) {
@@ -195,8 +184,8 @@ $(document).ready(function() {
         var endItem = startItem + rowsShown;
         $('#tabel-dosen tbody tr').css('opacity', '0.0').hide().slice(startItem, endItem).
         css('display', 'table-row').animate({ opacity: 1 }, 300);
-        $('#tabel-dosen tbody tr').css('opacity', '0.0').slice(0, 1).
-        css('display', 'table-row').animate({ opacity: 1 }, 300);
+        // $('#tabel-dosen tbody tr').css('opacity', '0.0').slice(0, 1).
+        // css('display', 'table-row').animate({ opacity: 1 }, 300);
     });
 });
 
@@ -270,7 +259,25 @@ function sechide(a, b) {
 function delet(id) {
     if (confirm("Hapus data?") == true) {
         console.log('Data ' + id + ' dihapus.');
-        window.open('http://127.0.0.1:80/lp3-siketat/list/delete.php?id=' + id, '_SELF');
+        window.open(siteurl + 'list/delete.php?id=' + id, '_SELF');
+    } else {
+
+    }
+}
+
+function del(id) {
+    if (confirm("Hapus data?") == true) {
+        console.log('Data ' + id + ' dihapus.');
+        window.open(siteurl + 'fakultas/delete.php?id=' + id, '_SELF');
+    } else {
+
+    }
+}
+
+function dele(id) {
+    if (confirm("Hapus data?") == true) {
+        console.log('Data ' + id + ' dihapus.');
+        window.open(siteurl + 'fakultas/detail/delete.php?id=' + id, '_SELF');
     } else {
 
     }
@@ -278,11 +285,19 @@ function delet(id) {
 
 function dashboard(ta, text) {
     console.log('ta = ' + ta + ' , text = ' + text);
-    window.open('http://127.0.0.1:80/lp3-siketat/dashboard/?ta=' + ta + '&t=' + text, '_self');
+    window.open(siteurl + 'dashboard/?ta=' + ta + '&t=' + text, '_self');
+}
+
+function fakultas(ta, text) {
+    window.open(siteurl + 'fakultas/', '_self');
 }
 
 function nav(to) {
-    window.open('http://127.0.0.1:80/lp3-siketat/?to=' + to, '_SELF');
+    if (to == 'fakultas') {
+        window.open(siteurl + 'fakultas', '_SELF');
+    } else {
+        window.open(siteurl + '?to=' + to, '_SELF');
+    }
 }
 
 function addPenyusun(n) {
@@ -299,4 +314,38 @@ function addPenyusun(n) {
 
         }
     }
+}
+
+function edit(id, fak, email) {
+    var idf = document.getElementById('id-fakultas');
+    var nama = document.getElementById('edit-nama-fakultas');
+    var mail = document.getElementById('edit-email-fakultas');
+
+    idf.setAttribute('value', id);
+    nama.setAttribute('value', fak);
+    mail.setAttribute('value', email);
+}
+
+function pedit(id, prodi, email, primer) {
+    var idp = document.getElementById('id-prodi');
+    var nama = document.getElementById('edit-nama-prodi');
+    var mail = document.getElementById('edit-email-prodi');
+    var prim = document.getElementById('edit-primer');
+
+    idp.setAttribute('value', id);
+    nama.setAttribute('value', prodi);
+    mail.setAttribute('value', email);
+    if (primer == 1) {
+        prim.setAttribute('checked', 'true');
+    } else {
+        prim.removeAttribute('checked');
+    }
+}
+
+function prodi(id, ta) {
+    window.open(siteurl + 'prodi/?id=' + id + '&ta=' + ta, '_SELF');
+}
+
+function master(ta) {
+    window.open(siteurl + 'master/?ta=' + ta, '_SELF');
 }
