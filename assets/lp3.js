@@ -193,7 +193,7 @@ function filt(id, x, y) {
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById(id);
     filter = input.value.toUpperCase();
-    table = document.getElementById("tabel-member");
+    table = document.getElementById("tabel-dokumen");
     tr = table.getElementsByTagName("tr");
     console.log(id + " = " + filter);
 
