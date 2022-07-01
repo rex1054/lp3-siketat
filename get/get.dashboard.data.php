@@ -16,7 +16,7 @@ if(isset($_GET['act'])){
     } else {
         $temp = 0;
         for($a = 0; $a < 60; $a++){
-            $getDataQuery = "SELECT COUNT(dokumen.id) as 'COUNT(id)', mk.jumlah_mk FROM dokumen join mk on dokumen.prodi = mk.id_prodi join prodi on mk.id_prodi = prodi.id_prodi where dokumen.prodi = ".$a." AND prodi.primer = 1 AND dokumen.jenis = 1 AND dokumen.ta = 2";
+            $getDataQuery = "SELECT COUNT(dokumen.id) as 'COUNT(id)', mk.jumlah_mk FROM dokumen join mk on dokumen.prodi = mk.id_prodi join prodi on mk.id_prodi = prodi.id_prodi where dokumen.prodi = ".$a." AND prodi.primer = 1 AND dokumen.jenis = 1 AND dokumen.ta = ".$_GET['ta'];
             $req = $con->query($getDataQuery);
             $data = $req->fetch_assoc();
             if($data['jumlah_mk']==0){

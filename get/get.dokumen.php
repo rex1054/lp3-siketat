@@ -59,182 +59,194 @@ if(isset($_GET['id']))
                                 break;
                                 case 5 :
                                     ?>
-                                    <option value="<?php echo $hasil['jenis'];?>">RPS MKWU</option>
+                                    <option value="<?php echo $hasil['jenis'];?>">Petunjuk Praktikum</option>
                                     <?php
                                     break;
                                     case 6 :
                                         ?>
-                                        <option value="<?php echo $hasil['jenis'];?>">Modul MKWU</option>
+                                        <option value="<?php echo $hasil['jenis'];?>">RPS MKWU</option>
                                         <?php
                                         break;
                                         case 7 :
                                             ?>
-                                            <option value="<?php echo $hasil['jenis'];?>">Buku Ajar MKWU</option>
+                                            <option value="<?php echo $hasil['jenis'];?>">Modul MKWU</option>
                                             <?php
                                             break;
                                             case 8 :
                                                 ?>
-                                                <option value="<?php echo $hasil['jenis'];?>">Pedoman MKWU</option>
+                                                <option value="<?php echo $hasil['jenis'];?>">Buku Ajar MKWU</option>
                                                 <?php
                                                 break;
-                                                default :
-                                                ?>
-                                                <option disabled value="">Pilih Jenis Dokumen</option>
-                                                <?php
-                                                break;
-                                            }
-                                            ?>
-                                            <option value="1">RPS</option>
-                                            <option value="2">Modul</option>
-                                            <option value="3">Buku Ajar</option>
-                                            <option value="4">Pedoman</option>
-                                            <option value="5">RPS MKWU</option>
-                                            <option value="6">Modul MKWU</option>
-                                            <option value="7">Buku Ajar MKWU</option>
-                                            <option value="8">Pedoman MKWU</option>
-                                            </select>
-                                            </div>
-                                            <!-- end jenis dokumen section -->
-                                            
-                                            <!-- start modul section -->
-                                            <div class="mb-3">
-                                            <label for="modul" class="form-label">Nama Praktikum</label>
-                                            <?php
-                                            if($hasil['jenis']==2 || $hasil['jenis']==6){
-                                                ?>
-                                                <input type="text" class="form-control" id="modul" name="modul" required placeholder="Khusus dokumen modul" aria-describedby="modul" value="<?php echo $hasil['modul']; ?>">
-                                                <?php
-                                            } else {
-                                                ?>
-                                                <input type="text" class="form-control" id="modul" value="" disabled name="modul" required placeholder="Khusus dokumen modul" aria-describedby="modul">
-                                                <?php
-                                            }
-                                            ?>
-                                            
-                                            </div>
-                                            <!-- end modul section -->
-                                            
-                                            <!-- start tahun akademik section -->
-                                            <div class="mb-3">
-                                            <label for="tahun-akademik" class="form-label">Tahun Akademik</label>
-                                            <select class="form-select" id="tahun-akademik" name="tahun-akademik" required aria-label="pilih tahun akademik">
-                                            <option value="<?php echo $hasil['ta']; ?>"><?php echo $hasil4['ta']; ?></option>
-                                            <?php
-                                            include('get.ta.php');
-                                            ?>
-                                            </select>
-                                            </div>
-                                            <!-- end tahun akademik section -->
-                                            
-                                            <!-- start fakultas section -->
-                                            <div class="mb-3">
-                                            <label for="fakultas" class="form-label">Fakultas</label>
-                                            <select class="form-select" id="fakultas" name="fakultas" required onchange="fetch_select(this.value);" aria-label="pilih fakultas">
-                                            <option value="<?php echo $hasil['fakultas']; ?>" selected><?php echo $hasil2['fakultas']; ?></option>
-                                            <?php 
-                                            include('get.fakultas.php');
-                                            ?>
-                                            </select>
-                                            </div>
-                                            <!-- end fakultas section -->
-                                            
-                                            <!-- start prodi section -->
-                                            <div class="mb-3">
-                                            <label for="prodi" class="form-label">Prodi</label>
-                                            <select class="form-select" id="prodi" name="prodi" required aria-label="pilih prodi">
-                                            <option selected value="<?php echo $hasil['prodi']; ?>"><?php echo $hasil3['prodi']; ?></option>
-                                            </select>
-                                            </div>
-                                            <!-- end prodi section -->
-                                            
-                                            <!-- start mk section -->
-                                            <div class="mb-3">
-                                            <label for="matakuliah" class="form-label">Mata Kuliah</label>
-                                            <input type="text" class="form-control" id="matakuliah" name="matakuliah" required placeholder="Nama Mata Kuliah / Nama Dokumen" aria-describedby="mata kuliah" value="<?php echo $hasil['mk']; ?>">
-                                            </div>
-                                            <!-- end mk section -->
-                                            
-                                            <!-- start kode mk section -->
-                                            <div class="mb-3">
-                                            <label for="kode-matakuliah" class="form-label">Kode Mata Kuliah</label>
-                                            <input type="text" class="form-control" id="kode-matakuliah" name="kode-matakuliah" required placeholder="Kode Mata Kuliah" aria-describedby="kode mata kuliah" value="<?php echo $hasil['kode_mk']; ?>">
-                                            </div>
-                                            <!-- end kode mk section -->
-                                            
-                                            <!-- start penyusun section -->
-                                            <?php
-                                            $l = 1;
-                                            while ($hasil5 = mysqli_fetch_array($getInfo5)) {
-                                                ?>
-                                                <div class="mb-3">
-                                                <label for="penyusun" class="form-label">Nama Penyusun <?php if ($l == 1){} else {echo $l;} ?></label>
-                                                <select class="form-select form-selectize lp3-penyusun" id="penyusun<?php echo $l; ?>" name="penyusun<?php echo $l; ?>" <?php if ($l == 1){echo 'required';} else {} ?> aria-label="pilih penyusun">
-                                                <option value="" selected disabled><?php echo $hasil5['nama']; ?></option>
-                                                <?php
-                                                include('get.dosen.php');
-                                                ?>
-                                                </select>
-                                                </div>
-                                                <?php
-                                                $l++;
-                                            }
-                                            for($i = $l; $i < 11; $i++) {
-                                                if ($l < 10){
+                                                case 9 :
                                                     ?>
-                                                    <div class="mb-3 hiden">
-                                                    <label for="penyusun" class="form-label">Nama Penyusun <?php echo $l; ?></label>
-                                                    <select class="form-select form-selectize lp3-penyusun" id="penyusun<?php echo $l; ?>" name="penyusun<?php echo $l; ?>" aria-label="pilih penyusun">
-                                                    <option value="" selected disabled>Pilih Dosen</option>
+                                                    <option value="<?php echo $hasil['jenis'];?>">Pedoman MKWU</option>
                                                     <?php
-                                                    include('get.dosen.php');
+                                                    break;
+                                                    case 10 :
+                                                        ?>
+                                                        <option value="<?php echo $hasil['jenis'];?>">Petunjuk Praktikum MKWU</option>
+                                                        <?php
+                                                        break;
+                                                        default :
+                                                        ?>
+                                                        <option disabled value="">Pilih Jenis Dokumen</option>
+                                                        <?php
+                                                        break;
+                                                    }
                                                     ?>
+                                                    <option value="1">RPS</option>
+                                                    <option value="2">Modul</option>
+                                                    <option value="3">Buku Ajar</option>
+                                                    <option value="4">Pedoman</option>
+                                                    <option value="5">Petunjuk Praktikum</option>
+                                                    <option value="6">RPS MKWU</option>
+                                                    <option value="7">Modul MKWU</option>
+                                                    <option value="8">Buku Ajar MKWU</option>
+                                                    <option value="9">Pedoman MKWU</option>
+                                                    <option value="10">Petunjuk Praktikum MKWU</option>
                                                     </select>
                                                     </div>
-                                                    <?php
-                                                    $l++;
-                                                } else if ($l == 10){
-                                                    ?>
-                                                    <div class="mb-3 hiden">
-                                                    <label for="penyusun" class="form-label">Nama Penyusun <?php echo '10'; ?></label>
-                                                    <select class="form-select form-selectize lp3-penyusun" id="penyusun<?php echo $l; ?>" name="penyusun<?php echo $l; ?>" aria-label="pilih penyusun">
-                                                    <option value="" selected disabled>Pilih Dosen</option>
-                                                    <?php
-                                                    include('get.dosen.php');
-                                                    ?>
-                                                    </select>
-                                                    </div>
+                                                    <!-- end jenis dokumen section -->
+                                                    
+                                                    <!-- start modul section -->
                                                     <div class="mb-3">
-                                                    <span class="tambah-penyusun" id="tambah-penyusun" onclick="addPenyusun(<?php echo $getInfo5->num_rows+1;?>)">+ tambah penyusun</span>
+                                                    <label for="modul" class="form-label">Nama Praktikum</label>
+                                                    <?php
+                                                    if($hasil['jenis']==2 || $hasil['jenis']==5 || $hasil['jenis']==7 || $hasil['jenis']==10){
+                                                        ?>
+                                                        <input type="text" class="form-control" id="modul" name="modul" required placeholder="Khusus dokumen Modul dan Petunjuk Praktikum" aria-describedby="modul" value="<?php echo $hasil['modul']; ?>">
+                                                        <?php
+                                                    } else {
+                                                        ?>
+                                                        <input type="text" class="form-control" id="modul" value="" disabled name="modul" required placeholder="Khusus dokumen modul" aria-describedby="modul">
+                                                        <?php
+                                                    }
+                                                    ?>
+                                                    
                                                     </div>
+                                                    <!-- end modul section -->
+                                                    
+                                                    <!-- start tahun akademik section -->
+                                                    <div class="mb-3">
+                                                    <label for="tahun-akademik" class="form-label">Tahun Akademik</label>
+                                                    <select class="form-select" id="tahun-akademik" name="tahun-akademik" required aria-label="pilih tahun akademik">
+                                                    <option value="<?php echo $hasil['ta']; ?>"><?php echo $hasil4['ta']; ?></option>
+                                                    <?php
+                                                    include('get.ta.php');
+                                                    ?>
+                                                    </select>
+                                                    </div>
+                                                    <!-- end tahun akademik section -->
+                                                    
+                                                    <!-- start fakultas section -->
+                                                    <div class="mb-3">
+                                                    <label for="fakultas" class="form-label">Fakultas</label>
+                                                    <select class="form-select" id="fakultas" name="fakultas" required onchange="fetch_select(this.value);" aria-label="pilih fakultas">
+                                                    <option value="<?php echo $hasil['fakultas']; ?>" selected><?php echo $hasil2['fakultas']; ?></option>
+                                                    <?php 
+                                                    include('get.fakultas.php');
+                                                    ?>
+                                                    </select>
+                                                    </div>
+                                                    <!-- end fakultas section -->
+                                                    
+                                                    <!-- start prodi section -->
+                                                    <div class="mb-3">
+                                                    <label for="prodi" class="form-label">Prodi</label>
+                                                    <select class="form-select" id="prodi" name="prodi" required aria-label="pilih prodi">
+                                                    <option selected value="<?php echo $hasil['prodi']; ?>"><?php echo $hasil3['prodi']; ?></option>
+                                                    </select>
+                                                    </div>
+                                                    <!-- end prodi section -->
+                                                    
+                                                    <!-- start mk section -->
+                                                    <div class="mb-3">
+                                                    <label for="matakuliah" class="form-label">Mata Kuliah</label>
+                                                    <input type="text" class="form-control" id="matakuliah" name="matakuliah" required placeholder="Nama Mata Kuliah / Nama Dokumen" aria-describedby="mata kuliah" value="<?php echo $hasil['mk']; ?>">
+                                                    </div>
+                                                    <!-- end mk section -->
+                                                    
+                                                    <!-- start kode mk section -->
+                                                    <div class="mb-3">
+                                                    <label for="kode-matakuliah" class="form-label">Kode Mata Kuliah</label>
+                                                    <input type="text" class="form-control" id="kode-matakuliah" name="kode-matakuliah" required placeholder="Kode Mata Kuliah" aria-describedby="kode mata kuliah" value="<?php echo $hasil['kode_mk']; ?>">
+                                                    </div>
+                                                    <!-- end kode mk section -->
+                                                    
+                                                    <!-- start penyusun section -->
+                                                    <?php
+                                                    $l = 1;
+                                                    while ($hasil5 = mysqli_fetch_array($getInfo5)) {
+                                                        ?>
+                                                        <div class="mb-3">
+                                                        <label for="penyusun" class="form-label">Nama Penyusun <?php if ($l == 1){} else {echo $l;} ?></label>
+                                                        <select class="form-select form-selectize lp3-penyusun" id="penyusun<?php echo $l; ?>" name="penyusun<?php echo $l; ?>" <?php if ($l == 1){echo 'required';} else {} ?> aria-label="pilih penyusun">
+                                                        <option value="" selected disabled><?php echo $hasil5['nama']; ?></option>
+                                                        <?php
+                                                        include('get.dosen.php');
+                                                        ?>
+                                                        </select>
+                                                        </div>
+                                                        <?php
+                                                        $l++;
+                                                    }
+                                                    for($i = $l; $i < 11; $i++) {
+                                                        if ($l < 10){
+                                                            ?>
+                                                            <div class="mb-3 hiden">
+                                                            <label for="penyusun" class="form-label">Nama Penyusun <?php echo $l; ?></label>
+                                                            <select class="form-select form-selectize lp3-penyusun" id="penyusun<?php echo $l; ?>" name="penyusun<?php echo $l; ?>" aria-label="pilih penyusun">
+                                                            <option value="" selected disabled>Pilih Dosen</option>
+                                                            <?php
+                                                            include('get.dosen.php');
+                                                            ?>
+                                                            </select>
+                                                            </div>
+                                                            <?php
+                                                            $l++;
+                                                        } else if ($l == 10){
+                                                            ?>
+                                                            <div class="mb-3 hiden">
+                                                            <label for="penyusun" class="form-label">Nama Penyusun <?php echo '10'; ?></label>
+                                                            <select class="form-select form-selectize lp3-penyusun" id="penyusun<?php echo $l; ?>" name="penyusun<?php echo $l; ?>" aria-label="pilih penyusun">
+                                                            <option value="" selected disabled>Pilih Dosen</option>
+                                                            <?php
+                                                            include('get.dosen.php');
+                                                            ?>
+                                                            </select>
+                                                            </div>
+                                                            <div class="mb-3">
+                                                            <span class="tambah-penyusun" id="tambah-penyusun" onclick="addPenyusun(<?php echo $getInfo5->num_rows+1;?>)">+ tambah penyusun</span>
+                                                            </div>
+                                                            <?php
+                                                        }
+                                                    }
+                                                    ?>
+                                                    <!-- end penyusun section -->
+                                                    
+                                                    <!-- start kode dokumen section -->
+                                                    <div class="mb-3">
+                                                    <label for="kode-dokumen" class="form-label">Kode Dokumen</label>
+                                                    <input type="text" class="form-control" id="kode-dokumen" name="kode-dokumen" required placeholder="Kode Dokumen" aria-describedby="kode dokumen" value="<?php echo $hasil['kode_dokumen']; ?>">
+                                                    </div>
+                                                    <!-- end kode dokumen section -->
+                                                    
+                                                    <!-- start tanggal section -->
+                                                    <div class="mb-3">
+                                                    <label for="tanggal" class="form-label">Tanggal Diterima</label>
+                                                    <input type="date" class="form-control" id="tanggal" name="tanggal" placeholder="Tanggal Diterima" required aria-describedby="pilih tanggal" value="<?php echo $hasil['tanggal']; ?>">
+                                                    </div>
+                                                    <!-- end tanggal section -->
+                                                    
+                                                    <!-- start submit button -->
+                                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                                    <!-- end submit button -->
+                                                    <!-- start back button -->
+                                                    <a class="btn btn-danger" href="<?php echo $siteurl; ?>" target="_self">Kembali</a>
+                                                    <!-- end back button -->
+                                                    </form>
                                                     <?php
                                                 }
                                             }
-                                            ?>
-                                            <!-- end penyusun section -->
-                                            
-                                            <!-- start kode dokumen section -->
-                                            <div class="mb-3">
-                                            <label for="kode-dokumen" class="form-label">Kode Dokumen</label>
-                                            <input type="text" class="form-control" id="kode-dokumen" name="kode-dokumen" required placeholder="Kode Dokumen" aria-describedby="kode dokumen" value="<?php echo $hasil['kode_dokumen']; ?>">
-                                            </div>
-                                            <!-- end kode dokumen section -->
-                                            
-                                            <!-- start tanggal section -->
-                                            <div class="mb-3">
-                                            <label for="tanggal" class="form-label">Tanggal Diterima</label>
-                                            <input type="date" class="form-control" id="tanggal" name="tanggal" placeholder="Tanggal Diterima" required aria-describedby="pilih tanggal" value="<?php echo $hasil['tanggal']; ?>">
-                                            </div>
-                                            <!-- end tanggal section -->
-                                            
-                                            <!-- start submit button -->
-                                            <button type="submit" class="btn btn-primary">Simpan</button>
-                                            <!-- end submit button -->
-                                            <!-- start back button -->
-                                            <a class="btn btn-danger" href="<?php echo $siteurl; ?>" target="_self">Kembali</a>
-                                            <!-- end back button -->
-                                            </form>
-                                            <?php
                                         }
-                                    }
-                                }
-                                ?>
+                                        ?>

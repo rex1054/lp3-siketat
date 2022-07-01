@@ -1,5 +1,35 @@
 var siteurl = "http://127.0.0.1:80/lp3-siketat/";
 
+$(document).ready(function() {
+    $('#tabel-dokumen').DataTable({
+        language: {
+            url: 'https://cdn.datatables.net/plug-ins/1.12.1/i18n/id.json'
+        },
+        dom: 'Bfrtip',
+        paging: true,
+        "pageLength": 10,
+        buttons: [
+            'excelHtml5',
+            'pdfHtml5'
+        ]
+    });
+});
+
+$(document).ready(function() {
+    $('#tabel-dosen').DataTable({
+        language: {
+            url: 'https://cdn.datatables.net/plug-ins/1.12.1/i18n/id.json'
+        },
+        dom: 'Bfrtip',
+        paging: true,
+        "pageLength": 10,
+        buttons: [
+            'excelHtml5',
+            'pdfHtml5'
+        ]
+    });
+});
+
 function fetch_select(val, id) {
     $.ajax({
         type: 'post',
@@ -15,7 +45,7 @@ function fetch_select(val, id) {
 
 function checkin(val) {
     var z = document.getElementById('modul');
-    if (val == '2' || val == '6') {
+    if (val == '2' || val == '5' || val == '7' || val == '10') {
         z.removeAttribute('disabled');
     } else {
         z.setAttribute('disabled', 'true');
@@ -135,59 +165,27 @@ function sortTable(id, n) {
     }
 }
 
-// tabel-dokumen pagination
-$(document).ready(function() {
+function apx(start) {
     $('#tabel-dokumen').after('<div id="nav" class="centereddd"></div>');
     var rowsShown = 10;
     var rowsTotal = $('#tabel-dokumen tbody tr').length;
     var numPages = rowsTotal / rowsShown;
-    for (i = 0; i < numPages; i++) {
-        var pageNum = i + 1;
-        $('#nav').append('<a class="btn btn-outline-success" href="#" rel="' + i + '">' + pageNum + '</a> ');
+    for (i = start; i < numPages; i++) {
+        if (i == start) {
+            var pageNum = i + 1;
+            $('#nav').append('<a class="btn btn-outline-success prev" href="#main-table">Previous</a> ');
+            $('#nav').append('<a class="btn btn-outline-success" href="#main-table" rel="' + i + '">' + pageNum + '</a> ');
+        } else if (i == (Number(start) + 9)) {
+            var pageNum = i + 1;
+            $('#nav').append('<a class="btn btn-outline-success" href="#main-table" rel="' + i + '">' + pageNum + '</a> ');
+            $('#nav').append('<a class="btn btn-outline-success next" href="#main-table">Next</a> ');
+            break;
+        } else {
+            var pageNum = i + 1;
+            $('#nav').append('<a class="btn btn-outline-success" href="#main-table" rel="' + i + '">' + pageNum + '</a> ');
+        }
     }
-    $('#tabel-dokumen tbody tr').hide();
-    $('#tabel-dokumen tbody tr').slice(0, rowsShown).show();
-    $('#nav a:first').addClass('active');
-    $('#nav a').bind('click', function() {
-
-        $('#nav a').removeClass('active');
-        $(this).addClass('active');
-        var currPage = $(this).attr('rel');
-        var startItem = currPage * rowsShown;
-        var endItem = startItem + rowsShown;
-        $('#tabel-dokumen tbody tr').css('opacity', '0.0').hide().slice(startItem, endItem).
-        css('display', 'table-row').animate({ opacity: 1 }, 300);
-        // $('#tabel-dokumen tbody tr').css('opacity', '0.0').slice(0, 1).
-        // css('display', 'table-row').animate({ opacity: 1 }, 300);
-    });
-});
-
-// tabel-dosen pagination
-$(document).ready(function() {
-    $('#tabel-dosen').after('<div id="nav-dos" class="centereddd"></div>');
-    var rowsShown = 10;
-    var rowsTotal = $('#tabel-dosen tbody tr').length;
-    var numPages = rowsTotal / rowsShown;
-    for (i = 0; i < numPages; i++) {
-        var pageNum = i + 1;
-        $('#nav-dos').append('<a class="btn btn-outline-success" href="#" rel="' + i + '">' + pageNum + '</a> ');
-    }
-    $('#tabel-dosen tbody tr').hide();
-    $('#tabel-dosen tbody tr').slice(0, rowsShown).show();
-    $('#nav-dos a:first').addClass('active');
-    $('#nav-dos a').bind('click', function() {
-
-        $('#nav-dos a').removeClass('active');
-        $(this).addClass('active');
-        var currPage = $(this).attr('rel');
-        var startItem = currPage * rowsShown;
-        var endItem = startItem + rowsShown;
-        $('#tabel-dosen tbody tr').css('opacity', '0.0').hide().slice(startItem, endItem).
-        css('display', 'table-row').animate({ opacity: 1 }, 300);
-        // $('#tabel-dosen tbody tr').css('opacity', '0.0').slice(0, 1).
-        // css('display', 'table-row').animate({ opacity: 1 }, 300);
-    });
-});
+}
 
 function filt(id, x, y) {
     var input, filter, table, tr, td, i, txtValue;

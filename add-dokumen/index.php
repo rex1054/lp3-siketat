@@ -8,10 +8,12 @@
 <option value="2">Modul</option>
 <option value="3">Buku Ajar</option>
 <option value="4">Pedoman</option>
-<option value="5">RPS MKWU</option>
-<option value="6">Modul MKWU</option>
-<option value="7">Buku Ajar MKWU</option>
-<option value="8">Pedoman MKWU</option>
+<option value="5">Petunjuk Praktikum</option>
+<option value="6">RPS MKWU</option>
+<option value="7">Modul MKWU</option>
+<option value="8">Buku Ajar MKWU</option>
+<option value="9">Pedoman MKWU</option>
+<option value="10">Petunjuk Praktikum MKWU</option>
 </select>
 </div>
 <!-- end jenis dokumen section -->

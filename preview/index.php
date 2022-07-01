@@ -175,10 +175,28 @@ if($hasil['jenis'] == 'RPS') {
 if($hasil['jenis'] == 'MODUL') {
     echo 'MODUL '.$hasil['modul'];
 } else
+if($hasil['jenis'] == 'PETUNJUK PRAKTIKUM') {
+    echo 'PETUNJUK PRAKTIKUM '.$hasil['modul'];
+} else
 if($hasil['jenis'] == 'PEDOMAN') {
     echo 'PEDOMAN';
 } else
 if($hasil['jenis'] == 'BAHAN AJAR') {
+    echo 'BAHAN AJAR';
+}
+if($hasil['jenis'] == 'RPS MKWU') {
+    echo 'RPS';
+} else
+if($hasil['jenis'] == 'MODUL MKWU') {
+    echo 'MODUL '.$hasil['modul'];
+} else
+if($hasil['jenis'] == 'PETUNJUK PRAKTIKUM MKWU') {
+    echo 'PETUNJUK PRAKTIKUM '.$hasil['modul'];
+} else
+if($hasil['jenis'] == 'PEDOMAN MKWU') {
+    echo 'PEDOMAN';
+} else
+if($hasil['jenis'] == 'BAHAN AJAR MKWU') {
     echo 'BAHAN AJAR';
 }
 ?></p>

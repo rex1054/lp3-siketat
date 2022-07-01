@@ -97,7 +97,7 @@ if($tableQuery->num_rows != 0) {
         <tr>
         <td><?php echo $table['id']; ?></td>
         <td><?php echo $table['jenis']; ?></td>
-        <td><?php if($table['mkwu'] == 0) { echo "MKWU"; } else { echo "Non-MKWU"; } ?></td>
+        <td><?php if($table['mkwu'] == 0) { echo "Non-MKWU"; } else { echo "MKWU"; } ?></td>
         <td><?php echo $table['ta']; ?></td>
         <td><?php echo $table['mk']; ?></td>
         <td><?php echo $table['kode_mk']; ?></td>

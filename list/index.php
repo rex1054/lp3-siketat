@@ -17,70 +17,55 @@ $query4 = $con->query($sql4);
 
 ?>
 <div class="filtersearch nav justify-content-center">
-	<!-- start filter  button -->
-	<a href="#" id="filter-bt" class="filtersearchbtn btn btn-outline-primary" onclick="secshow('filtersec', 'filter-bt')">Filter</a>
-	<!-- end filter  button -->
-	
-	<!-- start search button -->
-	<a href="#" id="search-bt" class="filtersearchbtn btn btn-outline-primary" onclick="secshow('searchsec', 'search-bt')">Pencarian</a>
-	<!-- end search button -->
-	
-	<!-- start reset button -->
-	<a href="#" id="rest-bt" class="filtersearchbtn btn btn-outline-primary" onclick="backFunc()">Reset Filter</a>
-	<!-- end reset button -->
-	</div>
-	
-	<!-- start filter section -->
-	<div class="filter-section hide-section text-center" id="filtersec">
-	<form action="<?php echo $siteurl; ?>" method="get">
-	<!-- start filter TA -->
-	<select type="select" class="lp3-filter " id="sta" name="filta" required>
-	<option selected disabled value="">Pilih Tahun Akademik</option>
-	<?php 
-	while($ta = mysqli_fetch_array($query4)){
-		?>
-		<option value="<?php echo $ta['id_ta']; ?>"><?php echo $ta['ta']; ?></option>
-		<?php
-	}
+<!-- start filter  button -->
+<a href="#" id="filter-bt" class="filtersearchbtn btn btn-outline-primary" onclick="secshow('filtersec', 'filter-bt')">Filter</a>
+<!-- end filter  button -->
+
+<!-- start reset button -->
+<a href="#" id="rest-bt" class="filtersearchbtn btn btn-outline-primary" onclick="backFunc()">Reset Filter</a>
+<!-- end reset button -->
+</div>
+
+<!-- start filter section -->
+<div class="filter-section hide-section text-center" id="filtersec">
+<form action="<?php echo $siteurl; ?>" method="get">
+<!-- start filter TA -->
+<select type="select" class="lp3-filter " id="sta" name="filta" required>
+<option selected disabled value="">Pilih Tahun Akademik</option>
+<?php 
+while($ta = mysqli_fetch_array($query4)){
 	?>
-	</select>
-	<!-- end filter TA -->
-	
-	<!-- start filter fakultas -->
-	<select type="select" class="lp3-filter" id="fak" name="filfak" onchange="fetch_select(this.value, 'prod')" required>
-	<option selected disabled value="">Pilih Fakultas</option>
-	<?php 
-	while($fakultas = mysqli_fetch_array($query2)){
-		?>
-		<option value="<?php echo $fakultas['id_fakultas']; ?>"><?php echo $fakultas['fakultas']; ?></option>
-		<?php
-	}
+	<option value="<?php echo $ta['id_ta']; ?>"><?php echo $ta['ta']; ?></option>
+	<?php
+}
+?>
+</select>
+<!-- end filter TA -->
+
+<!-- start filter fakultas -->
+<select type="select" class="lp3-filter" id="fak" name="filfak" onchange="fetch_select(this.value, 'prod')" required>
+<option selected disabled value="">Pilih Fakultas</option>
+<?php 
+while($fakultas = mysqli_fetch_array($query2)){
 	?>
-	</select>
-	<!-- end filter fakultas -->
-	
-	<!-- start filter prodi -->
-	<select type="select" class="lp3-filter" id="prod" name="filpro" required>
-	<option selected disabled value="">Pilih Fakultas Terlebih Dahulu</option>
-	</select>
-	<!-- end filter prodi -->
-	
-	<button type="submit" class="btn btn-primary">Terapkan</button>
-	</form>
-	</div>
-	<!-- end filter section -->
-	
-	<!-- start search section -->
-	<div class="search-section hide-section" id="searchsec">
-	<!-- start search nama dokumen -->
-	<input type="text" class="lp3-filter" id="docu" onkeyup="filt('docu', 3, 1)" placeholder="Cari Nama Dokumen">
-	<!-- end search nama dokumen -->
-	
-	<!-- start search nama dokumen -->
-	<input type="text" class="lp3-filter" id="aname" onkeyup="filt('aname', 6, 1)" placeholder="Cari Nama Penyusun">
-	<!-- end search nama dokumen -->
-	</div>
-	<!-- end search section -->
+	<option value="<?php echo $fakultas['id_fakultas']; ?>"><?php echo $fakultas['fakultas']; ?></option>
+	<?php
+}
+?>
+</select>
+<!-- end filter fakultas -->
+
+<!-- start filter prodi -->
+<select type="select" class="lp3-filter" id="prod" name="filpro" required>
+<option selected disabled value="">Pilih Fakultas Terlebih Dahulu</option>
+</select>
+<!-- end filter prodi -->
+
+<button type="submit" class="btn btn-primary">Terapkan</button>
+</form>
+</div>
+<!-- end filter section -->
+
 <?php
 
 if($query->num_rows == 0) {
@@ -88,8 +73,8 @@ if($query->num_rows == 0) {
 }
 else {
 	?>
-	<div class="container">
-		<br/><h2>Jumlah Dokumen : <?php echo $query->num_rows; ?></h2><br/>
+	<div class="container" id="main-table">
+	<br/><h2>Jumlah Dokumen : <?php echo $query->num_rows; ?></h2><br/>
 	<table id="tabel-dokumen" class="table table-striped table-hover" cellpadding="5" cellspacing="0">
 	<thead>
 	<th class="table-sort text-center" onclick="sortTable('tabel-dokumen',0)">Id</th>
@@ -102,7 +87,7 @@ else {
 	<th class="table-sort text-center">Tanggal</th>
 	<th class="text-center">Aksi</th>
 	</thead>
-	<tbody>
+	<tbody id="tabel-dokumen-body">
 	<?php if(mysqli_num_rows($query)>0) { ?>
 		<?php
 		while ($data = mysqli_fetch_array($query)) {
@@ -142,7 +127,10 @@ else {
 		} ?>
 		</tbody>
 		</table>
-	</div>
+		</div>
+		<div class="col-md-12 text-center">
+		<ul class="pagination pagination-lg pager" id="myPager"></ul>
+		</div>
 		<?php
 	}
 	?>

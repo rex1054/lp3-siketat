@@ -10,10 +10,10 @@
 <link rel="stylesheet" type="text/css" href="<?php echo $siteurl; ?>assets/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="<?php echo $siteurl; ?>assets/lp3-main.css">
 <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-<script src="<?php echo $siteurl; ?>assets/jquery.min.js"></script>
-<script src="<?php echo $siteurl; ?>assets/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
 <link rel="stylesheet" href="<?php echo $siteurl; ?>assets/dashboard.css">
+<link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.12.1/b-2.2.3/b-colvis-2.2.3/b-html5-2.2.3/b-print-2.2.3/fh-3.2.3/r-2.3.0/sc-2.0.6/datatables.min.css" />
 
 </head>
 
@@ -41,7 +41,7 @@
 <!-- start navigasi -->
 <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
 <li class="nav-item" role="presentation">
-<button class="nav-link" id="dashboard-tab" onclick="dashboard(2, '<?php echo $akademik[1]; ?>')" data-bs-toggle="tab" data-bs-target="#dashboard" type="button" role="tab" aria-controls="dashboard" aria-selected="true">Dashboard</button>
+<button class="nav-link" id="dashboard-tab" onclick="dashboard(<?php echo COUNT($akademik);?>, '<?php echo $akademik[COUNT($akademik)-1]; ?>')" data-bs-toggle="tab" data-bs-target="#dashboard" type="button" role="tab" aria-controls="dashboard" aria-selected="true">Dashboard</button>
 </li>
 <li class="nav-item" role="presentation">
 <button class="nav-link <?php if(isset($_GET['to'])){ if($_GET['to']=='list'){ echo 'active';} } else { echo 'active'; } ?>" id="list-tab" data-bs-toggle="tab" data-bs-target="#list" type="button" role="tab" aria-controls="list" aria-selected="true">Docs</button>
@@ -76,6 +76,7 @@
 
 <script src="<?php echo $siteurl; ?>assets/bootstrap.min.js"></script>
 <script src="<?php echo $siteurl; ?>assets/jquery.min.js"></script>
+<script src="<?php echo $siteurl; ?>assets/lp3-pagination.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
 <script src="<?php echo $siteurl; ?>assets/lp3.js"></script>
 <script>
@@ -89,6 +90,7 @@ $(document).ready(function () {
 <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script>
 <script src="<?php echo $siteurl; ?>assets/chartjs-plugin-annotation.js"></script>
+<script type="text/javascript" src="<?php echo $siteurl; ?>assets/DataTables/datatables.min.js"></script>
 
 </body>
 

@@ -8,14 +8,7 @@ if($query->num_rows == 0) {
 }
 else {
 	?>
-	<!-- start search section -->
-	<div class="search-section" id="searchdos">
-	<!-- start search nama dosen -->
-	<input type="text" class="lp3-filter" id="dose" onkeyup="dosen('dose')" placeholder="Cari Nama Dosen">
-	<!-- end search nama dosen -->
-	</div>
-	<!-- end search section -->
-	
+		
 	<table id="tabel-dosen" class="table table-striped table-hover" cellpadding="5" cellspacing="0">
 	<thead>
 	<th class="table-sort text-center" onclick="sortTable('tabel-dosen',0)">Id</th>

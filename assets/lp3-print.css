@@ -57,7 +57,7 @@
         top: 0;
     }
     .page-2 .logo-right {
-        top: 297mm;
+        top: calc(297mm - 0.25in);
     }
     .main-title {
         text-align: center;
