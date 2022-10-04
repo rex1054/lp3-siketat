@@ -120,14 +120,14 @@ $idDok = $_GET['id'];
 <div class="row section-d">
 <div class="col-md-12">
 <p>Jember, <?php echo $tgl; ?></p>
-<p>Ketua LP3,</p>
+<p>Kepala LP3,</p>
 <br/>
-<img id="signature-a" src="<?php echo $siteurl; ?>assets/signature.jpg">
+<img id="signature-a" src="<?php echo $siteurl; ?>assets/signature.png">
 <br/>
 <br/>
 <br/>
-<p style="line-height:0.3;">(<z>Dr. Nikmatur Rohmah, M.Kes.</z>)</p>
-<p style="line-height:0;">NIP. 197206262005012001</p>
+<p style="line-height:0.3;">(<z>Dr. Haris Hermawan, MM.</z>)</p>
+<p style="line-height:0;">NPK. 1968101011503640</p>
 </div>
 </div>
 <!-- end signature section -->
@@ -206,11 +206,11 @@ if($hasil['jenis'] == 'BAHAN AJAR MKWU') {
 include('../get/get.page.2.php');
 ?>
 <tr style="height: 150px;">
-<td style="text-align:center;padding-left:15px;padding-right:15px;"><b>Ketua LP3 Unmuh Jember</b></td>
+<td style="text-align:center;padding-left:15px;padding-right:15px;"><b>Kepala LP3 Unmuh Jember</b></td>
 <td style="padding-top:90px;" id="page-2-signature">
-<img id="signature-b" src="<?php echo $siteurl; ?>assets/signature.jpg">
-<p style="line-height:0.1;"><z>Dr. Nikmatur Rohmah, M.Kes.</z></p>
-<p>NIP. 197206262005012001</p>
+<img id="signature-b" src="<?php echo $siteurl; ?>assets/signature.png">
+<p style="line-height:0.1;"><z>Dr. Haris Hermawan, MM.</z></p>
+<p>NPK. 1968101011503640</p>
 </td>
 </tr>
 </table>

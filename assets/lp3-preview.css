@@ -184,18 +184,18 @@ td {
     position: fixed;
     display: none;
     top: 590px;
-    right: 155px;
+    right: 174px;
     z-index: -2;
-    width: 150px;
+    width: 56px;
 }
 
 #signature-b {
     position: fixed;
     display: none;
-    top: 1439px;
-    left: 235px;
+    /* top: 1439px; */
+    left: 295px;
     z-index: -2;
-    width: 150px;
+    width: 59px;
 }
 
 span {

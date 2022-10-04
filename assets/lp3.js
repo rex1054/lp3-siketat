@@ -1,4 +1,4 @@
-var siteurl = "http://127.0.0.1:80/lp3-siketat/";
+var siteurl = "http://127.0.0.1:80/lp3/";
 
 $(document).ready(function() {
     $('#tabel-dokumen').DataTable({
