@@ -28,7 +28,7 @@
 <!-- start tahun akademik section -->
 <div class="mb-3">
 <label for="tahun-akademik" class="form-label">Tahun Akademik</label>
-<select class="form-select" id="tahun-akademik" name="tahun-akademik" required aria-label="pilih tahun akademik">
+<select class="form-select pilihan" id="tahun-akademik" name="tahun-akademik" required aria-label="pilih tahun akademik">
 <option selected disabled value="">Pilih Tahun Akademik</option>
 <?php
 $_GET['src'] = 'add';
@@ -41,7 +41,7 @@ include('get/get.ta.php');
 <!-- start fakultas section -->
 <div class="mb-3">
 <label for="fakultas" class="form-label">Fakultas</label>
-<select class="form-select" id="fakultas" name="fakultas" required onchange="fetch_select(this.value, 'prodi');" aria-label="pilih fakultas">
+<select class="form-select pilihan" id="fakultas" name="fakultas" required onchange="fetch_select(this.value, 'prodi');" aria-label="pilih fakultas">
 <option value="" selected disabled>Pilih Fakultas</option>
 <?php 
 $_GET['src'] = 'add';
@@ -54,7 +54,7 @@ include('get/get.fakultas.php');
 <!-- start prodi section -->
 <div class="mb-3">
 <label for="prodi" class="form-label">Prodi</label>
-<select class="form-select" id="prodi" name="prodi" required aria-label="pilih prodi">
+<select class="form-select pilihan" id="prodi" name="prodi" required aria-label="pilih prodi">
 <option selected disabled value="">Pilih Fakultas Terlebih Dahulu</option>
 </select>
 </div>
@@ -77,7 +77,7 @@ include('get/get.fakultas.php');
 <!-- start penyusun section -->
 <div class="mb-3">
     <label for="penyusun" class="form-label">Nama Penyusun</label>
-    <select class="form-select form-selectize lp3-penyusun" id="penyusun1" name="penyusun1" required aria-label="pilih penyusun">
+    <select class="form-select lp3-penyusun pilihan" id="penyusun1" name="penyusun1" required aria-label="pilih penyusun">
     <option value="" selected disabled>Pilih Dosen</option>
       <?php
       $_GET['src'] = 'add';
@@ -87,7 +87,7 @@ include('get/get.fakultas.php');
   </div>
 <div class="mb-3 hiden">
     <label for="penyusun" class="form-label">Nama Penyusun 2</label>
-    <select class="form-select form-selectize lp3-penyusun" id="penyusun2" name="penyusun2" aria-label="pilih penyusun">
+    <select class="form-select lp3-penyusun pilihan" id="penyusun2" name="penyusun2" aria-label="pilih penyusun">
     <option value="" selected disabled>Pilih Dosen</option>
       <?php
       $_GET['src'] = 'add';
@@ -97,7 +97,7 @@ include('get/get.fakultas.php');
   </div>
 <div class="mb-3 hiden">
     <label for="penyusun" class="form-label">Nama Penyusun 3</label>
-    <select class="form-select form-selectize lp3-penyusun" id="penyusun3" name="penyusun3" aria-label="pilih penyusun">
+    <select class="form-select lp3-penyusun pilihan" id="penyusun3" name="penyusun3" aria-label="pilih penyusun">
     <option value="" selected disabled>Pilih Dosen</option>
       <?php
       $_GET['src'] = 'add';
@@ -107,7 +107,7 @@ include('get/get.fakultas.php');
   </div>
 <div class="mb-3 hiden">
     <label for="penyusun" class="form-label">Nama Penyusun 4</label>
-    <select class="form-select form-selectize lp3-penyusun" id="penyusun4" name="penyusun4" aria-label="pilih penyusun">
+    <select class="form-select lp3-penyusun pilihan" id="penyusun4" name="penyusun4" aria-label="pilih penyusun">
     <option value="" selected disabled>Pilih Dosen</option>
       <?php
       $_GET['src'] = 'add';
@@ -117,7 +117,7 @@ include('get/get.fakultas.php');
   </div>
 <div class="mb-3 hiden">
     <label for="penyusun" class="form-label">Nama Penyusun 5</label>
-    <select class="form-select form-selectize lp3-penyusun" id="penyusun5" name="penyusun5" aria-label="pilih penyusun">
+    <select class="form-select lp3-penyusun pilihan" id="penyusun5" name="penyusun5" aria-label="pilih penyusun">
     <option value="" selected disabled>Pilih Dosen</option>
       <?php
       $_GET['src'] = 'add';
@@ -127,7 +127,7 @@ include('get/get.fakultas.php');
   </div>
 <div class="mb-3 hiden">
     <label for="penyusun" class="form-label">Nama Penyusun 6</label>
-    <select class="form-select form-selectize lp3-penyusun" id="penyusun6" name="penyusun6" aria-label="pilih penyusun">
+    <select class="form-select lp3-penyusun pilihan" id="penyusun6" name="penyusun6" aria-label="pilih penyusun">
     <option value="" selected disabled>Pilih Dosen</option>
       <?php
       $_GET['src'] = 'add';
@@ -137,7 +137,7 @@ include('get/get.fakultas.php');
   </div>
 <div class="mb-3 hiden">
     <label for="penyusun" class="form-label">Nama Penyusun 7</label>
-    <select class="form-select form-selectize lp3-penyusun" id="penyusun7" name="penyusun7" aria-label="pilih penyusun">
+    <select class="form-select lp3-penyusun pilihan" id="penyusun7" name="penyusun7" aria-label="pilih penyusun">
     <option value="" selected disabled>Pilih Dosen</option>
       <?php
       $_GET['src'] = 'add';
@@ -147,7 +147,7 @@ include('get/get.fakultas.php');
   </div>
 <div class="mb-3 hiden">
     <label for="penyusun" class="form-label">Nama Penyusun 8</label>
-    <select class="form-select form-selectize lp3-penyusun" id="penyusun8" name="penyusun8" aria-label="pilih penyusun">
+    <select class="form-select lp3-penyusun pilihan" id="penyusun8" name="penyusun8" aria-label="pilih penyusun">
     <option value="" selected disabled>Pilih Dosen</option>
       <?php
       $_GET['src'] = 'add';
@@ -157,7 +157,7 @@ include('get/get.fakultas.php');
   </div>
 <div class="mb-3 hiden">
     <label for="penyusun" class="form-label">Nama Penyusun 9</label>
-    <select class="form-select form-selectize lp3-penyusun" id="penyusun9" name="penyusun9" aria-label="pilih penyusun">
+    <select class="form-select lp3-penyusun pilihan" id="penyusun9" name="penyusun9" aria-label="pilih penyusun">
     <option value="" selected disabled>Pilih Dosen</option>
       <?php
       $_GET['src'] = 'add';
@@ -167,7 +167,7 @@ include('get/get.fakultas.php');
   </div>
 <div class="mb-3 hiden">
     <label for="penyusun" class="form-label">Nama Penyusun 10</label>
-    <select class="form-select form-selectize lp3-penyusun" id="penyusun10" name="penyusun10" aria-label="pilih penyusun">
+    <select class="form-select lp3-penyusun pilihan" id="penyusun10" name="penyusun10" aria-label="pilih penyusun">
     <option value="" selected disabled>Pilih Dosen</option>
       <?php
       $_GET['src'] = 'add';

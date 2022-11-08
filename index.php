@@ -8,12 +8,12 @@
 
 <link rel="icon" type="image/png" href="<?php echo $siteurl; ?>assets/logo.jpg">
 <link rel="stylesheet" type="text/css" href="<?php echo $siteurl; ?>assets/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="<?php echo $siteurl; ?>assets/lp3-main.css">
 <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
+<link rel="stylesheet" href="<?php echo $siteurl; ?>assets/select2.min.css"/>
 <link rel="stylesheet" href="<?php echo $siteurl; ?>assets/dashboard.css">
 <link rel="stylesheet" type="text/css"
-        href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.12.1/b-2.2.3/b-colvis-2.2.3/b-html5-2.2.3/b-print-2.2.3/fh-3.2.3/r-2.3.0/sc-2.0.6/datatables.min.css" />
+href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.12.1/b-2.2.3/b-colvis-2.2.3/b-html5-2.2.3/b-print-2.2.3/fh-3.2.3/r-2.3.0/sc-2.0.6/datatables.min.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $siteurl; ?>assets/lp3-main.css">
 
 </head>
 
@@ -74,24 +74,15 @@
 <!-- end content -->
 </div>
 
-<script src="<?php echo $siteurl; ?>assets/bootstrap.min.js"></script>
 <script src="<?php echo $siteurl; ?>assets/jquery.min.js"></script>
-<script src="<?php echo $siteurl; ?>assets/lp3-pagination.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
-<script src="<?php echo $siteurl; ?>assets/lp3.js"></script>
-<script>
-$(document).ready(function () {
-  $('.lp3-penyusun').selectize({
-    sortField: 'text'
-  });
-  
-});
-</script>
-<script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script>
+<script src="<?php echo $siteurl; ?>assets/bootstrap.min.js"></script>
+<script src="<?php echo $siteurl; ?>assets/select2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
 <script src="<?php echo $siteurl; ?>assets/chartjs-plugin-annotation.js"></script>
 <script type="text/javascript" src="<?php echo $siteurl; ?>assets/DataTables/datatables.min.js"></script>
-
+<script src="<?php echo $siteurl; ?>assets/lp3-pagination.js"></script>
+<script src="<?php echo $siteurl; ?>assets/lp3.js"></script>
 </body>
 
 </html>

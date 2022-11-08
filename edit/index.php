@@ -8,11 +8,11 @@
 
 <link rel="icon" type="image/png" href="<?php echo $siteurl ?>assets/logo.jpg">
 <link rel="stylesheet" type="text/css" href="<?php echo $siteurl ?>assets/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="<?php echo $siteurl ?>assets/lp3-main.css">
+<link rel="stylesheet" href="<?php echo $siteurl; ?>assets/select2.min.css"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="<?php echo $siteurl ?>assets/lp3-main.css">
 <script src="<?php echo $siteurl ?>assets/jquery.min.js"></script>
 <script src="<?php echo $siteurl ?>assets/bootstrap.min.js"></script>
-<script src="<?php echo $siteurl ?>assets/jquery.min.js"></script>
 </head>
 
 <body>
@@ -46,18 +46,10 @@ if($_GET['act'] == 'dokumen') {
 ?>
 <!-- end content -->
 
-<script src="<?php echo $siteurl ?>assets/bootstrap.min.js"></script>
 <script src="<?php echo $siteurl ?>assets/jquery.min.js"></script>
+<script src="<?php echo $siteurl ?>assets/bootstrap.min.js"></script>
+<script src="<?php echo $siteurl; ?>assets/select2.min.js"></script>
 <script src="<?php echo $siteurl ?>assets/lp3.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
-<script>
-$(document).ready(function () {
-  $('.lp3-penyusun').selectize({
-    sortField: 'text'
-  });
-  
-});
-</script>
 </body>
 
 </html>

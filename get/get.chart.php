@@ -38,7 +38,7 @@ function charts() {
               $_GET['jenis']='1';
               $_GET['ta']=$_GET['aka'];
               include('get.dashboard.data.php');
-              if($i == count($prodi)) {}
+              if($i == count($prodi)-1) {}
               else{
                 echo ',';
               }

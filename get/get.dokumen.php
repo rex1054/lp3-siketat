@@ -129,7 +129,7 @@ if(isset($_GET['id']))
                                                     <!-- start tahun akademik section -->
                                                     <div class="mb-3">
                                                     <label for="tahun-akademik" class="form-label">Tahun Akademik</label>
-                                                    <select class="form-select" id="tahun-akademik" name="tahun-akademik" required aria-label="pilih tahun akademik">
+                                                    <select class="form-select pilihan" id="tahun-akademik" name="tahun-akademik" required aria-label="pilih tahun akademik">
                                                     <option value="<?php echo $hasil['ta']; ?>"><?php echo $hasil4['ta']; ?></option>
                                                     <?php
                                                     include('get.ta.php');
@@ -141,7 +141,7 @@ if(isset($_GET['id']))
                                                     <!-- start fakultas section -->
                                                     <div class="mb-3">
                                                     <label for="fakultas" class="form-label">Fakultas</label>
-                                                    <select class="form-select" id="fakultas" name="fakultas" required onchange="fetch_select(this.value);" aria-label="pilih fakultas">
+                                                    <select class="form-select pilihan" id="fakultas" name="fakultas" required onchange="fetch_select(this.value);" aria-label="pilih fakultas">
                                                     <option value="<?php echo $hasil['fakultas']; ?>" selected><?php echo $hasil2['fakultas']; ?></option>
                                                     <?php 
                                                     include('get.fakultas.php');
@@ -153,7 +153,7 @@ if(isset($_GET['id']))
                                                     <!-- start prodi section -->
                                                     <div class="mb-3">
                                                     <label for="prodi" class="form-label">Prodi</label>
-                                                    <select class="form-select" id="prodi" name="prodi" required aria-label="pilih prodi">
+                                                    <select class="form-select pilihan" id="prodi" name="prodi" required aria-label="pilih prodi">
                                                     <option selected value="<?php echo $hasil['prodi']; ?>"><?php echo $hasil3['prodi']; ?></option>
                                                     </select>
                                                     </div>
@@ -180,7 +180,7 @@ if(isset($_GET['id']))
                                                         ?>
                                                         <div class="mb-3">
                                                         <label for="penyusun" class="form-label">Nama Penyusun <?php if ($l == 1){} else {echo $l;} ?></label>
-                                                        <select class="form-select form-selectize lp3-penyusun" id="penyusun<?php echo $l; ?>" name="penyusun<?php echo $l; ?>" <?php if ($l == 1){echo 'required';} else {} ?> aria-label="pilih penyusun">
+                                                        <select class="form-select lp3-penyusun pilihan" id="penyusun<?php echo $l; ?>" name="penyusun<?php echo $l; ?>" <?php if ($l == 1){echo 'required';} else {} ?> aria-label="pilih penyusun">
                                                         <option value="" selected disabled><?php echo $hasil5['nama']; ?></option>
                                                         <?php
                                                         include('get.dosen.php');
@@ -195,7 +195,7 @@ if(isset($_GET['id']))
                                                             ?>
                                                             <div class="mb-3 hiden">
                                                             <label for="penyusun" class="form-label">Nama Penyusun <?php echo $l; ?></label>
-                                                            <select class="form-select form-selectize lp3-penyusun" id="penyusun<?php echo $l; ?>" name="penyusun<?php echo $l; ?>" aria-label="pilih penyusun">
+                                                            <select class="form-select lp3-penyusun pilihan" id="penyusun<?php echo $l; ?>" name="penyusun<?php echo $l; ?>" aria-label="pilih penyusun">
                                                             <option value="" selected disabled>Pilih Dosen</option>
                                                             <?php
                                                             include('get.dosen.php');
@@ -208,7 +208,7 @@ if(isset($_GET['id']))
                                                             ?>
                                                             <div class="mb-3 hiden">
                                                             <label for="penyusun" class="form-label">Nama Penyusun <?php echo '10'; ?></label>
-                                                            <select class="form-select form-selectize lp3-penyusun" id="penyusun<?php echo $l; ?>" name="penyusun<?php echo $l; ?>" aria-label="pilih penyusun">
+                                                            <select class="form-select lp3-penyusun pilihan" id="penyusun<?php echo $l; ?>" name="penyusun<?php echo $l; ?>" aria-label="pilih penyusun">
                                                             <option value="" selected disabled>Pilih Dosen</option>
                                                             <?php
                                                             include('get.dosen.php');

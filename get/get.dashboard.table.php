@@ -10,24 +10,21 @@ if($getProdi->num_rows == 0) {
 else {
     if(mysqli_num_rows($getProdi)>0) { 
         while ($prodi = mysqli_fetch_array($getProdi)) {
-            $getMKQuery = "SELECT jumlah_mk from mk where id_prodi = ".$prodi['id_prodi']." AND id_ta = ".$_GET['aka'];
+            $getMKQuery = "SELECT jumlah_mk from mk where id_prodi = ".$prodi['id_prodi']." AND id_ta = ".$_GET['ta'];
             $getMK = $con->query($getMKQuery);
-            $getRPSQuery = "SELECT COUNT(id) as 'rps' from dokumen where jenis = 1 AND ta = ".$_GET['aka']." AND prodi = ".$prodi['id_prodi'];
+            $getRPSQuery = "SELECT COUNT(id) as 'rps' from dokumen where jenis = 1 AND ta = ".$_GET['ta']." AND prodi = ".$prodi['id_prodi'];
             $getRPS = $con->query($getRPSQuery);
-            $getCapaianQuery = "SELECT COUNT(dokumen.id) as 'COUNT(id)', mk.jumlah_mk FROM dokumen join mk on dokumen.prodi = mk.id_prodi where dokumen.prodi = ".$prodi['id_prodi']." AND  dokumen.jenis = 1 AND dokumen.ta = ".$_GET['aka'];
-            $getCapaian = $con->query($getCapaianQuery);
             
             $mk = $getMK->fetch_assoc();
             $rps = $getRPS->fetch_assoc();
-            $capai = $getCapaian->fetch_assoc();
 
             if(isset($mk['jumlah_mk'])){
 
             $capaian;
-            if($capai['jumlah_mk'] == 0){
+            if($mk['jumlah_mk'] == 0 || $rps['rps'] == 0){
                 $capaian = 0;
             } else {
-                $capaian = $capai['COUNT(id)']/$capai['jumlah_mk']*100;
+                $capaian = $rps['rps'] / $mk['jumlah_mk'] *100;
             }
             
             
@@ -41,8 +38,8 @@ else {
             </tr>
             <?php
             } else {
-                echo '<div class="text-center" style="font-size: 14pt; color: red;">Data tidak tersedia.</div>';
-                break;
+                // echo '<div class="text-center" style="font-size: 14pt; color: red;">Data tidak tersedia.</div>';
+                // break;
             }
         } 
         } ?>

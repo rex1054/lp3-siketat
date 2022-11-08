@@ -109,7 +109,9 @@ $idDok = $_GET['id'];
 <!-- start validator section -->
 <div class="row section-c">
 <div class="col-md-12">
-<p>Pemeriksa/Validator: Ilanka Cahya Dewi, S.T., M.T (.................................)</p>
+<p style="margin-bottom: 0px!important;">Pemeriksa/Validator: Dr. Lady Agustina, M.Pd. (.................................)</p>
+<br/>
+<p style="text-align: left; margin-left: 222px;">Ilanka Cahya Dewi, S.T., M.T (.................................)</p>
 <br/>
 <p>Hasil Pemeriksaan: Telah divalidasi dan disetujui untuk digunakan.</p>
 </div>

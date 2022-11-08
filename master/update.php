@@ -11,10 +11,10 @@ $query = 'UPDATE `mk` SET `jumlah_mk`='.$mk.' WHERE id = '.$id;
         console.log("Berhasil menyimpan data");
         var z = confirm("Berhasil menyimpan data");
         if (z == true) {
-            window.open('<?php echo $siteurl ?>'+'master/?ta=1', '_SELF');
+            window.open('<?php echo $siteurl."master/?ta=".$_POST['ta']; ?>', '_SELF');
         }
         else {
-            window.open('<?php echo $siteurl ?>'+'master/?ta=1', '_SELF');
+            window.open('<?php echo $siteurl."master/?ta=".$_POST['ta']; ?>', '_SELF');
         }
         </script>
         <?php
@@ -25,8 +25,10 @@ $query = 'UPDATE `mk` SET `jumlah_mk`='.$mk.' WHERE id = '.$id;
         console.log("Gagal menyimpan data");
         var z = confirm("Gagal menyimpan data, cek apakah nama sudah ada");
         if (z == true) {
+            window.open('<?php echo $siteurl."master/?ta=".$_POST['ta']; ?>', '_SELF');
         }
         else {
+            window.open('<?php echo $siteurl."master/?ta=".$_POST['ta']; ?>', '_SELF');
         }
         </script>
         <?php
