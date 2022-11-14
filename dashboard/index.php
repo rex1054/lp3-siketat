@@ -1,20 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php include('../config.php');?>
+<?php 
+session_start();
+include('../config.php');
+if(isset($_GET['t'])){
+    
+} else {
+    $sql = 'SELECT * FROM ta ORDER BY id DESC LIMIT 1';
+    $tadata = $con->query($sql);
+    if($tadata->num_rows > 0){
+        $data = $tadata->fetch_assoc();
+        $_GET['ta'] = $data['id_ta'];
+        $_GET['t'] = $data['ta'];
+    } else {
+        $_GET['ta'] = 3;
+        $_GET['t'] = '2022 Ganjil';
+    }
+}
+?>
 <head>
 <title>LP3 - CAPAIAN RPS TAHUN AKADEMIK <?php echo $_GET['t']; ?></title>
 <meta name="description" content="Sistem Kelola Tanda Terima">
 <meta name="author" content="REXYST">
 
-<link rel="icon" type="image/png" href="../assets/logo.jpg">
-<link rel="stylesheet" type="text/css" href="../assets/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="../assets/lp3-main.css">
+<link rel="icon" type="image/png" href="<?php echo $siteurl; ?>assets/logo.jpg">
+<link rel="stylesheet" type="text/css" href="<?php echo $siteurl; ?>assets/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="<?php echo $siteurl; ?>assets/lp3-main.css">
 <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-<script src="../assets/jquery.min.js"></script>
-<script src="../assets/bootstrap.min.js"></script>
+<script src="<?php echo $siteurl; ?>assets/jquery.min.js"></script>
+<script src="<?php echo $siteurl; ?>assets/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
-<link rel="stylesheet" href="../assets/dashboard.css">
-<link rel="stylesheet" href="../assets/dashboard-print.css">
+<link rel="stylesheet" href="<?php echo $siteurl; ?>assets/dashboard.css">
+<link rel="stylesheet" href="<?php echo $siteurl; ?>assets/dashboard-print.css">
 
 </head>
 
@@ -122,119 +139,200 @@ include('../get/get.dashboard.table.php');
 <!-- end content -->
 </div>
 
-<script src="../assets/jquery.min.js"></script>
-<script src="../assets/bootstrap.min.js"></script>
+<script src="<?php echo $siteurl; ?>assets/jquery.min.js"></script>
+<script src="<?php echo $siteurl; ?>assets/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script>
-<script src="../assets/chartjs-plugin-annotation.js"></script>
-<script src="../assets/lp3.js"></script>
+<script src="<?php echo $siteurl; ?>assets/chartjs-plugin-annotation.js"></script>
+<script src="<?php echo $siteurl; ?>assets/lp3.js"></script>
 <div id="chartz">
 <?php 
 $_GET['aka'] = $_GET['ta'];
 include('../get/get.chart.php'); 
 ?>
 </div>
+
 <script>
-            var id = 'dashboard-table';
-            var n = 3;
-            var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-            table = document.getElementById(id);
-            switching = true;
-            //Set the sorting direction to ascending:
-            dir = "desc";
-            /*Make a loop that will continue until
-            no switching has been done:*/
-            while (switching) {
-                //start by saying: no switching is done:
-                    switching = false;
-                    rows = table.rows;
-                    /*Loop through all table rows (except the
-                    first, which contains table headers):*/
-                    for (i = 1; i < (rows.length - 1); i++) {
-                        //start by saying there should be no switching:
-                            shouldSwitch = false;
-                            /*Get the two elements you want to compare,
-                            one from current row and one from the next:*/
-                            x = rows[i].getElementsByTagName("TD")[n];
-                            y = rows[i + 1].getElementsByTagName("TD")[n];
-                            /*check if the two rows should switch place,
-                            based on the direction, asc or desc:*/
-                            if (n == 0) {
-                                if (dir == "asc") {
-                                    if (Number(x.innerHTML) > Number(y.innerHTML)) {
-                                        shouldSwitch = true;
-                                        break;
-                                    }
-                                } else if (dir == "desc") {
-                                    if (Number(x.innerHTML) < Number(y.innerHTML)) {
-                                        shouldSwitch = true;
-                                        break;
-                                    }
+var id = 'tabel-rank';
+var n = 3;
+var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+table = document.getElementById(id);
+switching = true;
+//Set the sorting direction to ascending:
+dir = "desc";
+/*Make a loop that will continue until
+no switching has been done:*/
+while (switching) {
+    //start by saying: no switching is done:
+        switching = false;
+        rows = table.rows;
+        /*Loop through all table rows (except the
+        first, which contains table headers):*/
+        for (i = 1; i < (rows.length - 1); i++) {
+            //start by saying there should be no switching:
+                shouldSwitch = false;
+                /*Get the two elements you want to compare,
+                one from current row and one from the next:*/
+                x = rows[i].getElementsByTagName("TD")[n];
+                y = rows[i + 1].getElementsByTagName("TD")[n];
+                /*check if the two rows should switch place,
+                based on the direction, asc or desc:*/
+                if (n == 0) {
+                    if (dir == "asc") {
+                        if (Number(x.innerHTML) > Number(y.innerHTML)) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    } else if (dir == "desc") {
+                        if (Number(x.innerHTML) < Number(y.innerHTML)) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    }
+                } else {
+                    if (dir == "asc") {
+                        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                            //if so, mark as a switch and break the loop:
+                                shouldSwitch = true;
+                                break;
+                            }
+                        } else if (dir == "desc") {
+                            if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                                //if so, mark as a switch and break the loop:
+                                    shouldSwitch = true;
+                                    break;
                                 }
-                            } else {
-                                if (dir == "asc") {
-                                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-                                        //if so, mark as a switch and break the loop:
-                                            shouldSwitch = true;
-                                            break;
+                            }
+                        }
+                    }
+                    if (shouldSwitch) {
+                        /*If a switch has been marked, make the switch
+                        and mark that a switch has been done:*/
+                        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                        switching = true;
+                        //Each time a switch is done, increase this count by 1:
+                            switchcount++;
+                        } else {
+                            /*If no switching has been done AND the direction is "asc",
+                            set the direction to "desc" and run the while loop again.*/
+                            if (switchcount == 0 && dir == "asc") {
+                                dir = "desc";
+                                switching = true;
+                            }
+                        }
+                        
+                    }
+                    
+                    rows = table.rows;
+                    
+                    for(j = 0; j < rows.length; j++){
+                        if(j>10) {
+                            rows[j].style.display = "none";
+                        }
+                    }
+                    
+                    </script>
+                    <script>
+                    var id = 'dashboard-table';
+                    var n = 3;
+                    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+                    table = document.getElementById(id);
+                    switching = true;
+                    //Set the sorting direction to ascending:
+                    dir = "desc";
+                    /*Make a loop that will continue until
+                    no switching has been done:*/
+                    while (switching) {
+                        //start by saying: no switching is done:
+                            switching = false;
+                            rows = table.rows;
+                            /*Loop through all table rows (except the
+                            first, which contains table headers):*/
+                            for (i = 1; i < (rows.length - 1); i++) {
+                                //start by saying there should be no switching:
+                                    shouldSwitch = false;
+                                    /*Get the two elements you want to compare,
+                                    one from current row and one from the next:*/
+                                    x = rows[i].getElementsByTagName("TD")[n];
+                                    y = rows[i + 1].getElementsByTagName("TD")[n];
+                                    /*check if the two rows should switch place,
+                                    based on the direction, asc or desc:*/
+                                    if (n == 0) {
+                                        if (dir == "asc") {
+                                            if (Number(x.innerHTML) > Number(y.innerHTML)) {
+                                                shouldSwitch = true;
+                                                break;
+                                            }
+                                        } else if (dir == "desc") {
+                                            if (Number(x.innerHTML) < Number(y.innerHTML)) {
+                                                shouldSwitch = true;
+                                                break;
+                                            }
                                         }
-                                    } else if (dir == "desc") {
-                                        if (id == 'dashboard-table') {
-                                            if (parseInt(x.innerHTML) < parseInt(y.innerHTML)) {
+                                    } else {
+                                        if (dir == "asc") {
+                                            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
                                                 //if so, mark as a switch and break the loop:
                                                     shouldSwitch = true;
                                                     break;
                                                 }
-                                            } else {
-                                                if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-                                                    //if so, mark as a switch and break the loop:
-                                                        shouldSwitch = true;
-                                                        break;
+                                            } else if (dir == "desc") {
+                                                if (id == 'dashboard-table') {
+                                                    if (parseInt(x.innerHTML) < parseInt(y.innerHTML)) {
+                                                        //if so, mark as a switch and break the loop:
+                                                            shouldSwitch = true;
+                                                            break;
+                                                        }
+                                                    } else {
+                                                        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                                                            //if so, mark as a switch and break the loop:
+                                                                shouldSwitch = true;
+                                                                break;
+                                                            }
+                                                        }
                                                     }
                                                 }
                                             }
-                                        }
-                                    }
-                                    if (shouldSwitch) {
-                                        /*If a switch has been marked, make the switch
-                                        and mark that a switch has been done:*/
-                                        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-                                        switching = true;
-                                        //Each time a switch is done, increase this count by 1:
-                                            switchcount++;
-                                        } else {
-                                            /*If no switching has been done AND the direction is "asc",
-                                            set the direction to "desc" and run the while loop again.*/
-                                            if (switchcount == 0 && dir == "asc") {
-                                                dir = "desc";
+                                            if (shouldSwitch) {
+                                                /*If a switch has been marked, make the switch
+                                                and mark that a switch has been done:*/
+                                                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
                                                 switching = true;
+                                                //Each time a switch is done, increase this count by 1:
+                                                    switchcount++;
+                                                } else {
+                                                    /*If no switching has been done AND the direction is "asc",
+                                                    set the direction to "desc" and run the while loop again.*/
+                                                    if (switchcount == 0 && dir == "asc") {
+                                                        dir = "desc";
+                                                        switching = true;
+                                                    }
+                                                }
+                                                
                                             }
-                                        }
-                                        
-                                    }
-                                    
-                                    </script>
-<script>
-  $(document).ready(function(){
-    (function() {
-      var a = document.getElementById("dashboard-table").querySelectorAll(".ranked");
-    for(var b = 0; b < 29; b++){
-      a[b].innerHTML = b+1;
-    }
-    })()
-  });
-  </script>
-<script>
-  $(document).ready(function(){
-    (function() {
-      var a = document.getElementById("tabel-rank").querySelectorAll(".ranked");
-    for(var b = 0; b < 5; b++){
-      a[b].innerHTML = b+1;
-    }
-    })()
-  });
-  </script>
-
-</body>
-
-</html>
+                                            
+                                            </script>
+                                            <script>
+                                            $(document).ready(function(){
+                                                (function() {
+                                                    var a = document.getElementById("dashboard-table").querySelectorAll(".ranked");
+                                                    for(var b = 0; b < 29; b++){
+                                                        a[b].innerHTML = b+1;
+                                                    }
+                                                })()
+                                            });
+                                            </script>
+                                            <script>
+                                            $(document).ready(function(){
+                                                (function() {
+                                                    var a = document.getElementById("tabel-rank").querySelectorAll(".ranked");
+                                                    for(var b = 0; b < 10; b++){
+                                                        a[b].innerHTML = b+1;
+                                                    }
+                                                })()
+                                            });
+                                            </script>
+                                            
+                                            </body>
+                                            
+                                            </html>

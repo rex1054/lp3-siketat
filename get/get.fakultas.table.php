@@ -1,5 +1,5 @@
 <?php
-require_once('../master.php');
+require_once('../config.php');
 
 $getFakultasSQL = "SELECT * from fakultas";
 $getFakultas = $con->query($getFakultasSQL);

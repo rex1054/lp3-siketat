@@ -1,9 +1,9 @@
 <?php
 // start get fakultas
 if(isset($_GET['src'])){
-    require_once('master.php');
+    require_once('config.php');
 } else {
-    require_once('../master.php');
+    require_once('../config.php');
 }
 
 $getFakQuery = "SELECT * FROM ta ORDER BY id_ta DESC";

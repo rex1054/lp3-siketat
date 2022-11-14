@@ -1,5 +1,5 @@
 <?php
-require_once('../../master.php');
+require_once('../../config.php');
 
 $getProdiSQL = "SELECT prodi.id_prodi, fakultas.fakultas, prodi.prodi, prodi.email, prodi.primer, prodi.nick from prodi join fakultas on prodi.id_fakultas = fakultas.id_fakultas WHERE prodi.id_fakultas = ".$_GET['id'];
 $getProdi = $con->query($getProdiSQL);

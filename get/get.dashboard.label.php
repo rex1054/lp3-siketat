@@ -1,5 +1,5 @@
 <?php
-require('../master.php');
+require_once('../config.php');
 $getDataQuery;
 $getDataQuery = "SELECT nick FROM prodi where primer = 1";
 

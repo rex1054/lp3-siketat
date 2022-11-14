@@ -1,6 +1,5 @@
 <?php
-include('../config.php');
-require('../master.php');
+require_once('../config.php');
 $getDataQuery = "SELECT * FROM dosen where id = ".$_GET['id'];
 $getInfo = $con->query($getDataQuery);
 $hasil = $getInfo->fetch_assoc();

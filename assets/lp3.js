@@ -1,4 +1,10 @@
-var siteurl = "http://127.0.0.1:80/lp3/";
+var siteurl;
+var domain = window.location.hostname;
+if(domain == '127.0.0.1'){
+    siteurl = 'http://'+domain+'/lp3/';
+} else {
+    siteurl = 'https://'+domain+'/';
+}
 
 $(document).ready(function() {
     $('#tabel-dokumen').DataTable({
@@ -7,9 +13,15 @@ $(document).ready(function() {
         },
         order: [[0, 'desc']],
         dom: 'Bfrtip',
-        paging: true,
-        "pageLength": 10,
+        // paging: true,
+        // "pageLength": 20,
+        lengthMenu: [
+            [10, 25, 50, -1],
+            [10, 25, 50, 'All'],
+        ],
+        lengthChange: true,
         buttons: [
+            'pageLength',
             'excelHtml5',
             'pdfHtml5'
         ]
@@ -92,28 +104,6 @@ function signFunc() {
 
 function printFunc() {
     window.print();
-}
-
-function apx(start) {
-    $('#tabel-dokumen').after('<div id="nav" class="centereddd"></div>');
-    var rowsShown = 10;
-    var rowsTotal = $('#tabel-dokumen tbody tr').length;
-    var numPages = rowsTotal / rowsShown;
-    for (i = start; i < numPages; i++) {
-        if (i == start) {
-            var pageNum = i + 1;
-            $('#nav').append('<a class="btn btn-outline-success prev" href="#main-table">Previous</a> ');
-            $('#nav').append('<a class="btn btn-outline-success" href="#main-table" rel="' + i + '">' + pageNum + '</a> ');
-        } else if (i == (Number(start) + 9)) {
-            var pageNum = i + 1;
-            $('#nav').append('<a class="btn btn-outline-success" href="#main-table" rel="' + i + '">' + pageNum + '</a> ');
-            $('#nav').append('<a class="btn btn-outline-success next" href="#main-table">Next</a> ');
-            break;
-        } else {
-            var pageNum = i + 1;
-            $('#nav').append('<a class="btn btn-outline-success" href="#main-table" rel="' + i + '">' + pageNum + '</a> ');
-        }
-    }
 }
 
 function filt(id, x, y) {
@@ -223,7 +213,7 @@ function nav(to) {
     if (to == 'fakultas') {
         window.open(siteurl + 'fakultas', '_SELF');
     } else {
-        window.open(siteurl + '?to=' + to, '_SELF');
+        window.open(siteurl + 'main/?to=' + to, '_SELF');
     }
 }
 

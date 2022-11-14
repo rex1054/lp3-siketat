@@ -1,6 +1,5 @@
 <?php
-include('config.php');
-require_once('master.php');
+require_once('../config.php');
 $sql = "SELECT * FROM dosen";
 $query = $con->query($sql);
 if($query->num_rows == 0) {
@@ -11,11 +10,11 @@ else {
 		
 	<table id="tabel-dosen" class="table table-striped table-hover" cellpadding="5" cellspacing="0">
 	<thead>
-	<th class="table-sort text-center" onclick="sortTable('tabel-dosen',0)">Id</th>
-	<th class="table-sort" onclick="sortTable('tabel-dosen',1)">Nama</th>
-	<th class="table-sort text-center" onclick="sortTable('tabel-dosen',2)">NIDN / NIP</th>
-	<th class="table-sort text-center" onclick="sortTable('tabel-dosen',3)">Jumlah Dokumen</th>
-	<th class="table-sort text-center">Aksi</th>
+	<th class="text-center">Id</th>
+	<th>Nama</th>
+	<th class="text-center">NIDN / NIP</th>
+	<th class="text-center">Jumlah Dokumen</th>
+	<th class="text-center">Aksi</th>
 	</thead>
 	<tbody>
 	<?php if(mysqli_num_rows($query)>0) { ?>
@@ -34,10 +33,10 @@ else {
 			<div id="aksi" class="d-flex justify-content-center container">
 			<div class="row">
 			<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
-			<a target="_self" class="aksi" href="<?php echo $siteurl; ?>dosen/detail/?id=<?php echo $data['id']; ?>"><img src="assets/show.png"></a>
+			<a target="_self" class="aksi" href="<?php echo $siteurl; ?>dosen/detail/?id=<?php echo $data['id']; ?>"><img src="<?php echo $siteurl; ?>assets/show.png"></a>
 			</div>
 			<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
-			<a target="_self" class="aksi" href="<?php echo $siteurl; ?>edit/?act=dosen&id=<?php echo $data['id']; ?>"><img src="assets/edit.png"></a>
+			<a target="_self" class="aksi" href="<?php echo $siteurl; ?>edit/?act=dosen&id=<?php echo $data['id']; ?>"><img src="<?php echo $siteurl; ?>assets/edit.png"></a>
 			</div>
 			</div>
 			</div>

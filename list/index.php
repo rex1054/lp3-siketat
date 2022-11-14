@@ -1,5 +1,5 @@
 <?php
-require_once('master.php');
+require_once('../config.php');
 
 $sql = "SELECT dokumen.tanggal, dokumen.id, ta.ta, jenis.jenis, fakultas.fakultas, prodi.prodi, dokumen.mk from dokumen join jenis on dokumen.jenis = jenis.id_jenis join fakultas on dokumen.fakultas = fakultas.id_fakultas join prodi on dokumen.prodi = prodi.id_prodi join ta on dokumen.ta = ta.id_ta ORDER BY dokumen.id DESC";
 $sql2 = "SELECT * FROM fakultas";
@@ -77,14 +77,14 @@ else {
 	<br/><h2>Jumlah Dokumen : <?php echo $query->num_rows; ?></h2><br/>
 	<table id="tabel-dokumen" class="table table-striped table-hover" cellpadding="5" cellspacing="0">
 	<thead>
-	<th class="table-sort text-center" onclick="sortTable('tabel-dokumen',0)">Id</th>
-	<th class="table-sort text-center" onclick="sortTable('tabel-dokumen',1)">Tahun Akademik</th>
-	<th class="table-sort text-center" onclick="sortTable('tabel-dokumen',2)">Jenis</th>
-	<th class="table-sort" onclick="sortTable('tabel-dokumen',3)">Dokumen</th>
-	<th class="table-sort" onclick="sortTable('tabel-dokumen',4)">Fakultas</th>
-	<th class="table-sort" onclick="sortTable('tabel-dokumen',5)">Prodi</th>
-	<th class="table-sort" onclick="sortTable('tabel-dokumen',6)">Penyusun / Ketua Penyusun</th>
-	<th class="table-sort text-center">Tanggal</th>
+	<th class="text-center">Id</th>
+	<th class="text-center">Tahun Akademik</th>
+	<th class="text-center">Jenis</th>
+	<th>Dokumen</th>
+	<th>Fakultas</th>
+	<th>Prodi</th>
+	<th>Penyusun / Ketua Penyusun</th>
+	<th class="text-center">Tanggal</th>
 	<th class="text-center">Aksi</th>
 	</thead>
 	<tbody id="tabel-dokumen-body">
@@ -111,13 +111,13 @@ else {
 			<div id="aksi" class="container">
 			<div class="row">
 			<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
-			<a target="_blank" class="aksi" href="preview/?id=<?php echo $data['id']; ?>&mk=<?php echo $data['mk']; ?>&author=<?php echo $penyusun['nama']; ?>"><img src="assets/show.png"></a>
+			<a target="_blank" class="aksi" href="<?php echo $siteurl; ?>preview/?id=<?php echo $data['id']; ?>&mk=<?php echo $data['mk']; ?>&author=<?php echo $penyusun['nama']; ?>"><img src="<?php echo $siteurl; ?>assets/show.png"></a>
 			</div>
 			<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
-			<a target="_self" class="aksi" href="edit/?act=dokumen&id=<?php echo $data['id']; ?>"><img src="assets/edit.png"></a>
+			<a target="_self" class="aksi" href="<?php echo $siteurl; ?>edit/?act=dokumen&id=<?php echo $data['id']; ?>"><img src="<?php echo $siteurl; ?>assets/edit.png"></a>
 			</div>
 			<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
-			<a target="_self" class="aksi" href="#" onclick="delet(<?php echo $data['id']; ?>)"><img src="assets/delete.png"></a>
+			<a target="_self" class="aksi" href="<?php echo $siteurl; ?>#" onclick="delet(<?php echo $data['id']; ?>)"><img src="<?php echo $siteurl; ?>assets/delete.png"></a>
 			</div>
 			</div>
 			</div>
@@ -127,9 +127,6 @@ else {
 		} ?>
 		</tbody>
 		</table>
-		</div>
-		<div class="col-md-12 text-center">
-		<ul class="pagination pagination-lg pager" id="myPager"></ul>
 		</div>
 		<?php
 	}

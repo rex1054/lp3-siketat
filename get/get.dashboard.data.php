@@ -1,5 +1,5 @@
 <?php
-require('../master.php');
+require_once('../config.php');
 $getDataQuery;
 $jumlah;
 

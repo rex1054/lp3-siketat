@@ -2,12 +2,12 @@
 // start get fakultas
 if(isset($_GET['src'])){
     if($_GET['src']=='fakultas'){
-        require_once('../../master.php');
+        require_once('../../config.php');
     } else {
-        require_once('master.php');
+        require_once('config.php');
     }
 } else {
-    require_once('../master.php');
+    require_once('../config.php');
 }
 
 $getFakQuery = "SELECT * FROM fakultas";

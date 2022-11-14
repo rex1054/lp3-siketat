@@ -1,6 +1,5 @@
 <?php
-include('../config.php');
-require('../master.php');
+require_once('../config.php');
 if(isset($_GET['id']))
 {
     $state = $_GET['id'];

@@ -32,7 +32,7 @@
 <option selected disabled value="">Pilih Tahun Akademik</option>
 <?php
 $_GET['src'] = 'add';
-include('get/get.ta.php');
+include('../get/get.ta.php');
 ?>
 </select>
 </div>
@@ -45,7 +45,7 @@ include('get/get.ta.php');
 <option value="" selected disabled>Pilih Fakultas</option>
 <?php 
 $_GET['src'] = 'add';
-include('get/get.fakultas.php');
+include('../get/get.fakultas.php');
 ?>
 </select>
 </div>
@@ -81,7 +81,7 @@ include('get/get.fakultas.php');
     <option value="" selected disabled>Pilih Dosen</option>
       <?php
       $_GET['src'] = 'add';
-      include('get/get.dosen.php');
+      include('../get/get.dosen.php');
       ?>
     </select>
   </div>
@@ -91,7 +91,7 @@ include('get/get.fakultas.php');
     <option value="" selected disabled>Pilih Dosen</option>
       <?php
       $_GET['src'] = 'add';
-      include('get/get.dosen.php');
+      include('../get/get.dosen.php');
       ?>
     </select>
   </div>
@@ -101,7 +101,7 @@ include('get/get.fakultas.php');
     <option value="" selected disabled>Pilih Dosen</option>
       <?php
       $_GET['src'] = 'add';
-      include('get/get.dosen.php');
+      include('../get/get.dosen.php');
       ?>
     </select>
   </div>
@@ -111,7 +111,7 @@ include('get/get.fakultas.php');
     <option value="" selected disabled>Pilih Dosen</option>
       <?php
       $_GET['src'] = 'add';
-      include('get/get.dosen.php');
+      include('../get/get.dosen.php');
       ?>
     </select>
   </div>
@@ -121,7 +121,7 @@ include('get/get.fakultas.php');
     <option value="" selected disabled>Pilih Dosen</option>
       <?php
       $_GET['src'] = 'add';
-      include('get/get.dosen.php');
+      include('../get/get.dosen.php');
       ?>
     </select>
   </div>
@@ -131,7 +131,7 @@ include('get/get.fakultas.php');
     <option value="" selected disabled>Pilih Dosen</option>
       <?php
       $_GET['src'] = 'add';
-      include('get/get.dosen.php');
+      include('../get/get.dosen.php');
       ?>
     </select>
   </div>
@@ -141,7 +141,7 @@ include('get/get.fakultas.php');
     <option value="" selected disabled>Pilih Dosen</option>
       <?php
       $_GET['src'] = 'add';
-      include('get/get.dosen.php');
+      include('../get/get.dosen.php');
       ?>
     </select>
   </div>
@@ -151,7 +151,7 @@ include('get/get.fakultas.php');
     <option value="" selected disabled>Pilih Dosen</option>
       <?php
       $_GET['src'] = 'add';
-      include('get/get.dosen.php');
+      include('../get/get.dosen.php');
       ?>
     </select>
   </div>
@@ -161,7 +161,7 @@ include('get/get.fakultas.php');
     <option value="" selected disabled>Pilih Dosen</option>
       <?php
       $_GET['src'] = 'add';
-      include('get/get.dosen.php');
+      include('../get/get.dosen.php');
       ?>
     </select>
   </div>
@@ -171,7 +171,7 @@ include('get/get.fakultas.php');
     <option value="" selected disabled>Pilih Dosen</option>
       <?php
       $_GET['src'] = 'add';
-      include('get/get.dosen.php');
+      include('../get/get.dosen.php');
       ?>
     </select>
   </div>

@@ -1,6 +1,6 @@
 <?php
 // start get first information table
-require_once('../master.php');
+require_once('../config.php');
 $hehe = $_GET['id'];
 $getInfoQuery = "SELECT jenis.jenis, fakultas.fakultas, prodi.prodi, dokumen.mk, dokumen.modul, dokumen.kode_mk, dokumen.kode_dokumen, dokumen.tanggal from dokumen join jenis on dokumen.jenis = jenis.id_jenis join fakultas on dokumen.fakultas = fakultas.id_fakultas join prodi on dokumen.prodi = prodi.id_prodi where dokumen.id = ".$hehe;
 $getInfo = $con->query($getInfoQuery);
