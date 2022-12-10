@@ -1,15 +1,5 @@
 <?php
 // start get fakultas
-if(isset($_GET['src'])){
-    if($_GET['src']=='fakultas'){
-        require_once('../../config.php');
-    } else {
-        require_once('config.php');
-    }
-} else {
-    require_once('../config.php');
-}
-
 $getFakQuery = "SELECT * FROM fakultas";
 $getFak = $con->query($getFakQuery);
 if($getFak->num_rows == 0) {

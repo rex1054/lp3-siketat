@@ -1,5 +1,4 @@
 <?php
-require_once('../../config.php');
 
 $getProdiSQL = "SELECT prodi.id_prodi, fakultas.fakultas, prodi.prodi, prodi.email, prodi.primer, prodi.nick from prodi join fakultas on prodi.id_fakultas = fakultas.id_fakultas WHERE prodi.id_fakultas = ".$_GET['id'];
 $getProdi = $con->query($getProdiSQL);
@@ -23,13 +22,13 @@ else {
             <div id="aksi" class="d-flex justify-content-center container">
 			<div class="row">
 			<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
-			<a target="_self" class="aksi" href="<?php echo $siteurl; ?>prodi/?id=<?php echo $prodi['id_prodi']; ?>"><img src="<?php echo $siteurl; ?>assets/show.png"></a>
+			<a target="_self" class="aksi" href="<?php echo $siteurl; ?>admin/prodi/?id=<?php echo $prodi['id_prodi']; ?>"><img src="<?php echo $siteurl; ?>assets/img/show.png"></a>
 			</div>
 			<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
-			<a target="_self" data-bs-toggle="modal" onclick="pedit('<?php echo $prodi['id_prodi']; ?>', '<?php echo $prodi['prodi']; ?>', '<?php echo $prodi['email']; ?>', '<?php echo $prodi['primer']; ?>')" data-bs-target="#edit-modal" class="aksi" href="#"><img src="<?php echo $siteurl; ?>assets/edit.png"></a>
+			<a target="_self" data-bs-toggle="modal" onclick="pedit('<?php echo $prodi['id_prodi']; ?>', '<?php echo $prodi['prodi']; ?>', '<?php echo $prodi['email']; ?>', '<?php echo $prodi['primer']; ?>')" data-bs-target="#edit-modal" class="aksi" href="#"><img src="<?php echo $siteurl; ?>assets/img/edit.png"></a>
 			</div>
 			<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
-			<a target="_self" onclick="dele(<?php echo $prodi['id_prodi']; ?>)" class="aksi" href="#"><img src="<?php echo $siteurl; ?>assets/delete.png" <?php if($query['dokumen'] == 0){} else {echo 'hidden';} ?>></a>
+			<a target="_self" onclick="dele(<?php echo $prodi['id_prodi']; ?>, <?php echo $_GET['id']; ?>)" class="aksi" href="#"><img src="<?php echo $siteurl; ?>assets/img/delete.png" <?php if($query['dokumen'] == 0){} else {echo 'hidden';} ?>></a>
 			</div>
 			</div>
 			</div>

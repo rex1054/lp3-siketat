@@ -1,8 +1,8 @@
 <?php
 if(isset($_GET['src'])){
-    require_once('config.php');
+    require_once('master.php');
 } else {
-    require_once('../config.php');
+    require_once('../master.php');
 }
 
 if(isset($_POST['get_option']))

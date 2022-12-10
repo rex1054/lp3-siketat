@@ -1,5 +1,4 @@
 <?php
-require_once('../config.php');
 if(isset($_GET['id']))
 {
     $state = $_GET['id'];
@@ -29,7 +28,7 @@ if(isset($_GET['id']))
             ?>
             <h1 style="text-align: center;"> Ubah Data Tanda Terima</h1>
             
-            <form action="<?php echo $siteurl; ?>edit/save/?act=dokumen&id=<?php echo $state; ?>" method="POST" enctype="multipart/form-data">
+            <form action="<?php echo $siteurl; ?>admin/edit/save/?act=dokumen&id=<?php echo $state; ?>" method="POST" enctype="multipart/form-data">
             <!-- start jenis dokumen section -->
             <div class="mb-3">
             <label for="jenis-dokumen" class="form-label">Jenis Dokumen</label>
@@ -140,7 +139,7 @@ if(isset($_GET['id']))
                                                     <!-- start fakultas section -->
                                                     <div class="mb-3">
                                                     <label for="fakultas" class="form-label">Fakultas</label>
-                                                    <select class="form-select pilihan" id="fakultas" name="fakultas" required onchange="fetch_select(this.value);" aria-label="pilih fakultas">
+                                                    <select class="form-select pilihan" id="fakultas" name="fakultas" required onchange="fetch_slc(this.value, 'prodi');" aria-label="pilih fakultas">
                                                     <option value="<?php echo $hasil['fakultas']; ?>" selected><?php echo $hasil2['fakultas']; ?></option>
                                                     <?php 
                                                     include('get.fakultas.php');

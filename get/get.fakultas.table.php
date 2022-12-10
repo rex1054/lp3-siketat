@@ -1,6 +1,4 @@
 <?php
-require_once('../config.php');
-
 $getFakultasSQL = "SELECT * from fakultas";
 $getFakultas = $con->query($getFakultasSQL);
 
@@ -25,13 +23,13 @@ else {
             <div id="aksi" class="d-flex justify-content-center container">
 			<div class="row">
 			<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
-			<a target="_self" class="aksi" href="<?php echo $siteurl; ?>fakultas/detail/?id=<?php echo $fakultas['id_fakultas']; ?>"><img src="<?php echo $siteurl; ?>assets/show.png"></a>
+			<a target="_self" class="aksi" href="<?php echo $siteurl; ?>admin/fakultas/detail/?id=<?php echo $fakultas['id_fakultas']; ?>"><img src="<?php echo $siteurl; ?>assets/img/show.png"></a>
 			</div>
 			<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
-			<a target="_self" data-bs-toggle="modal" onclick="edit('<?php echo $fakultas['id_fakultas']; ?>', '<?php echo $fakultas['fakultas']; ?>', '<?php echo $fakultas['email']; ?>')" data-bs-target="#edit-modal" class="aksi" href="#"><img src="<?php echo $siteurl; ?>assets/edit.png"></a>
+			<a target="_self" data-bs-toggle="modal" onclick="edit('<?php echo $fakultas['id_fakultas']; ?>', '<?php echo $fakultas['fakultas']; ?>', '<?php echo $fakultas['email']; ?>')" data-bs-target="#edit-modal" class="aksi" href="#"><img src="<?php echo $siteurl; ?>assets/img/edit.png"></a>
 			</div>
 			<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
-			<a target="_self" onclick="del(<?php echo $fakultas['id_fakultas']; ?>)" class="aksi" href="#"><img src="<?php echo $siteurl; ?>assets/delete.png" <?php if($query['dokumen'] == 0){} else {echo 'hidden';} ?>></a>
+			<a target="_self" onclick="del(<?php echo $fakultas['id_fakultas']; ?>)" class="aksi" href="#"><img src="<?php echo $siteurl; ?>assets/img/delete.png" <?php if($query['dokumen'] == 0){} else {echo 'hidden';} ?>></a>
 			</div>
 			</div>
 			</div>
@@ -42,7 +40,7 @@ else {
         } 
     }else {
         echo '<div class="text-center" style="font-size: 14pt; color: red;">Data tidak tersedia.</div>';
-        echo '<a href="<?php echo $siteurl; ?>add-dosen/" class="btn btn-outline-success" target="_SELF">Tambah Dosen</a>';
+        echo '<a href="<?php echo $siteurl; ?>admin/add-dosen/" class="btn btn-outline-success" target="_SELF">Tambah Dosen</a>';
     }
     
 } ?>

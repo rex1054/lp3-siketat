@@ -1,5 +1,5 @@
 <?php
-require_once('../config.php');
+require_once('../master.php');
 
 $getProdiQuery = "SELECT id_prodi, prodi from prodi where primer = 1";
 $getProdi = $con->query($getProdiQuery);
