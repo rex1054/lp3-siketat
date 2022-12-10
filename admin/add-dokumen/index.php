@@ -2,7 +2,7 @@
 <!-- start jenis dokumen section -->
 <div class="mb-3">
 <label for="jenis-dokumen" class="form-label">Jenis Dokumen</label>
-<select class="form-select" id="jenis-dokumen" name="jenis-dokumen" required onchange="checkin(this.value);" aria-label="pilih jenis dokumen">
+<select class="form-select pilihan" id="jenis-dokumen" name="jenis-dokumen" required onchange="checkin(this.value);" aria-label="pilih jenis dokumen">
 <option selected disabled value="">Pilih Jenis Dokumen</option>
 <option value="1">RPS</option>
 <option value="2">Modul</option>

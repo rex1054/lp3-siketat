@@ -26,6 +26,7 @@ if(!isset($_GET['t'])){
 <link rel="stylesheet" type="text/css" href="<?php echo $siteurl; ?>assets/css/bootstrap.min.css">
 <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="<?php echo $siteurl; ?>assets/DataTables/datatables.min.css">
+<link rel="stylesheet" type="text/css" href="<?php echo $siteurl; ?>assets/css/select2.min.css">
 <link rel="stylesheet" type="text/css" href="<?php echo $siteurl; ?>assets/css/lp3-main.css">
 <link rel="stylesheet" href="<?php echo $siteurl; ?>assets/css/dashboard.css">
 <link rel="stylesheet" href="<?php echo $siteurl; ?>assets/css/dashboard-print.css">
@@ -104,6 +105,7 @@ if(!isset($_GET['t'])){
 <script src="<?php echo $siteurl; ?>assets/DataTables/datatables.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script>
+<script src="<?php echo $siteurl; ?>assets/js/select2.min.js"></script>
 <script src="<?php echo $siteurl; ?>assets/js/chartjs-plugin-annotation.js"></script>
 <script src="<?php echo $siteurl; ?>assets/js/lp3.js"></script>
 <div id="chartz">

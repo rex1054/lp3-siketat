@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php include('../config.php'); ?>
+<?php include('../../master.php'); ?>
 <head>
 <title>LP3 - SIKETAT</title>
 <meta name="description" content="Sistem Kelola Tanda Terima">
@@ -55,8 +55,9 @@
 </form>
 <!-- end content -->
 
-<script src="<?php echo $siteurl; ?>assets/bootstrap.min.js"></script>
-<script src="<?php echo $siteurl; ?>assets/lp3.js"></script>
+<script src="<?php echo $siteurl; ?>assets/js/jquery.min.js"></script>
+<script src="<?php echo $siteurl; ?>assets/js/bootstrap.min.js"></script>
+<script src="<?php echo $siteurl; ?>assets/js/lp3.js"></script>
 </body>
 
 </html>
