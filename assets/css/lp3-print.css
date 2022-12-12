@@ -11,6 +11,7 @@
     }
     .page-1 {
         height: calc(297mm - 0.25in);
+        page-break-after: always;
     }
     .page-2 {
         height: 200mm;

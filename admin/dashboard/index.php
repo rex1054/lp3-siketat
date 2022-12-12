@@ -3,7 +3,7 @@
 <h1 class="h2">Dashboard</h1>
 <div class="btn-toolbar mb-2 mb-md-0">
 <div class="btn-group me-2">
-<button type="button" onclick="printFunc()" class="btn btn-sm btn-outline-secondary">Cetak</button>
+<button type="button" onclick="dashPrint(<?php echo $_GET['ta']; ?>)" class="btn btn-sm btn-outline-secondary">Cetak</button>
 </div>
 <select class="btn btn-sm btn-outline-secondary dropdown-toggle" onchange="dashboard('admin', this.value, this.options[this.selectedIndex].text)">
 <option value="<?php $_GET['ta']; ?>" selected disabled><?php echo $_GET['t'];?></option>
@@ -15,7 +15,7 @@
 <div class="col-sm-12 col-md-12 col-xl-12 text-center">
 <h2 style="font-size: 16pt; margin-bottom: 15px;">Grafik Capaian RPS Tahun Akademik <?php echo $_GET['t']; ?> (dalam %)</h2>
 </div>
-<canvas class="my-4 w-100" id="myChart"></canvas>
+<canvas class="my-4 w-100" id="grafik" aria-label="grafik" role="img"></canvas>
 
 <div class="dosen-container">
 <div class="col-sm-12 col-md-12 col-xl-12 text-center">

@@ -1,20 +1,13 @@
 @media print {
-    body {
+    html, body {
         font-size: .875rem;
+        margin: 0 0 0 0 !important;
+        height: auto !important; 
     }
     .feather {
         width: 16px;
         height: 16px;
         vertical-align: text-bottom;
-    }
-    .header-section {
-        display: none;
-    }
-    #myTab {
-        display: none;
-    }
-    .dash-title {
-        display: none !important;
     }
     #dashboard-table td,
     #dashboard-table th {
@@ -23,10 +16,10 @@
     #dasboard-table tr:nth-child(even) {
         background-color: #035efc !important;
     }
-    .dosen-container {
-        display: none !important;
-    }
-    #myChart {
+    #grafik {
         height: 380px !important;
+        page-break-inside: avoid;
+        page-break-before: avoid;
+        page-break-after: avoid
     }
 }

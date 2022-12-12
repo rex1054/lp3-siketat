@@ -1,7 +1,7 @@
 var siteurl;
 var domain = window.location.hostname;
 if(domain == '127.0.0.1'){
-    siteurl = 'http://'+domain+'/lp3-siketat/';
+    siteurl = 'http://'+domain+'/siketat/';
 } else {
     siteurl = 'https://'+domain+'/';
 }
@@ -105,6 +105,10 @@ function fetch_select(val, id) {
             document.getElementById(id).innerHTML = response;
         }
     });
+}
+
+function dashPrint(ta){
+    window.open(siteurl+'landing/dashboard-print.php?ta='+ta, '_blank');
 }
 
 function checkin(val) {

@@ -36,7 +36,7 @@ $tableQuery = $con->query($tableSQL);
 <h4>LEMBAGA PENGKAJIAN DAN PENGEMBANGAN PENDIDIKAN (LP3)</h4>
 <h4>SISTEM KELOLA TANDA TERIMA (SIKETAT)</h4>
 <h4>Versi <?php echo $appver; ?></h4>
-<h4>© <a href="https://s.id/soj-firdaus" target="_blank">Ahmad Firdaus Ababil</a> @<?php echo $rights; ?> | <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a> powered</h4>
+<h4>© <a href="<?php echo $authorlink; ?>" target="_blank">Ahmad Firdaus Ababil</a> @<?php echo $rights; ?> | <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a> & <a href="https://soj.my.id/" target="_blank">SOJ</a> powered</h4>
 </div>
 <div class="col-md-1">
 <img class="header-logo logo-right" src="<?php echo $siteurl; ?>assets/img/iso.jpg">

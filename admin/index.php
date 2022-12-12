@@ -46,7 +46,7 @@ if(!isset($_GET['t'])){
 <h4>LEMBAGA PENGKAJIAN DAN PENGEMBANGAN PENDIDIKAN (LP3)</h4>
 <h4>SISTEM KELOLA TANDA TERIMA (SIKETAT)</h4>
 <h4>Versi <?php echo $appver; ?></h4>
-<h4>© <a href="https://s.id/soj-firdaus" target="_blank">Ahmad Firdaus Ababil</a> @<?php echo $rights; ?> | <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a> powered</h4>
+<h4>© <a href="<?php echo $authorlink; ?>" target="_blank">Ahmad Firdaus Ababil</a> @<?php echo $rights; ?> | <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a> & <a href="https://soj.my.id/" target="_blank">SOJ</a> powered</h4>
 </div>
 <div class="col-md-1">
 <img class="header-logo logo-right" src="<?php echo $siteurl; ?>assets/img/iso.jpg">
@@ -105,8 +105,9 @@ if(!isset($_GET['t'])){
 <script src="<?php echo $siteurl; ?>assets/DataTables/datatables.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.0.1/chart.umd.js" integrity="sha512-gQhCDsnnnUfaRzD8k1L5llCCV6O9HN09zClIzzeJ8OJ9MpGmIlCxm+pdCkqTwqJ4JcjbojFr79rl2F1mzcoLMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="<?php echo $siteurl; ?>assets/js/annotation.js"></script>
 <script src="<?php echo $siteurl; ?>assets/js/select2.min.js"></script>
-<script src="<?php echo $siteurl; ?>assets/js/chartjs-plugin-annotation.js"></script>
 <script src="<?php echo $siteurl; ?>assets/js/lp3.js"></script>
 <div id="chartz">
 <?php 

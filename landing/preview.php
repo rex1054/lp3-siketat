@@ -224,7 +224,7 @@ include('../get/get.page.2.php');
 <div class="container" id="navigasi">
 <ul class="nav justify-content-center">
 <li class="nav-item" role="presentation">
-<button class="nav-link btn btn-outline-danger text-black" id="kembali-tab" type="button" onclick="backFunc()">Kembali</button>
+<button class="nav-link btn btn-outline-danger text-black" id="kembali-tab" type="button" onclick="window.close()">Kembali</button>
 </li>
 <li class="nav-item" role="presentation">
 <button class="nav-link btn btn-outline-info text-black" id="print-tab" type="button" onclick="printFunc()">Cetak</button>
