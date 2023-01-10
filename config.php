@@ -18,7 +18,7 @@ if($domain == '127.0.0.1'){
     $pass = 'ofO%-n.^n)Oy';
     $db = 'sojy3165_lp3';
 }
-$appver = '1.14.2';
+$appver = '1.14.3';
 $rights = '2022';
 $author = 'Ahmad Firdaus Ababil';
 $authorlink = 'https://link.soj.my.id/?p=firdaus';

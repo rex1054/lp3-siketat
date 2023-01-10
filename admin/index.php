@@ -38,17 +38,17 @@ if(!isset($_GET['t'])){
 
 <!-- start header section -->
 <div class="row header-section">
-<div class="col-md-1">
+<div class="col-md-2 center-content">
 <img class="header-logo logo-left" src="<?php echo $siteurl; ?>assets/img/logo.jpg">
 </div>
-<div class="col-md-10 header-lp3">
+<div class="col-md-8 header-lp3">
 <h3>UNIVERSITAS MUHAMMADIYAH JEMBER</h3>
 <h4>LEMBAGA PENGKAJIAN DAN PENGEMBANGAN PENDIDIKAN (LP3)</h4>
 <h4>SISTEM KELOLA TANDA TERIMA (SIKETAT)</h4>
 <h4>Versi <?php echo $appver; ?></h4>
 <h4>© <a href="<?php echo $authorlink; ?>" target="_blank">Ahmad Firdaus Ababil</a> @<?php echo $rights; ?> | <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a> & <a href="https://soj.my.id/" target="_blank">SOJ</a> powered</h4>
 </div>
-<div class="col-md-1">
+<div class="col-md-2 center-content">
 <img class="header-logo logo-right" src="<?php echo $siteurl; ?>assets/img/iso.jpg">
 </div>
 </div>
@@ -115,6 +115,106 @@ $_GET['aka'] = $_GET['ta'];
 include('../get/get.chart.php'); 
 ?>
 </div>
-</body>
-
-</html>
+<script>
+var id = 'dashboard-table';
+var n = 4;
+var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+table = document.getElementById(id);
+switching = true;
+//Set the sorting direction to ascending:
+dir = "desc";
+/*Make a loop that will continue until
+no switching has been done:*/
+while (switching) {
+    //start by saying: no switching is done:
+        switching = false;
+        rows = table.rows;
+        /*Loop through all table rows (except the
+        first, which contains table headers):*/
+        for (i = 1; i < (rows.length - 1); i++) {
+            //start by saying there should be no switching:
+                shouldSwitch = false;
+                /*Get the two elements you want to compare,
+                one from current row and one from the next:*/
+                x = rows[i].getElementsByTagName("TD")[n];
+                y = rows[i + 1].getElementsByTagName("TD")[n];
+                /*check if the two rows should switch place,
+                based on the direction, asc or desc:*/
+                if (n == 0) {
+                    if (dir == "asc") {
+                        if (Number(x.innerHTML) > Number(y.innerHTML)) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    } else if (dir == "desc") {
+                        if (Number(x.innerHTML) < Number(y.innerHTML)) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    }
+                } else {
+                    if (dir == "asc") {
+                        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                            //if so, mark as a switch and break the loop:
+                                shouldSwitch = true;
+                                break;
+                            }
+                        } else if (dir == "desc") {
+                            if (id == 'dashboard-table') {
+                                if (parseInt(x.innerHTML) < parseInt(y.innerHTML)) {
+                                    //if so, mark as a switch and break the loop:
+                                        shouldSwitch = true;
+                                        break;
+                                    }
+                                } else {
+                                    if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                                        //if so, mark as a switch and break the loop:
+                                            shouldSwitch = true;
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        if (shouldSwitch) {
+                            /*If a switch has been marked, make the switch
+                            and mark that a switch has been done:*/
+                            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                            switching = true;
+                            //Each time a switch is done, increase this count by 1:
+                                switchcount++;
+                            } else {
+                                /*If no switching has been done AND the direction is "asc",
+                                set the direction to "desc" and run the while loop again.*/
+                                if (switchcount == 0 && dir == "asc") {
+                                    dir = "desc";
+                                    switching = true;
+                                }
+                            }
+                            
+                        }
+                        
+                        </script>
+                        <script>
+                        $(document).ready(function(){
+                            (function() {
+                                var a = document.getElementById("dashboard-table").querySelectorAll(".ranked");
+                                for(var b = 0; b < 29; b++){
+                                    a[b].innerHTML = b+1;
+                                }
+                            })()
+                        });
+                        </script>
+                        <script>
+                        $(document).ready(function(){
+                            (function() {
+                                var a = document.getElementById("tabel-rank").querySelectorAll(".ranked");
+                                for(var b = 0; b < 5; b++){
+                                    a[b].innerHTML = b+1;
+                                }
+                            })()
+                        });
+                        </script>
+                        </body>
+                        
+                        </html>

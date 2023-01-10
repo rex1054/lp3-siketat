@@ -72,7 +72,7 @@ $(document).ready(function() {
             [10, 25, 50, -1],
             [10, 25, 50, 'All'],
         ],
-        rder: [[3, 'desc']],
+        order: [[3, 'desc']],
         "responsive": true,
         "lengthChange": true,
         "autoWidth": false,
@@ -212,7 +212,7 @@ function admin(){
 
 function dashboard(who, ta, text) {
     if(who == 'admin'){
-        window.open(siteurl + 'admin/dashboard/?ta=' + ta + '&t=' + text, '_self');
+        window.open(siteurl + 'admin/?ta=' + ta + '&t=' + text, '_self');
     } else {
         window.open(siteurl + 'landing/?ta=' + ta + '&t=' + text, '_self');
     }

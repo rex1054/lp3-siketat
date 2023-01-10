@@ -1,6 +1,6 @@
 <?php
-include('../config.php');
-require('../master.php');
+include('../../config.php');
+require('../../master.php');
 $getDataQuery = "SELECT * FROM dosen where id = ".$_GET['id'];
 $getInfo = $con->query($getDataQuery);
 $hasil = $getInfo->fetch_assoc();
@@ -29,7 +29,7 @@ if($getInfo->num_rows == 0) {
     <button type="submit" class="btn btn-primary">Simpan</button>
     <!-- end submit button -->
     <!-- start back button -->
-    <a class="btn btn-danger" href="<?php echo $siteurl; ?>" target="_self">Kembali</a>
+    <a class="btn btn-danger" href="<?php echo $siteurl; ?>admin/" target="_self">Kembali</a>
     <!-- end back button -->
     </form>
     <?php

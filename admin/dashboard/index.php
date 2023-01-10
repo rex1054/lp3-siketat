@@ -21,7 +21,7 @@
 <div class="col-sm-12 col-md-12 col-xl-12 text-center">
 <h2 style="font-size: 16pt; margin-bottom: 15px;">Dosen Dengan Dokumen Terbanyak Tahun Akademik <?php echo $_GET['t']; ?></h2>
 </div>
-<div class="table-responsive">
+<div class="table-responsive" id="rank-table">
 <?php include('../get/get.dashboard.rank.php'); ?>
 </div>
 </div>

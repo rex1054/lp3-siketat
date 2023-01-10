@@ -3,7 +3,6 @@
         margin-left: 50%;
         transform: translateX(-50%);
         font-family: 'Times New Roman', Times, serif;
-        /* border: 1px solid black; */
         width: 210mm;
         padding-left: 2cm;
         padding-right: 2cm;
@@ -50,8 +49,10 @@
     }
     .logo-left {
         margin-top: -5px;
+        margin-left: -15px;
     }
     .logo-right {
+        margin-top: 22px;
         right: 2cm;
     }
     .page-1 .logo-right {
@@ -59,6 +60,9 @@
     }
     .page-2 .logo-right {
         top: calc(292mm);
+    }
+    .page-2 .logo-left {
+        left: -310px !important;
     }
     .main-title {
         text-align: center;
