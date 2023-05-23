@@ -10,7 +10,7 @@ else {
     <thead>
     <th class="table-sort text-center">No.</th>
     <th class="table-sort">Nama</th>
-    <th class="table-sort text-center">NIDN / NIP</th>
+    <th class="table-sort text-center">NIDN/NIP/NPK</th>
     <th class="table-sort text-center">Jumlah Dokumen</th>
     </thead>
     <tbody>

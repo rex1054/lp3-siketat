@@ -39,13 +39,6 @@ h4 {
     color: darkblue;
 }
 
-.center-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items :center;
-}
-
 .header-section {
     border-bottom: 10px solid darkblue;
     border-bottom-style: double;
@@ -67,11 +60,19 @@ h4 {
 }
 
 .logo-left {
-    margin-left: 35px;
+    margin-top: -5px;
 }
 
 .logo-right {
     right: 2cm;
+}
+
+.page-1 .logo-right {
+    top: 0;
+}
+
+.page-2 .logo-right {
+    top: 297mm;
 }
 
 .main-title {

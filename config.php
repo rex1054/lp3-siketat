@@ -6,7 +6,7 @@ $pass;
 $db;
 $domain = $_SERVER['SERVER_NAME'];
 if($domain == '127.0.0.1'){
-    $siteurl = 'http://'.$domain.'/siketat'.'/';
+    $siteurl = 'http://'.$domain.'/lp3-siketat'.'/';
     $host = "127.0.0.1";
     $username = "root";
     $pass = "";
@@ -18,8 +18,9 @@ if($domain == '127.0.0.1'){
     $pass = 'ofO%-n.^n)Oy';
     $db = 'sojy3165_lp3';
 }
-$appver = '1.14.3';
+$appver = '1.14';
 $rights = '2022';
+$now = date_format(date_create('now'), 'Y');
 $author = 'Ahmad Firdaus Ababil';
 $authorlink = 'https://link.soj.my.id/?p=firdaus';
 ?>

@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php include('../config.php'); ?>
-<?php include('../master.php'); ?>
+<?php include('../../config.php'); ?>
+<?php include('../../master.php'); ?>
 <head>
 <title>LP3 - SIKETAT</title>
 <meta name="description" content="Sistem Kelola Tanda Terima">
 <meta name="author" content="REXYST">
 
-<link rel="icon" type="image/png" href="<?php echo $siteurl; ?>assets/logo.jpg">
-<link rel="stylesheet" type="text/css" href="<?php echo $siteurl; ?>assets/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="<?php echo $siteurl; ?>assets/lp3-main.css">
+<link rel="icon" type="image/png" href="<?php echo $siteurl; ?>assets/img/logo.jpg">
+<link rel="stylesheet" type="text/css" href="<?php echo $siteurl; ?>assets/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="<?php echo $siteurl; ?>assets/DataTables/datatables.min.css">
+<link rel="stylesheet" type="text/css" href="<?php echo $siteurl; ?>assets/css/lp3-main.css">
 <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-<script src="<?php echo $siteurl; ?>assets/jquery.min.js"></script>
-<script src="<?php echo $siteurl; ?>assets/bootstrap.min.js"></script>
+<script src="<?php echo $siteurl; ?>assets/js/jquery.min.js"></script>
+<script src="<?php echo $siteurl; ?>assets/js/bootstrap.min.js"></script>
 </head>
 
 <!-- get data script -->
@@ -43,17 +44,17 @@ $tableQuery = $con->query($tableSQL);
 <!-- start header section -->
 <div class="row header-section">
 <div class="col-md-1">
-<img class="header-logo logo-left" src="<?php echo $siteurl; ?>assets/logo.jpg">
+<img class="header-logo logo-left" src="<?php echo $siteurl; ?>assets/img/logo.jpg">
 </div>
 <div class="col-md-10 header-lp3">
 <h3>UNIVERSITAS MUHAMMADIYAH JEMBER</h3>
 <h4>LEMBAGA PENGKAJIAN DAN PENGEMBANGAN PENDIDIKAN (LP3)</h4>
 <h4>SISTEM KELOLA TANDA TERIMA (SIKETAT)</h4>
 <h4>Versi <?php echo $appver; ?></h4>
-<h4>© <a href="<?php echo $authorlink; ?>" target="_blank">Ahmad Firdaus Ababil</a> @<?php echo $rights; ?> | <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a> & <a href="https://soj.my.id/" target="_blank">SOJ</a> powered</h4>
+<h4>© <a href="https://s.id/soj-firdaus" target="_blank">Ahmad Firdaus Ababil</a> @<?php echo $rights; ?> | <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a> powered</h4>
 </div>
 <div class="col-md-1">
-<img class="header-logo logo-right" src="<?php echo $siteurl; ?>assets/iso.jpg">
+<img class="header-logo logo-right" src="<?php echo $siteurl; ?>assets/img/iso.jpg">
 </div>
 </div>
 <!-- end header section -->
@@ -83,7 +84,7 @@ $tableQuery = $con->query($tableSQL);
 <select class="form-select" id="ta" name="ta" onchange="prodi(<?php echo $_GET['id']; ?>, this.value)" required aria-label="pilih tahun akademik">
 <option selected disabled value=""><?php if(isset($_GET['ta'])){ echo $ta['ta'];} else {echo 'Pilih Tahun Akademik';} ?></option>
 <?php
-include('../get/get.ta.php');
+include('../../get/get.ta.php');
 ?>
 </select>
 </form>
@@ -130,13 +131,13 @@ if($tableQuery->num_rows != 0) {
         <div id="aksi" class="container">
         <div class="row">
         <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
-        <a target="_self" class="aksi" href="<?php echo $siteurl; ?>preview/?id=<?php echo $table['id']; ?>&mk=<?php echo $table['mk']; ?>&author=<?php echo $dosen['nama']; ?>"><img src="<?php echo $siteurl; ?>assets/show.png"></a>
+        <a target="_self" class="aksi" href="<?php echo $siteurl; ?>preview/?id=<?php echo $table['id']; ?>&mk=<?php echo $table['mk']; ?>&author=<?php echo $dosen['nama']; ?>"><img src="<?php echo $siteurl; ?>assets/img/show.png"></a>
         </div>
         <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
-        <a target="_self" class="aksi" href="<?php echo $siteurl; ?>edit/?act=dokumen&id=<?php echo $table['id']; ?>"><img src="<?php echo $siteurl; ?>assets/edit.png"></a>
+        <a target="_self" class="aksi" href="<?php echo $siteurl; ?>edit/?act=dokumen&id=<?php echo $table['id']; ?>"><img src="<?php echo $siteurl; ?>assets/img/edit.png"></a>
         </div>
         <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
-        <a target="_self" class="aksi" href="#" onclick="delet(<?php echo $table['id']; ?>)"><img src="<?php echo $siteurl; ?>assets/delete.png"></a>
+        <a target="_self" class="aksi" href="#" onclick="delet(<?php echo $table['id']; ?>)"><img src="<?php echo $siteurl; ?>assets/img/delete.png"></a>
         </div>
         </div>
         </div>
@@ -157,8 +158,9 @@ if($tableQuery->num_rows != 0) {
 </div>
 <!-- end main content -->
 
-<script src="<?php echo $siteurl; ?>assets/bootstrap.min.js"></script>
-<script src="<?php echo $siteurl; ?>assets/lp3.js"></script>
+<script src="<?php echo $siteurl; ?>assets/js/bootstrap.min.js"></script>
+<script src="<?php echo $siteurl; ?>assets/DataTables/datatables.min.js"></script>
+<script src="<?php echo $siteurl; ?>assets/js/lp3.js"></script>
 </body>
 
 </html>

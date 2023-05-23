@@ -80,10 +80,10 @@ if ($con->query($query) === TRUE) {
     console.log("Berhasil menyimpan data");
     var z = confirm("Berhasil menyimpan data");
     if (z == true) {
-        window.open('<?php echo $siteurl.'admin/preview/?id='.$id; ?>', '_SELF');
+        window.open('<?php echo $siteurl.'admin/'; ?>', '_SELF');
     }
     else {
-        window.open('<?php echo $siteurl.'admin/preview/?id='.$id; ?>', '_SELF');
+        window.open('<?php echo $siteurl.'admin/'; ?>', '_SELF');
     }
     </script>
     <?php

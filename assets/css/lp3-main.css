@@ -62,7 +62,7 @@ h4 {
 }
 
 .header-logo {
-    width: 100px !important;
+    width: 100px;
 }
 
 .logo-left {
@@ -71,15 +71,6 @@ h4 {
 
 .logo-right {
     right: 2cm;
-    max-width: 175px !important;
-    width: 100% !important;
-}
-
-.center-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items :center;
 }
 
 ul li {

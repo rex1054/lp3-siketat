@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php include('../master.php'); setlocale(LC_ALL, 'id_ID');?>
+<?php include('../master.php'); ?>
 <head>
 <title>Tanda Terima LP3 - <?php echo $_GET['author']." - ".$_GET['mk']; ?></title>
 <meta name="description" content="Sistem Kelola Tanda Terima">
@@ -25,7 +25,7 @@ $idDok = $_GET['id'];
 
 <!-- start header section -->
 <div class="row header-section">
-<div class="col-md-1 center-content">
+<div class="col-md-1">
 <img class="header-logo logo-left" src="<?php echo $siteurl; ?>assets/img/logo.jpg">
 </div>
 <div class="col-md-10 header-lp3">
@@ -35,7 +35,7 @@ $idDok = $_GET['id'];
 <h4>Kotak Pos 104 Telp. 0331-336728 Fax. 0331-337957</h4>
 <h4>Website : <a href="https://www.unmuhjember.ac.id">https://www.unmuhjember.ac.id</a> E-mail:<a href="mailto:kantorpusat@unmuhjember.ac.id">kantorpusat@unmuhjember.ac.id</a></h4>
 </div>
-<div class="col-md-1 center-content">
+<div class="col-md-1">
 <img class="header-logo logo-right" src="<?php echo $siteurl; ?>assets/img/iso.jpg">
 </div>
 </div>
@@ -143,7 +143,7 @@ $idDok = $_GET['id'];
 
 <!-- start header section -->
 <div class="row header-section">
-<div class="col-md-1 center-content">
+<div class="col-md-1">
 <img class="header-logo logo-left" src="<?php echo $siteurl; ?>assets/img/logo.jpg">
 </div>
 <div class="col-md-10 header-lp3">
@@ -153,7 +153,7 @@ $idDok = $_GET['id'];
 <h4>Kotak Pos 104 Telp. 0331-336728 Fax. 0331-337957</h4>
 <h4>Website : <a href="https://www.unmuhjember.ac.id">https://www.unmuhjember.ac.id</a> E-mail:<a href="mailto:kantorpusat@unmuhjember.ac.id">kantorpusat@unmuhjember.ac.id</a></h4>
 </div>
-<div class="col-md-1 center-content">
+<div class="col-md-1">
 <img class="header-logo logo-right" src="<?php echo $siteurl; ?>assets/img/iso.jpg">
 </div>
 </div>
@@ -224,7 +224,7 @@ include('../get/get.page.2.php');
 <div class="container" id="navigasi">
 <ul class="nav justify-content-center">
 <li class="nav-item" role="presentation">
-<button class="nav-link btn btn-outline-danger text-black" id="kembali-tab" type="button" onclick="window.close()">Kembali</button>
+<button class="nav-link btn btn-outline-danger text-black" id="kembali-tab" type="button" onclick="backFunc()">Kembali</button>
 </li>
 <li class="nav-item" role="presentation">
 <button class="nav-link btn btn-outline-info text-black" id="print-tab" type="button" onclick="printFunc()">Cetak</button>

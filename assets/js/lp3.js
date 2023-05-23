@@ -107,8 +107,8 @@ function fetch_select(val, id) {
     });
 }
 
-function dashPrint(ta){
-    window.open(siteurl+'landing/dashboard-print.php?ta='+ta, '_blank');
+function dashPrint(t,ta){
+    window.open(siteurl+'landing/dashboard-print.php?t='+t+'&ta='+ta, '_blank');
 }
 
 function checkin(val) {

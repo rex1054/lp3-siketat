@@ -6,12 +6,12 @@ if($query->num_rows == 0) {
 }
 else {
 	?>
-		
+	<h2 style="margin-bottom: 50px;">Jumlah Dosen : <?php echo $query->num_rows; ?></h2>	
 	<table id="tabel-dosen" class="table table-striped table-hover" cellpadding="5" cellspacing="0">
 	<thead>
 	<th class="table-sort text-center">Id</th>
 	<th class="table-sort">Nama</th>
-	<th class="table-sort text-center">NIDN / NIP</th>
+	<th class="table-sort text-center">NIDN/NIP/NPK</th>
 	<th class="table-sort text-center">Jumlah Dokumen</th>
 	<th class="table-sort text-center">Aksi</th>
 	</thead>

@@ -33,7 +33,7 @@ if(!isset($_GET['t'])){
 <body onafterprint="window.close()">
 <div class="container">
 <main class="col-sm-12 col-md-12 col-lg-12">
-
+<h4 style="margin-bottom: 25px; color:black;">Lampiran 1. Capaian RPS Semester <?php echo $_GET['t']; ?> (Data per tanggal <?php echo date_format(date_create('now'), 'd-m-Y'); ?>)</h4>
 <div class="col-sm-12 col-md-12 col-xl-12 text-center">
 <h2 style="font-size: 16pt; margin-bottom: 15px;">Grafik Capaian RPS Tahun Akademik <?php echo $_GET['t']; ?> (dalam %)</h2>
 </div>

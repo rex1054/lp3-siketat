@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php include('../../master.php'); ?>
+<?php include('../../../master.php'); ?>
 <head>
 <title>LP3 - SIKETAT</title>
 <meta name="description" content="Sistem Kelola Tanda Terima">
@@ -8,6 +8,7 @@
 
 <link rel="icon" type="image/png" href="<?php echo $siteurl; ?>assets/img/logo.jpg">
 <link rel="stylesheet" type="text/css" href="<?php echo $siteurl; ?>assets/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="<?php echo $siteurl; ?>assets/DataTables/datatables.min.css">
 <link rel="stylesheet" type="text/css" href="<?php echo $siteurl; ?>assets/css/lp3-main.css">
 <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 </head>
@@ -36,7 +37,7 @@ $tableQuery = $con->query($tableSQL);
 <h4>LEMBAGA PENGKAJIAN DAN PENGEMBANGAN PENDIDIKAN (LP3)</h4>
 <h4>SISTEM KELOLA TANDA TERIMA (SIKETAT)</h4>
 <h4>Versi <?php echo $appver; ?></h4>
-<h4>© <a href="<?php echo $authorlink; ?>" target="_blank">Ahmad Firdaus Ababil</a> @<?php echo $rights; ?> | <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a> & <a href="https://soj.my.id/" target="_blank">SOJ</a> powered</h4>
+<h4>© <a href="https://s.id/soj-firdaus" target="_blank">Ahmad Firdaus Ababil</a> @<?php echo $rights; ?> | <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a> powered</h4>
 </div>
 <div class="col-md-1">
 <img class="header-logo logo-right" src="<?php echo $siteurl; ?>assets/img/iso.jpg">
@@ -55,14 +56,14 @@ $tableQuery = $con->query($tableSQL);
 <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
 <h3>ID</h3>
 <h3>Nama</h3>
-<h3>NIP/NIDN</h3>
+<h3>NIDN/NIP/NPK</h3>
 <h3>Jumlah Dokumen</h3>
 <a class="btn btn-success" href="<?php echo $siteurl; ?>admin/edit/?act=dosen&id=<?php echo $_GET['id']; ?>">Ubah Data</a>
 </div>
 <div class="col-sm-9 col-md-9 col-lg-9 col-xl-9">
 <h3>: <?php echo $data['id'] ?></h3>
 <h3>: <?php echo $data['nama'] ?></h3>
-<h3>: <?php echo $data['npk'] ?></h3>
+<h3>: <?php if(is_null($data['npk']) || $data['npk'] == ''){echo '-';}else{echo $data['npk'];} ?></h3>
 <h3>: <?php echo $tableQuery->num_rows; ?></h3>
 </div>
 </div><br/>
@@ -132,6 +133,7 @@ if($tableQuery->num_rows != 0) {
 
 <script src="<?php echo $siteurl; ?>assets/js/jquery.min.js"></script>
 <script src="<?php echo $siteurl; ?>assets/js/bootstrap.min.js"></script>
+<script src="<?php echo $siteurl; ?>assets/DataTables/datatables.min.js"></script>
 <script src="<?php echo $siteurl; ?>assets/js/lp3.js"></script>
 </body>
 
