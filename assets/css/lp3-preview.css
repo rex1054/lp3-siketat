@@ -68,11 +68,11 @@ h4 {
 }
 
 .page-1 .logo-right {
-    top: 0;
+    top: 35px;
 }
 
 .page-2 .logo-right {
-    top: 297mm;
+    top: calc(297mm + 35px);
 }
 
 .main-title {
